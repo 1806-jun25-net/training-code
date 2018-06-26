@@ -39,6 +39,7 @@ namespace fizzbuzz
                 }
            }
             Console.WriteLine("Fizz count: {0}, Buzz count: {1}, Fizzbuzz count: {2}", fizzcount, buzzcount, fizzbuzzcount);
+            Console.ReadKey();
         }
     }
 }
