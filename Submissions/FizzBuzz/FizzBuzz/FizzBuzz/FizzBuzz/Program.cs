@@ -4,45 +4,72 @@ namespace FizzBuzz
 {
     public class Class1
     {
-        public const string  FIZZ = "Fizz";
-        public const string BUZZ = "Buzz";
-        public const int FIZZBUZZ = "FizzBuzz";
+
         public static void Main(string[] args)
         {
-        
-            //Textbook Fizzbuzz
-            for ( int i = 0; i <= 1000; i++)
 
-                //if i is divisible by 3 say Fizz
-              
-                if (i % 3 == 0 && i % 5 != 0)
-                    {
-                    i = FIZZ; 
-                        Console.WriteLine("Fizz");
-                   
-                    }
-                
-                //else if its divisible by 5 its Buzz
-                else if (i % 3 != 0 && i % 5 == 0)
+
+
+
+            {
+                //initialize the count to increase with each return off fizz, buzz and fizzbuzz
+                int fizzCount = 0;
+                int buzzCount = 0;
+                int fizzbuzzCount = 0;
+                for (int i = 1; i <= 1000; i++)
                 {
-                    i = BUZZ;
-                    Console.WriteLine("Buzz");
+                    //Declaration of Fizz and Buzz as Boolean
+                    bool fizz = i % 3 == 0;
+                    bool buzz = i % 5 == 0;
+                    //Fizzbuzz declared to be conditional if its both
+                    bool fizzbuzz = fizz && buzz;
+
+
+                    if (fizzbuzz)
+
+
+                    {
+                        fizzbuzzCount++;
+                        Console.WriteLine("FizzBuzz");
+
+                    }
+                    else if (fizz)
+                    {
+                        fizzCount++;
+                        Console.WriteLine("Fizz");
+                    }
+                    else if (buzz)
+                    {
+                        buzzCount++;
+                        Console.WriteLine("Buzz");
+                    }
+                    else
+                        //when it doesnt pass the check for any, displays the number
+                        Console.WriteLine(i);
+                    //Outputs the total count of each FIzz, Buzz and Fizzbuzz
+
+
 
                 }
-                //if i is divisible by 3 and 5 write Fizzbuzz
-                else if (i % 3 == 0 && i % 5 == 0)
-                {
-                    i = FIZZBUZZ;
-                    Console.WriteLine("FizzBuzz");
-                    
-                }//Make the program return the number of Fizz and Buzz and Fizzbuzz there are in total
-            Console.WriteLine("There is a total of :" + FIZZ);
-            Console.WriteLine("There is a total of :" + BUZZ);
-            Console.WriteLine("There is a total of :" + FIZZBUZZ);
+                Console.WriteLine("The total Fizz count is : " + fizzCount.ToString());
+                Console.WriteLine("The total Buzz count is :" + buzzCount.ToString());
+                Console.WriteLine("The total FizzBuzz count is :" + fizzbuzzCount.ToString());
+
+            }
+
 
         }
-            }
-        }
+       
+
+
+
+    }
+}
+        
+
+
+
+     
     
 
 
