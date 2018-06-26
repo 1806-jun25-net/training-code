@@ -12,6 +12,27 @@ namespace fizzbuzzproject
             int totalFizzbuzz = 0;
             string[] numberfizzbuzz = new string[1000];
 
+            for(int i = 0; i < numberfizzbuzz.Length; i++)
+            {
+                if((i+1) % 3 == 0)
+                {
+                    numberfizzbuzz[i] = "Fizz";
+                    totalFizz++;
+                }
+
+
+                else
+                {
+                    int position = i + 1;
+                    numberfizzbuzz[i] = position.ToString();
+                }
+            }
+
+            foreach(var item in numberfizzbuzz)
+            {
+                Console.WriteLine(item);
+            }
+
             Console.WriteLine($"Total number of Fizzes is: {totalFizz}");
             Console.WriteLine($"Total number of Buzzes is: {totalBuzz}");
             Console.WriteLine($"Total number of Fizzbuzzes is: {totalFizzbuzz}");
