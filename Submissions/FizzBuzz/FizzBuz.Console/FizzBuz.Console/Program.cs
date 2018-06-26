@@ -4,28 +4,56 @@ namespace FizzBuz.Console
 {
     class Program
     {
-        static void FizBuz (int a)
+        static void FizzBuzz(int[] numList)
         {
-            switch (a)
+            //counting variable to count the number of times Fizz,Buzz,&FizzBuzz are printed
+            //[0] = Fizz, [1] = Buzz, [2] = FizzBuzz
+            int[] counter = new int[3];
+
+            foreach (int number in numList)
             {
-                case 1:
-                    if a % 3 == 0 && a % 5 != 0
-                        Console.WriteLine("Fizz");
-                    break;
-                case 2:
-                    if a % 5 == 0 && a % 3 != 0
-                        Console.WriteLine("Buzz");
-                    break;
-                case 3:
-                    if a % 3 == 0 && a % 5 == 0
-                        Console.WriteLine("FizzBuzz")
-                default
-                    Console.WriteLine(a)
-            }
-        }
+                if ((number % 3 == 0) && (number % 5 != 0))
+                {
+                    System.Console.WriteLine("Fizz\n");
+                    counter[0]++;
+                }
+                else if ((number % 5 == 0) && (number % 3 != 0))
+                {
+                    System.Console.WriteLine("Buzz\n");
+                    counter[1]++;
+                }
+                else if ((number % 3 == 0) && (number % 5 == 0))
+                {
+                    System.Console.WriteLine("FizzBuzz\n");
+                    counter[2]++;
+                }
+                else
+                {
+                    System.Console.WriteLine(number+"\n");
+                }
+            } //end foreach
+
+            //Print the number of times the Console printed Fizz, Buzz, and FizzBuzz
+            System.Console.WriteLine($"There were...\n{counter[0]} Fizz's,\n{counter[1]} Buzz's\n{ counter[2]} FizzBuzz's.");
+
+        } //end FizzBuzz
+
+        //start program
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-        }
+            //instantiate the 1000 numbers to be tested
+            int[] numList = new int[1000];
+
+            //for loop to instantiate numList 1-1000
+            for(int i=1; i<1001; i++)
+            {
+                numList[i-1] = i;
+            }
+
+            //run the FizzBuzz method
+            FizzBuzz(numList);
+
+            System.Console.ReadKey();
+        } //end main
     }
 }
