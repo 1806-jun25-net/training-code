@@ -4,7 +4,7 @@ namespace AngelGuzmanFizzBuzz
 {
     class Program
     {
-        
+
         static void FizzBuzzcheck()
         {
             int Fizz = 0, Buzz = 0, Fizzbuzz = 0;
@@ -36,8 +36,16 @@ namespace AngelGuzmanFizzBuzz
             Console.WriteLine("|Fizz: " + Fizz + "|    |Buzz: " + Buzz + "|    |Fizzbuzz: " + Fizzbuzz + "|");
         }
 
+        static void Menu()
+        {
+            Console.WriteLine("Cheking what numbers can be divided by 3 and 5 from 1 to 1000");
+            Console.WriteLine("Press any key to continue....");
+            Console.ReadLine();
+        }
+
         static void Main(string[] args)
         {
+            Menu();
             FizzBuzzcheck();
             Console.ReadLine();
         }
