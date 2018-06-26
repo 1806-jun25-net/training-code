@@ -18,17 +18,17 @@ namespace fizzbuzz
             int fizzcount = 0; //Counts the number of Fizz's
             for (int number = 1; number < 1001; number++)
             {
-                if (number % 15 == 0) 
+                if (number % 15 == 0) //checks if number has a factor or 3 & 5
                 {
                     Console.WriteLine("Fizzbuzz");
                     fizzbuzzcount++;
                 }
-                else if (number % 5 == 0)
+                else if (number % 5 == 0) //checks if number has a factor of 5 and not 3, since the first if statement takes priority
                 {
                     Console.WriteLine("Buzz");
                     buzzcount++;
                 }
-                else if (number % 3 == 0)
+                else if (number % 3 == 0) //checks if number has a factor of 3 and not 5, since the first 2 if statements take priority
                 {
                     Console.WriteLine("Fizz");
                     fizzcount++;
