@@ -14,7 +14,7 @@ namespace RTFizzbuzz
             }
             Console.WriteLine("Fizz: " + FizzCounter);
             Console.WriteLine("Buzz: " + BuzzCounter);
-            Console.WriteLine("Buzzfizz: " + FizzbuzzCounter);
+            Console.WriteLine("Fizzbuzz: " + FizzbuzzCounter);
         }
 
         static void fizzbuzz(int num)
