@@ -6,7 +6,12 @@ namespace FizzBuzz.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello World!");
+            FizzBuzz();
+        }
+
+        static void FizzBuzz()
+        {
+
         }
     }
 }
