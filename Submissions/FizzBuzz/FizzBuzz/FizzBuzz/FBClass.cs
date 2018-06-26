@@ -37,6 +37,7 @@ namespace FizzBuzz
                 {
                     Console.WriteLine("Fizz");
                     countFizz++;// To count the Fizz so we can print them out.
+                    //
                 }
                 else
                 {
