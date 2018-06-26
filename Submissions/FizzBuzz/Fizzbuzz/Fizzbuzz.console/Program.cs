@@ -20,17 +20,17 @@ namespace Fizzbuzz.console
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    Console.WriteLine(i + " Fizzbuzz");
+                    Console.WriteLine("Fizzbuzz");
                     FizzbuzzCount += 1;
                 }
                 else if (i % 3 == 0 && i % 5 != 0)
                 {
-                    Console.WriteLine(i+ " Fizz");
+                    Console.WriteLine("Fizz");
                     fizzCount += 1;
                 }
                 else if (i % 3 != 0 && i % 5 == 0)
                 {
-                    Console.WriteLine(i + " Buzz");
+                    Console.WriteLine("Buzz");
                     buzzCount += 1;
                 }
                 else
@@ -41,7 +41,6 @@ namespace Fizzbuzz.console
             Console.WriteLine("Fizz count: " + fizzCount);
             Console.WriteLine("Buzz count: " + buzzCount);
             Console.WriteLine("Fizzbuzz count: " + FizzbuzzCount);
-
         }
     }
 }
