@@ -14,12 +14,23 @@ namespace fizzbuzzproject
 
             for(int i = 0; i < numberfizzbuzz.Length; i++)
             {
-                if((i+1) % 3 == 0)
+                if ((i+1) % 3 == 0 && (i+1) % 5 == 0)
+                {
+                    numberfizzbuzz[i] = "Fizzbuzz";
+                    totalFizzbuzz++;
+                }
+
+                else if ((i+1) % 3 == 0)
                 {
                     numberfizzbuzz[i] = "Fizz";
                     totalFizz++;
                 }
 
+                else if ((i+1) % 5 ==0)
+                {
+                    numberfizzbuzz[i] = "Buzz";
+                    totalBuzz++;
+                }
 
                 else
                 {
