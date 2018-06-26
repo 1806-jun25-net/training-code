@@ -18,8 +18,8 @@ namespace FizzBuzz
                 else if (i % 5 == 0) Print("Buzz");
                 else System.Console.WriteLine(i);
             }
-            System.Console.WriteLine("Total Fizz: " + n / 3);
-            System.Console.WriteLine("Total Buzz: " + n / 5);
+            System.Console.WriteLine("Total Fizz: " + (n / 3 - n/15));
+            System.Console.WriteLine("Total Buzz: " + (n / 5 - n/15));
             System.Console.WriteLine("Total Fizzbuzz: " + n / 15);
         }
         static void Main(string[] args)
