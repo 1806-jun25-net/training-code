@@ -13,18 +13,26 @@ using System.Text;
 
 namespace FizzBuzz.Library
 {
-    public abstract class AFizzBuzz : IFizzBuzz // implementing the IFizzBuzz interface
+    public class OFizzBuzz : IFizzBuzz // implementing the IFizzBuzz interface
     {
         // fields
-        public abstract string Word1 { get; set; }
-        public abstract string Word2 { get; set; }
-        public abstract string Word3 { get; set; }
+        public string Word1 { get; set; } = "Fizz";
+        public string Word2 { get; set; } = "Buzz";
+        public string Word3 { get; set; } = "Fizzbuzz";
         public int CountWord1 { get; set; } = 0; // setting initial count values to 0
         public int CountWord2 { get; set; } = 0;
         public int CountWord3 { get; set; } = 0;
-        public abstract int Number { get; set; }
-        public abstract int Divider1 { get; set; }
-        public abstract int Divider2 { get; set; }
+        public int Number { get; set; }
+        public int Divider1 { get; set; }
+        public int Divider2 { get; set; }
+
+        // constructor
+        public OFizzBuzz(int number, int divider1, int divider2)
+        {
+            Number = number;
+            Divider1 = divider1;
+            Divider2 = divider2;
+        }
 
 
         // methods
