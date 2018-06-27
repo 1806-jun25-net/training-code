@@ -16,8 +16,8 @@ namespace FizzBuzz.console
     {
         static void Main(string[] args)
         {
-            FizzBuzz_1000_3_5 FizzBuzz = new FizzBuzz_1000_3_5();
-            FizzBuzz.DoFizzBuzz();
+            FizzBuzz_1000_3_5 FizzBuzzTest = new FizzBuzz_1000_3_5();
+            FizzBuzzTest.DoFizzBuzz();
 
             Console.ReadLine(); // stops program from closing
         }

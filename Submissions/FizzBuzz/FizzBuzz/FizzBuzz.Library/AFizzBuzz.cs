@@ -16,15 +16,15 @@ namespace FizzBuzz.Library
     public abstract class AFizzBuzz : IFizzBuzz
     {
         // fields
-        public string Word1 { get; set; }
-        public string Word2 { get; set; }
-        public string Word3 { get; set; }
+        public abstract string Word1 { get; set; }
+        public abstract string Word2 { get; set; }
+        public abstract string Word3 { get; set; }
         public int CountWord1 { get; set; } = 0;
         public int CountWord2 { get; set; } = 0;
         public int CountWord3 { get; set; } = 0;
-        public int Number { get; set; } = 1000;
-        public int Divider1 { get; set; } = 3;
-        public int Divider2 { get; set; } = 5;
+        public abstract int Number { get; set; }
+        public abstract int Divider1 { get; set; }
+        public abstract int Divider2 { get; set; }
 
 
         // methods

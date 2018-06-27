@@ -13,64 +13,15 @@ using System.Text;
 
 namespace FizzBuzz.Library
 {
-    public class FizzBuzz_1000_3_5 : IFizzBuzz
+    public class FizzBuzz_1000_3_5 : AFizzBuzz // subclass FizzBuzz_1000_3_5 inherits from abstract ckass AFizzBuzz
     {
         // fields
-        public string Word1 { get; set; } = "Fizz";
-        public string Word2 { get; set; } = "Buzz";
-        public string Word3 { get; set; } = "Fizzbuzz";
-        public int CountWord1 { get; set; } = 0;
-        public int CountWord2 { get; set; } = 0;
-        public int CountWord3 { get; set; } = 0;
-        public int Number { get; set; } = 1000;
-        public int Divider1 { get; set; } = 3;
-        public int Divider2 { get; set; } = 5;
-
-
-        // methods
-        public bool CheckDivisible(int number, int divider) // method checks if a number is divisible by another number; returns a boolean
-        {
-            if (number % divider == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void DoFizzBuzz() // method to carry out FizzBuzz operation
-        {
-            // loops through the amount set by Number and checks divisibility
-            for (int i = 1; i < Number; i++)
-            {
-                if ((CheckDivisible(i, Divider1)) && (CheckDivisible(i, Divider2))) // check if a number if divisible by both divider numbers first
-                {
-                    Console.WriteLine(Word3);
-                    CountWord3++;
-                }
-                else if (CheckDivisible(i, Divider1)) // check if number is divisible by first divider number
-                {
-                    Console.WriteLine(Word1);
-                    CountWord1++;
-                }
-                else if (CheckDivisible(i, Divider2)) // check if number is divisible by first divider number
-                {
-                    Console.WriteLine(Word2);
-                    CountWord2++;
-                }
-                else
-                {
-                    Console.WriteLine(i);
-                }
-            }
-
-            // prints the word counts
-            Console.WriteLine($"There are {CountWord1} instances of {Word1}.");
-            Console.WriteLine($"There are {CountWord2} instances of {Word2}.");
-            Console.WriteLine($"There are {CountWord3} instances of {Word3}.");
-
-        }
+        public override string Word1 { get; set; } = "Fizz";
+        public override string Word2 { get; set; } = "Buzz";
+        public override string Word3 { get; set; } = "Fizzbuzz";
+        public override int Number { get; set; } = 1000;
+        public override int Divider1 { get; set; } = 3;
+        public override int Divider2 { get; set; } = 5;
+       
     }
 }
