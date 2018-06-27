@@ -8,7 +8,9 @@ namespace JohnFizzbuzzAssignment.Console
         {
             System.Console.WriteLine("Hello VWorld!");
             FizzBuzz();
-            System.Console.WriteLine("Hello VWorld!");
+            System.Console.WriteLine("Press any key to exit.");
+            System.Console.ReadKey();
+
         }
 
         public static void FizzBuzz()
