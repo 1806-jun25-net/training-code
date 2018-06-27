@@ -12,14 +12,17 @@ namespace Animals.UI
             animal.Name = "Fido";
             var hisName = animal.Name;
             Console.WriteLine(hisName);
+
             animal.MakeSound();
 
 
             // error: can't access what isn't define on IAnimal
             //animal.OwnerName = "Fred";
 
-            Dog dog = (Dog)animal; // downcasting (explicitly)
-            dog.OwnerName = "Fred";
+            //animl = new Bird();
+
+            //Dog dog = (Dog)animal; // downcasting (explicitly)
+            //dog.OwnerName= "Fred";
         }
 
         static void Main(string[] args)
@@ -27,9 +30,7 @@ namespace Animals.UI
             IAnimal animal = new Dog(); // upcasting (implicitly)
 
             InteractWithAnimal(new Dog()); // upcasting
-            InteractWithAnimal(new Dog());
-            InteractWithAnimal(new Dog());
-
+            InteractWithAnimal(new Bird());
 
             Console.ReadLine();
         }

@@ -22,13 +22,16 @@ namespace Animals.Library
         }
         */
 
-        public string Name { get; set; } //auto-implemented property
+        public override string Name { get; set; } //auto-implemented property
 
         private string ownerName; //backing field
 
         public string OwnerName
         {
-            get { return ownerName; }
+            get
+            {
+                return "Chris";
+            }
             set
             {
                 if (value != null)
@@ -38,16 +41,11 @@ namespace Animals.Library
             }
         }
 
-        public void MakeSound()
+        public override string GoAction { get; set; } = "Walking";
+
+        public override void MakeSound()
         {
             Console.WriteLine("Woof!");
-        }
-
-        public void GoToLocation(string location)
-        {
-            //string interpolation
-            //Console.WriteLine("Walk to " + location);
-            Console.WriteLine($"Walk to {location.ToUpper()}");
         }
     }
 }

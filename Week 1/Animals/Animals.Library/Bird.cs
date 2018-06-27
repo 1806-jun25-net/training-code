@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Animals.Library
 {
-    class Bird : AAnimal
+    public class Bird : AAnimal
     {
-        public override string Name { get; set; }
+        public override string Name { get; set; } = "Chirpy";
 
         public override String GoAction { get; set; } = "Flying";
 
