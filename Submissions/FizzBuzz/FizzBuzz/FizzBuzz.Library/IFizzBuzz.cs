@@ -15,6 +15,7 @@ namespace FizzBuzz.Library
 {
     public interface IFizzBuzz
     {
+        // fields
         string Word1 { get; set; }
         string Word2 { get; set; }
         string Word3 { get; set; }
@@ -24,6 +25,8 @@ namespace FizzBuzz.Library
         int Number { get; set; }
         int Divider1 { get; set; }
         int Divider2 { get; set; }
+
+        // methods
         bool CheckDivisible(int number, int divider);
         void DoFizzBuzz();
     }

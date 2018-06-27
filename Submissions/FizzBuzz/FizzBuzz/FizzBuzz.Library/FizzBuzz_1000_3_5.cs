@@ -15,7 +15,7 @@ namespace FizzBuzz.Library
 {
     public class FizzBuzz_1000_3_5 : AFizzBuzz // subclass FizzBuzz_1000_3_5 inherits from abstract ckass AFizzBuzz
     {
-        // fields
+        // setting fields to the values asked for in the assignment
         public override string Word1 { get; set; } = "Fizz";
         public override string Word2 { get; set; } = "Buzz";
         public override string Word3 { get; set; } = "Fizzbuzz";

@@ -13,13 +13,13 @@ using System.Text;
 
 namespace FizzBuzz.Library
 {
-    public abstract class AFizzBuzz : IFizzBuzz
+    public abstract class AFizzBuzz : IFizzBuzz // implementing the IFizzBuzz interface
     {
         // fields
         public abstract string Word1 { get; set; }
         public abstract string Word2 { get; set; }
         public abstract string Word3 { get; set; }
-        public int CountWord1 { get; set; } = 0;
+        public int CountWord1 { get; set; } = 0; // setting initial count values to 0
         public int CountWord2 { get; set; } = 0;
         public int CountWord3 { get; set; } = 0;
         public abstract int Number { get; set; }
