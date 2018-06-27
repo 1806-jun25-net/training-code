@@ -43,7 +43,7 @@ namespace FizzBuzz.Library
         public void DoFizzBuzz() // method to carry out FizzBuzz operation
         {
             // loops through the amount set by Number and checks divisibility
-            for (int i = 1; i < Number; i++)
+            for (int i = 1; i <= Number; i++)
             {
                 if ((CheckDivisible(i, Divider1)) && (CheckDivisible(i, Divider2))) // check if a number if divisible by both divider numbers first
                 {
