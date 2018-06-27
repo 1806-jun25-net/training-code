@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQDemo.Library", "LINQDemo.Library\LINQDemo.Library.csproj", "{4EB32145-C550-43A0-87E7-F8603EDB2E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQDemo.Testing", "LINQDemo.Testing\LINQDemo.Testing.csproj", "{DBF709AA-F702-4004-9E42-1FD16049D886}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EB32145-C550-43A0-87E7-F8603EDB2E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB32145-C550-43A0-87E7-F8603EDB2E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB32145-C550-43A0-87E7-F8603EDB2E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB32145-C550-43A0-87E7-F8603EDB2E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBF709AA-F702-4004-9E42-1FD16049D886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF709AA-F702-4004-9E42-1FD16049D886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF709AA-F702-4004-9E42-1FD16049D886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF709AA-F702-4004-9E42-1FD16049D886}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CCDA67D-E25E-45BD-A93A-B11504F7DFA0}
+	EndGlobalSection
+EndGlobal
