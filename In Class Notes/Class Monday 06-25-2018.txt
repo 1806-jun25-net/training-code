@@ -1,0 +1,39 @@
+.Net 
+
+-.NET Framework, is window spesific, original for of .Net 
+-.Net Core, portable, open source, more friendly to build automation.we will use.
+	- .Net Standard, common interface.that .Net Core 	implamenets. 
+		 
+-Mono partial part of to Mac/Linux 
+
+	     Complier
+Language ------------> MSIL intermediant language------> Machine code
+
+CLR Common Language Run-Time
+	JIT just-in-time complier 
+	BCL Base class library 
+	CTS Common type System 
+	VES Virtual exacution system 
+	
+interoprabilty between language 
+portability between system (run in more than one OS core) portability across architectures core
+
+terms> 
+classes 
+inheratance
+exception handler 
+access modifier 
+
+Web: ASP.Net, long for a bit time
+data: Entity Framework 
+mobil: Xamarin 
+C:\Ravature\HelloWorldProyect ro
+dll contains meta data and 
+assemble unit of deploiment 
+
+
+nuget package manager 
+
+
+	
+   				

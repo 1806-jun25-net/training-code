@@ -1,0 +1,37 @@
+Topic of the course: 
+.net 
+CLR
+CIL
+GIT
+Visual Studio
+VS Code
+oop pillar 
+SOLID 
+Access / extended 
+modifier 
+Class 
+Enum 
+Refrance value data type 
+Casting, boing, ref, out 
+Garbage collection 
+-------------------------------------------------------------------
+GITHUB organization                                                 git push
+Working directory -------> index staying area ---------> local Repo -----> Remote repo (GitHub) origin |
+                     git add *                 git commit -m   	|______________________________________|
+`									git pull
+git status, git log, git lg tells you whats what 
+
+Braches--> there are many branches but only one main branch this branch cannot me push in from a branch but you can merge the original 
+
+0----0--------0--------0------0------0-->
+     |______0______0_____0_____0____|
+a merge and branch repesentation 
+git check out is to switch branches 
+
+DRY = DONT REPEAT YOURSELF 
+
+Abstraction -> Seperationbetween needed functionality and implementation details, interfaces. 
+Encapsulation -> Bundle data and behavior into objects, hide implementation specifics, data behavior. 
+Inheratance -> ability to dirive a class from aother class its data and behavior.
+polymorphism -> ability a derive class object as though it were base class object, method overloding. 
+

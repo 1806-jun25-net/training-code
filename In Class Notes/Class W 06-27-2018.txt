@@ -1,0 +1,98 @@
+--------------------------------------- 1 topic 
+Access modifiers 
+public ------> interfaces can only be
+internal --------> interaces can only be 
+protected 
+protected internal 
+private
+
+--------------------------------------- extended modifier 
+static 
+example: 
+{
+bool b; ------------------------------// can be b1 b2 b3 
+static bool sb;-----------------------// only sb, they all share the same insetant
+} 
+staatic class -----> all static member
+you cannot inherat 
+const -> final 
+
+|      | Class | member
+|-----------------
+|static|   X   |  X
+|Const |       |  X
+|readonly|     |  X
+|Sealed|   X   |	--> any class can be sealed.
+|abstract| X   |  X
+you can get make a property to only {get;} = 5;
+abstact void method (); 
+
+extended modifier 
+	Class 	Memeber 
+Virtual 	X	->declara un methodo como overrideable 
+Override 	X	->Overrides virtual class
+New 		X 	->hides perant method * do not use *
+partial	  X
+			the only thing that change is the type 
+
+parent method ----> child method 
+
+memory mangement 
+
+important to cortrol the resources of the computer and the developer 
+maneged code, 
+CLR memory is mange for this code, code that run in CLR. garbege colection. 
+there are 3 generaations 
+
+gen 0 freaquently garbage colection, or passes to Gen1
+
+gen 1 rarely checked but it colectes data, delete or pass to Gen2 
+
+force garbage colection 
+GCCollect(); 
+
+boxing in C# 
+int a = 10; 
+object 0 = a;
+you can do this in C#
+upcasting primitive. 
+int b = (int) o; 
+down casting manualy have to do 
+unboxing
+
+Child child = new Child(); 
+Parent p = child;//upcasting 
+Child c2 = (child) p;//downcasting 
+
+casting : int --> double 
+ 
+modifier in the method avoid 
+operator new is necesary 
+
+ref and pass 
+are a ways to change the ref of a variable. 
+
+password login 
+cristianj.rosarioacevedo@revature.timesheet
+Tian8910K!
+
+SOLID
+Single responsibilty 
+	class,  method 
+Open-closed
+	Class should be "open for extention" 
+	Closed for modification
+Liskov Substitution principal, 
+	i should be able to substitud a derived type for base type without change
+Interface segragation 
+	use many specific interfases not few large interfaces 
+dependency inversion * important
+	depend on abstract not concretions 
+
+Logger(IFile f) 
+{
+	| = f
+}	|
+	|
+	--------------> interface
+	

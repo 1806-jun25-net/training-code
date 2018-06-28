@@ -1,0 +1,27 @@
+Test -> debug -> Debug Selected 
+TDD -> Test Driving Devlopment 
+	is when we write test before we write code 
+inpractical 100% but its to predict before coding 
+
+[Fact] -> no parameter 
+Enumerable -> I'm going to give you something, innfinte space without infinite memory 
+[theory] ->test with parameter 
+[inlineData()]-> condition 
+[member data ()]-> calls a class 
+Asert -> checs if a methid throws an exseption 
+Serialization, is  a way to control the data.
+example of serilization to xml: 
+XML
+Name<obj> xml 
+
+<name> 				from this 
+	<FirstName> 			class Name 
+		Nick 	Serilice  	{public string FirstName {get;set;} public String LastName
+	</FirstName> 	 < ---------     {get; set;}}		
+	<LastName> 
+		Escalona ----------->
+	</LastName>       DeSerilice
+</Name> 
+
+
+
