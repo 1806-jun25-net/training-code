@@ -19,6 +19,20 @@ namespace LINQDemo.Library
             list.AddRange(strings);
         }
 
+        public string Longest()
+        {
+            //var example = new { s = "abc", l = "abc".Length };
+            // method syntax
+            List<int> listOfLengths = list.Select(s => s.Length).ToList();
+            // query syntax
+            List<int> listWithAwfulSyntax = (from item in list
+                                             where item.Length > 2
+                                             select item.Length).ToList();
+
+            var length = LongestLength();
+            return list.First(s => s.Length == length);
+        }
+
         public string DumbLongest()
         {
             int longestLength = 0;
