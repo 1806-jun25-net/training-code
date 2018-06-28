@@ -54,5 +54,12 @@ namespace LINQDemo.Library
                 )
             );
         }
+
+        public string ThirdAlphabetical()
+        {
+            //linq deferred execution
+            IEnumerable<string> query = list.OrderBy(x => x).Skip(2);
+            return query.First();
+        }
     }
 }
