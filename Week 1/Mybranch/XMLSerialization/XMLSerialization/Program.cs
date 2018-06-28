@@ -16,16 +16,32 @@ namespace XMLSerialization
             
         }
 
-        private static void SerializetoFile(string fileName, List<Person> people)
+        private static IEnumerable <Person> SerializetoFile(string fileName, List<Person> people)
         {
 
             var serializer = new XmlSerializer(typeof(List<Person>));
-            var filestream = new FileStream(fileName, FileMode.Create);
-            serializer.Serialize(filestream, people);
+            //FileStream filestream = null;  
+            
 
-
-
-
+            //try
+            //{ the old vestion 
+            //    filestream = new FileStream(fileName, FileMode.Create);
+            //    serializer.Serialize(filestream, people);
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine($"{e.Message}");
+            //    throw; 
+            //}
+            //finally
+            //{
+                
+            //    filestream.Dispose();
+            //}
+            using (var fileStrem = new FileStream(fileName , FileMode.Open))
+            {
+                return (List<Person>)serializer.Deserialize(fileStrem);
+            }
 
         }
 
