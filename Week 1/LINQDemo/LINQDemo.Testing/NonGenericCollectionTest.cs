@@ -22,17 +22,15 @@ namespace LINQDemo.Testing
         }
 
         [Theory]
-        public void DumbLongestShouldReturnLongest(string expected, string[]data)
+        [InlineData("1234", new string[] { "12", "1234" })]
+        [InlineData(null, new string[] { })]
+        [InlineData("asdas", new string[] { "12", "1234", "asdas" })]
+        public void DumbLongestShouldReturnLongest(
+            string expected, string[] data)
         {
             // Arrange
             var col = new NonGenericCollection();
             col.AddMany(data);
-            var items = new List<string>
-            {
-                "a", "ab", "abc", "Nick Escalona", "12345"
-            };
-            var expected = "Nick Escalona";
-            col.AddMany(items);
 
             // Act
             var actual = col.DumbLongest();
@@ -54,15 +52,29 @@ namespace LINQDemo.Testing
         {
             var col = new NonGenericCollection();
             col.AddMany(data);
+            // if no exception thrown, success
         }
 
-     
+        // test the extension method
+        [Fact]
+        public void ExtensionMethodIsEmptyShouldSayEmpty()
+        {
+            var col = new NonGenericCollection();
+            Assert.True(col.IsEmpty());
+        }
+
+        [Fact]
+        public void ContainsShouldThrowExceptionForNull()
+        {
+            var col = new NonGenericCollection();
+            Assert.Throws<ArgumentNullException>(
+                "item", () => col.Contains(null));
+        }
 
         [Fact]
         public void ThirdAlphabeticalShouldReturnCorrectly()
         {
-
-            //Arrange
+            // Arrange
             var col = new NonGenericCollection();
             var items = new List<string>
             {
@@ -71,11 +83,10 @@ namespace LINQDemo.Testing
             var expected = "ab";
             col.AddMany(items);
 
-
-            //Act
+            // Act
             var actual = col.ThirdAlphabetical();
 
-            //Assert
+            // Assert
             Assert.Equal(expected, actual);
         }
     }
