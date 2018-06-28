@@ -26,7 +26,7 @@ namespace LINQDemo.Library
 
             foreach (var item in list)
             {
-                if (item.Length < longestLength)
+                if (item.Length > longestLength)
                 {
                     longestLength = item.Length;
                     longest = item;
@@ -53,6 +53,23 @@ namespace LINQDemo.Library
                     "aeiouAEIOU".Contains(c)
                 )
             );
+        }
+
+        public string ThirdAlphabetical()
+        {
+            // linq deferred execution
+            IEnumerable<string> query = list.OrderBy(x => x).Skip(2);
+            return query.First();
+        }
+
+        public bool Contains(string item)
+        {
+            // null check code
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+            return list.Contains(item);
         }
     }
 }
