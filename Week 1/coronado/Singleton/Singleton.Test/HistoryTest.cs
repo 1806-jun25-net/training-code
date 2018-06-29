@@ -21,7 +21,10 @@ namespace Singleton.Test
         public void OutdatedShouldReturnTrueIfNoRecentRecord()
         {
             var history = new History();
+            TimeProvider.Current = new TwoHoursAgoProvider();
             history.Record();
+            TimeProvider.ResetToDefaultInstance();
+
             Assert.True(history.IsOutdated());
 
         }

@@ -8,6 +8,6 @@ namespace Singleton.Test
     public class TwoHoursAgoProvider : TimeProvider
     {
         public override DateTime CurrentTime => 
-            base.CurrentTime - TimeProvider.;
+            base.CurrentTime - TimeSpan.FromHours(2);
     }
 }

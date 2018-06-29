@@ -15,7 +15,7 @@ namespace Singleton.Library
 
         public static void ResetToDefaultInstance()
         {
-
+            Current = s_instance;
         }
 
         public static TimeProvider Current
