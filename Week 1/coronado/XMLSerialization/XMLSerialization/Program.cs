@@ -11,28 +11,39 @@ namespace XMLSerialization
         static void Main(string[] args)
         {
             var list = new List<Person>();
-            FillList(list);
-            //SerializeToFile(@"D:\Revature\training-code\Week 1\coronado\XMLSerialization\XMLSerialization\data.xml", list);
             Task<IEnumerable<Person>> desListTask = DeserializeFromFileAsync(@"D:\Revature\training-code\Week 1\coronado\XMLSerialization\XMLSerialization\data.xml");
-            IEnumerable<Person> result = desListTask.Result; // synchronously sits around until th result is ready
+            IEnumerable<Person> result = new List<Person>();
+            try
+            {
+                result = desListTask.Result; // synchronously sits around until the result is ready
+            }
+            catch (AggregateException ex)
+            {
+                Console.WriteLine("file wasn't found");
+            }
+            list.AddRange(result);
+            FillList(list);
+            // @-string for disabling escape sequences like \t
+            SerializeToFile(@"D:\Revature\training-code\Week 1\coronado\XMLSerialization\XMLSerialization\data.xml", list);
 
-            /*
             List<int> largeNumbers = new List<int>();
             foreach (var item in largeNumbers)
             {
                 ExpensiveCalculation(item);
             }
-            // run as many calculations at the same time as we can using threads
+            // run as many calculations at the same time as we can, using threads
             // / multiple cpu cores
-            Parallel.ForEach(largeNumbers, item => ExpensiveCalculatiion(item));
-            */
+            Parallel.ForEach(largeNumbers, item => ExpensiveCalculation(item));
+        }
 
+        private static void ExpensiveCalculation(int item)
+        {
         }
 
         private static void SerializeToFile(string fileName, List<Person> people)
         {
             var serializer = new XmlSerializer(typeof(List<Person>));
-                        
+
             FileStream fileStream = null;
 
             try
@@ -55,11 +66,11 @@ namespace XMLSerialization
             }
             finally
             {
-                fileStream.Dispose();
+                if (fileStream != null)
+                {
+                    fileStream.Dispose();
+                }
             }
-
-
-
         }
 
         private async static Task<IEnumerable<Person>> DeserializeFromFileAsync(string fileName)
@@ -99,13 +110,13 @@ namespace XMLSerialization
             {
                 using (var fileStream = new FileStream(fileName, FileMode.Open))
                 {
-                    await fileStream.CopyToAsync(memoryStream);                    
+                    await fileStream.CopyToAsync(memoryStream);
                 }
                 memoryStream.Position = 0; // reset "cursor" of stream to beginning
-                return(List<Person>)serializer.Deserialize(memoryStream);
+                return (List<Person>)serializer.Deserialize(memoryStream);
             }
 
-                        
+
         }
 
         private static void FillList(List<Person> list)

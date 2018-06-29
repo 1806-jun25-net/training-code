@@ -33,4 +33,70 @@
     </Address>
     <Age>0</Age>
   </Person>
+  <Person Id="1">
+    <Name>
+      <First>Fred</First>
+      <Last>Belotte</Last>
+    </Name>
+    <Nicknames>
+      <string>Freddie</string>
+      <string>Freddo</string>
+    </Nicknames>
+    <Address>
+      <Line1>123 Drury Ln</Line1>
+      <Line2 />
+      <City>Tampa</City>
+      <State>FL</State>
+      <ZipCode>12345</ZipCode>
+    </Address>
+    <Age>30</Age>
+  </Person>
+  <Person Id="2">
+    <Name>
+      <First>Nick</First>
+      <Last>Escalona</Last>
+    </Name>
+    <Nicknames />
+    <Address>
+      <Line1>321 Drury Ln</Line1>
+      <Line2 />
+      <City>Tampa</City>
+      <State>FL</State>
+      <ZipCode>54321</ZipCode>
+    </Address>
+    <Age>0</Age>
+  </Person>
+  <Person Id="1">
+    <Name>
+      <First>Fred</First>
+      <Last>Belotte</Last>
+    </Name>
+    <Nicknames>
+      <string>Freddie</string>
+      <string>Freddo</string>
+    </Nicknames>
+    <Address>
+      <Line1>123 Drury Ln</Line1>
+      <Line2 />
+      <City>Tampa</City>
+      <State>FL</State>
+      <ZipCode>12345</ZipCode>
+    </Address>
+    <Age>30</Age>
+  </Person>
+  <Person Id="2">
+    <Name>
+      <First>Nick</First>
+      <Last>Escalona</Last>
+    </Name>
+    <Nicknames />
+    <Address>
+      <Line1>321 Drury Ln</Line1>
+      <Line2 />
+      <City>Tampa</City>
+      <State>FL</State>
+      <ZipCode>54321</ZipCode>
+    </Address>
+    <Age>0</Age>
+  </Person>
 </ArrayOfPerson>
