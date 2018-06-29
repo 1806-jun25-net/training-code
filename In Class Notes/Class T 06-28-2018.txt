@@ -24,4 +24,16 @@ Name<obj> xml
 </Name> 
 
 
+Asynchronous programming 
+	Task parallel Library (TPL)
+	Task, async, await 
+AccessInternet(url)
+old way ->  data = AccessInternet(url) 
+		process(data),
+		return data; 
 
+new way -> AccessInternet (url, data =>Process(data)); -> call back function use in JS 
+
+new way C# -> data = await AccessInernetAsync (url)
+		Process(data); 
+		Return true; 

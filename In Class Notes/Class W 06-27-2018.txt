@@ -72,9 +72,6 @@ operator new is necesary
 ref and pass 
 are a ways to change the ref of a variable. 
 
-password login 
-cristianj.rosarioacevedo@revature.timesheet
-Tian8910K!
 
 SOLID
 Single responsibilty 

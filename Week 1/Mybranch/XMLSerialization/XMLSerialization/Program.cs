@@ -21,7 +21,7 @@ namespace XMLSerialization
 
             var serializer = new XmlSerializer(typeof(List<Person>));
             //FileStream filestream = null;  
-            
+
 
             //try
             //{ the old vestion 
@@ -35,13 +35,18 @@ namespace XMLSerialization
             //}
             //finally
             //{
-                
+
             //    filestream.Dispose();
             //}
-            using (var fileStrem = new FileStream(fileName , FileMode.Open))
+            using (var memomryStream = new MemoryStream())
             {
-                return (List<Person>)serializer.Deserialize(fileStrem);
+                using (var fileStrem = new FileStream(fileName, FileMode.Open))
+                {
+                    var task = fileStrem.CopyToAsync(memomryStream);
+                }
+                return (List<Person>)serializer.Deserialize(memomryStream);
             }
+         
 
         }
 
