@@ -6,6 +6,7 @@ namespace Animals.Library
 {
     public class Bird : AAnimal
     {
+<<<<<<< HEAD
         public Bird(double wingSpan, String name = "Tweety") {
             WingSpan = wingSpan;
             Console.WriteLine($"wig span id {wingSpan}");
@@ -13,6 +14,24 @@ namespace Animals.Library
         }
         public Bird():this(2)//one constrctor can call another 
         {
+=======
+        public Bird(double wingSpan, string name = "Bob", int value = 4)
+        {
+            WingSpan = wingSpan;
+            Console.WriteLine($"Wing span is {wingSpan}");
+            Name = name;
+        }
+
+        //// one constructor can call another
+        //public Bird() : this(wingSpan: 2, value: 8)
+        //{
+
+        //}
+
+        public double WingSpan { get; set; }
+
+        public override string Name { get; set; }
+>>>>>>> master
 
         }
         public double WingSpan { get; set; }
@@ -22,7 +41,7 @@ namespace Animals.Library
 
         public override void MakeSound()
         {
-            Console.WriteLine("Cawww");
+            Console.WriteLine(value: "Cawww");
         }
     }
 }
