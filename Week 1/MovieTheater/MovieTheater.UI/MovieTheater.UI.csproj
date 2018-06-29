@@ -6,11 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <ProjectReference Include="..\Animas.Library\Animas.Library.csproj" />
-=======
-    <ProjectReference Include="..\Animals.Library\Animals.Library.csproj" />
->>>>>>> master
+    <ProjectReference Include="..\MovieTheater.Library\MovieTheater.Library.csproj" />
   </ItemGroup>
 
 </Project>
