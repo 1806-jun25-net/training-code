@@ -1,0 +1,27 @@
+﻿using Singleton.Library;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Xunit;
+
+namespace Singleton.Test
+{
+    public class HistoryTest
+    {
+        [Fact]
+        public void OutdatedShouldReturnFalseIfRecentRecord()
+        {
+            var history = new History();
+            history.Record();
+            Assert.False(history.IsOutdated());
+        }
+
+        [Fact]
+        public void OutdatedShouldReturnTrueIfRecentRecord()
+        {
+            var history = new History();
+            history.Record();
+            Assert.False(history.IsOutdated());
+        }
+    }
+}
