@@ -11,6 +11,7 @@ namespace Palindrome.Test
         {
             string InputWord = "123abccba123";
             OPalindrome MyPalidrome = new OPalindrome(InputWord);
+            Assert.False(MyPalidrome.IsPalindrome);
         }
 
         [Fact]
@@ -18,6 +19,7 @@ namespace Palindrome.Test
         {
             string InputWord = "never odd, or even.";
             OPalindrome MyPalidrome = new OPalindrome(InputWord);
+            Assert.True(MyPalidrome.IsPalindrome);
         }
     }
 }
