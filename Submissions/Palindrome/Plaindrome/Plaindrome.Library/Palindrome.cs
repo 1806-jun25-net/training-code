@@ -37,7 +37,7 @@ namespace Plaindrome.Library
             string StringToCheck = "";
             for (int i = 0; i < pal.Length; i++)
             {
-                if (!Char.IsWhiteSpace(pal[i]) || !Char.IsPunctuation(pal[i]))
+                if (!Char.IsWhiteSpace(pal[i]) && !Char.IsPunctuation(pal[i]))
                 {
                     StringToCheck = StringToCheck + pal[i];
                 }
