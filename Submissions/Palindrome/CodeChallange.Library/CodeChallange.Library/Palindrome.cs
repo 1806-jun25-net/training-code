@@ -23,14 +23,6 @@ namespace CodeChallange.Library
             }
 
 
-
-            foreach (string value in array)
-            {
-                //{0 is value} {1 is the return value from the method true or false.}
-                Console.WriteLine("{0} = {1}", value, Reverse(value));
-
-            }
-
         }
 
         public static bool IsPalindrome(string word)
