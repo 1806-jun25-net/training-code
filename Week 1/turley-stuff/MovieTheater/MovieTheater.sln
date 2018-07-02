@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTheater.UI", "MovieTheater.UI\MovieTheater.UI.csproj", "{147F56B8-1284-4AA0-A396-9D27B505377E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTheater.Library", "MovieTheater.Library\MovieTheater.Library.csproj", "{4B8B6AA4-2651-4E38-90AC-DFE1C4874AC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{147F56B8-1284-4AA0-A396-9D27B505377E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147F56B8-1284-4AA0-A396-9D27B505377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147F56B8-1284-4AA0-A396-9D27B505377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147F56B8-1284-4AA0-A396-9D27B505377E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8B6AA4-2651-4E38-90AC-DFE1C4874AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8B6AA4-2651-4E38-90AC-DFE1C4874AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8B6AA4-2651-4E38-90AC-DFE1C4874AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8B6AA4-2651-4E38-90AC-DFE1C4874AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C97DD75A-999F-4E54-8B8F-D1A8DC56B8BF}
+	EndGlobalSection
+EndGlobal
