@@ -63,5 +63,15 @@ namespace CodeChallange.Library
 
         }
 
+        public bool IsPalindromeEasyWay(string word)
+        {
+            string reversedString = "";
+            for (int i = word.Length - 1; i >= 0; i--)
+            {
+                reversedString += word[i];//We reverse the word
+            }
+            return word == reversedString;// in here we compare the normal word and the backwards word and return True if word is a Palindorme and if not it returns False.
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace Test
         [InlineData("bleh")]
         [InlineData("Something")]
         [InlineData("nun")]
-        public static bool IsPalindromeTest(string value)
+        public static bool IsPalindromeHardWayTest(string value)
         {
             //To determine the minimun and maximun length of the string example "1234" will have a lenght of 3 max and 0 min.
             int min = 0;
@@ -69,7 +69,7 @@ namespace Test
             foreach (string value in array)
             {
                 //{0 is value} {1 is the return value from the method true or false.}
-                Console.WriteLine("{0} = {1}", value, IsPalindromeTest(value));
+                Console.WriteLine("{0} = {1}", value, IsPalindromeHardWayTest(value));
 
             }
 
@@ -83,6 +83,27 @@ namespace Test
             }
 
         }
+
+
+
+        [Theory]
+        [InlineData("1221")]
+        [InlineData("1222")]
+        [InlineData("bleh")]
+        [InlineData("Something")]
+        [InlineData("nun")]
+        [InlineData("civic")]
+        [InlineData("boy")]
+        public bool IsPalindromeEasyWay(string word)
+        {
+            string reversedString = "";
+            for (int i = word.Length - 1; i >= 0; i--)
+            {
+                reversedString += word[i];//We reverse the word
+            }
+            return word == reversedString;// in here we compare the normal word and the backwards word and return True if word is a Palindorme and if not it returns False.
+        }
+
 
     }
 }
