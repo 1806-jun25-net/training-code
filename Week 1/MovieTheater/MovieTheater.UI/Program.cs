@@ -53,6 +53,7 @@ namespace MovieTheater.UI
             };
 
             player.Play(lostArk);
+            Console.ReadLine();
         }
     }
 }
