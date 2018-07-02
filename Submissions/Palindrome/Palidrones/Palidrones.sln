@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalidroneTest", "PalidroneTest\PalidroneTest.csproj", "{E28D4417-6F19-47A7-BF8B-15DEEF34CBDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalidroneLibrary", "PalidroneLibrary\PalidroneLibrary.csproj", "{B769D31D-CCCD-4BA7-BEB5-D454873F0225}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E28D4417-6F19-47A7-BF8B-15DEEF34CBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E28D4417-6F19-47A7-BF8B-15DEEF34CBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E28D4417-6F19-47A7-BF8B-15DEEF34CBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E28D4417-6F19-47A7-BF8B-15DEEF34CBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B769D31D-CCCD-4BA7-BEB5-D454873F0225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B769D31D-CCCD-4BA7-BEB5-D454873F0225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B769D31D-CCCD-4BA7-BEB5-D454873F0225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B769D31D-CCCD-4BA7-BEB5-D454873F0225}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
