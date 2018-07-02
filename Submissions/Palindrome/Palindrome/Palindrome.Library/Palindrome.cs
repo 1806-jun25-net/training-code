@@ -6,13 +6,20 @@ namespace Palindrome.Library
 {
     public class Palindrome
     {
+        public Palindrome(string input)
+        {
+            PalindromeString = input;
+        }
+
         public string PalindromeString { get; set; }
 
         public bool PalindromeStatus()
         {
+            // clean up the palindrome for comparison
             string palindrome = CleanUpPalindrome();
-            // get the half of the string
-            string secondHalf = this.PalindromeString.Substring(0, this.PalindromeString.Length / 2);
+
+            // get half of the string
+            string secondHalf = palindrome.Substring(0, this.PalindromeString.Length / 2);
             // turn it into an array of characters
             char[] characterArray = secondHalf.ToCharArray();
             // reverse the order
@@ -20,10 +27,7 @@ namespace Palindrome.Library
             // convert back to an array
             string tempHalf = new string(characterArray);
 
-
-
-
-                return false;
+            return false;
         }
 
         public string CleanUpPalindrome()
