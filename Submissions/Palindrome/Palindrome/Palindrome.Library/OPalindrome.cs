@@ -64,7 +64,7 @@ namespace Palindrome.Library
             for (int i = 0; i < listLength / 2; i++)
             {
                 var a = letterList[i];
-                var b = letterList[listLength - 1];
+                var b = letterList[listLength - (1*(i+1))];
 
                 if (a == b)
                 {
@@ -73,6 +73,7 @@ namespace Palindrome.Library
                 else
                 {
                     check = false;
+                    break;
                 }
             }
 
