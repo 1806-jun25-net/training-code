@@ -31,10 +31,11 @@ namespace Palindrome.Library
         {            
             string currentWord = inputWord;
             string processedWord;
-
+            
+            // remove spaces and commas
+            currentWord = currentWord.Replace(" ", "");
+            currentWord = currentWord.Replace(",", "");
             currentWord = currentWord.ToUpper(); // converts string to upper case because the check is not case sensitive
-
-            currentWord = currentWord.Trim(new Char[] { ' ', ',', '.', '!', '?' , ';' , ':' , '\'' , '"' }); // trims out spaces and punctuation
 
             processedWord = currentWord;
 
@@ -57,7 +58,10 @@ namespace Palindrome.Library
             bool check = false;
             for (int i = 0; i < listLength / 2; i++)
             {
-                if (letterList[i] == letterList[listLength - 1])
+                var a = letterList[i];
+                var b = letterList[listLength - 1];
+
+                if (a == b)
                 {
                     check = true;
                 }
