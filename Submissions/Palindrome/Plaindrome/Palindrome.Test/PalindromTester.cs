@@ -30,7 +30,7 @@ namespace PalindromeTest
             var col = new Palindrome();
             col.newPalindrome = palindrome;
             bool actual = col.IsPalindrome(col.newPalindrome);
-            Assert.True(actual);
+            Assert.False(actual);
         }
     }
 }
