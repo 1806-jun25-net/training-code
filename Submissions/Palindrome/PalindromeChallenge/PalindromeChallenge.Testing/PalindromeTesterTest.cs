@@ -6,13 +6,9 @@ namespace PalindromeChallenge.Testing
 {
     public class PalindromeTesterTest
     {
-        //[Theory]
-        //[InlineData("test")]
-        //[InlineData("racecar")]
-        //[InlineData("z")]
-        //[InlineData(" ")]
-        //[InlineData("")]
-        //[InlineData(null)]
+        //Overall testing of TestForPalindrome method
+        //If TestForPalindrome passes all tests, it should be displaying required functionality
+
         [Fact]
         public void TestForPalindromeHandlesNullString()
         {
@@ -48,6 +44,20 @@ namespace PalindromeChallenge.Testing
 
             //Assert
             Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData("hefty")]
+        [InlineData("daddy")]
+        [InlineData("god not dog")]
+        public void TestForPalindromeReturnsFalseForNonPalindromesOfSameCase(string s)
+        {
+            //Arrange
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
+
+            //Assert
+            Assert.True(!result);
         }
 
         [Theory]
@@ -105,5 +115,6 @@ namespace PalindromeChallenge.Testing
             //Assert
             Assert.True(result);
         }
+
     }
 }
