@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PalindromeChallenge.Library\PalindromeChallenge.Library.csproj" />
+    <ProjectReference Include="..\Singleton.Library\Singleton.Library.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,3 +1,4 @@
+using PalindromeChallenge.Library;
 using System;
 using Xunit;
 
@@ -5,10 +6,104 @@ namespace PalindromeChallenge.Testing
 {
     public class PalindromeTesterTest
     {
+        //[Theory]
+        //[InlineData("test")]
+        //[InlineData("racecar")]
+        //[InlineData("z")]
+        //[InlineData(" ")]
+        //[InlineData("")]
+        //[InlineData(null)]
         [Fact]
-        public void Test1()
+        public void TestForPalindromeHandlesNullString()
         {
+            //Arrange
+            string s = null;
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
 
+            //Assert
+            Assert.True(!result);
+        }
+
+        [Fact]
+        public void TestForPalindromeReturnsTrueForEmptyString()
+        {
+            //Arrange
+            string s = "";
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
+
+            //Assert
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData("z")]
+        [InlineData(" ")]
+        public void TestForPalindromeReturnsTrueForStringLengthOne(string s)
+        {
+            //Arrange
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
+
+            //Assert
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData("racecar")]
+        [InlineData("dad")]
+        [InlineData("god dog")]
+        public void TestForPalindromeReturnsTrueForPalindromesOfSameCase(string s)
+        {
+            //Arrange
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
+
+            //Assert
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData("rAcecar")]
+        [InlineData("Dad")]
+        [InlineData("God dOg")]
+        public void TestForPalindromeReturnsTrueForPalindromesDespiteCasing(string s)
+        {
+            //Arrange
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
+
+            //Assert
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData("rAce.car")]
+        [InlineData("Dad...")]
+        [InlineData("G!oddOg!")]
+        public void TestForPalindromeReturnsTrueForPalindromesDespitePunctuation(string s)
+        {
+            //Arrange
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
+
+            //Assert
+            Assert.True(result);
+        }
+
+        [Theory]
+        [InlineData(" rA  c ecar")]
+        [InlineData("D a  d    ")]
+        [InlineData("  Go     d d O  g ")]
+        public void TestForPalindromeReturnsTrueForPalindromesDespiteSpacing(string s)
+        {
+            //Arrange
+            //Act
+            bool result = PalindromeTester.TestForPalindrome(s);
+
+            //Assert
+            Assert.True(result);
         }
     }
 }
