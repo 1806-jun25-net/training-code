@@ -1,5 +1,5 @@
 using System;
-using Palindrome.Library.Palindrome;
+
 using System.Collections.Generic;
 using Xunit;
 
@@ -26,32 +26,69 @@ namespace Palindrome.Test
         [MemberData(nameof(GetTestData))]
         public void TestTheInvertionOfArray(string palindrome)
         {
-            var testingInverted = InvertedStirng(palindrome);
+            char[] testingInverted = InvertedStirng(palindrome);
         }
         [Theory]
         [MemberData(nameof(GetTestData))]
         public void TestLowerCaseing (string pali)
         {
-            var testingLowerCase = LowerCase(pali); 
+            char[] testingLowerCase = LowerCase(pali); 
         }
         [Theory]
         [MemberData(nameof(GetTestData))]
         public void TestNoSpecialCharacters(string pali)
         {
-            var testingNoSpace = NoSpecialCharacters(pali); 
+            char[] testingNoSpace = NoSpecialCharacters(pali); 
         }
         [Theory]
         [MemberData(nameof(GetTestData))]
         public void TesNoSpecialCharacters(string pali)
         {
-            var testingNoSpace = NoSpecialCharacters(pali);
+            char[] testingNoSpace = NoSpecialCharacters(pali);
         }
         [Theory]
         [MemberData(nameof(GetTestData))]
-        public void TestComparingArrays(string pali, string pali)
+        public void TestComparingArrays(string pali, string pali2)
         {
-            var testingNoSpace = ComparingArrays(pali);
+             bool comparing = ComparingArrays(pali, pali2 );
         }
-       
+        public char[] InvertedStirng(string Str)
+        {
+            char[] charArr = Str.ToCharArray();
+            return charArr;
+        }
+        public char[] LowerCase(string Str)
+        {
+            char[] charArr = Str.ToCharArray();
+            return charArr;
+        }
+        public char[] NoEmptySpaces(string Str)
+        {
+            char[] charArr = Str.ToCharArray();
+            return charArr;
+        }
+        public char[] NoSpecialCharacters(string Str)
+        {
+            char[] charArr = Str.ToCharArray();
+            return charArr;
+        }
+        public bool ComparingArrays(string NonInverted, string inverted)
+        {
+            char[] charInverted = inverted.ToCharArray();
+            char[] charNonInverted = NonInverted.ToCharArray();
+            bool Equal = false;
+            foreach (var item in charInverted)
+            {
+                foreach (var item2 in charNonInverted)
+                {
+                    if (charInverted[item] == charNonInverted[item])
+                    {
+                        Equal = true;
+                    }
+                }
+            }
+
+            return Equal;
+        }
     }
 }
