@@ -22,16 +22,15 @@ namespace LINQDemo.Library
         public string Longest()
         {
             //var example = new { s = "abc", l = "abc".Length };
-            // The main place where we need to use Anonymous Types is when using .Length. Make it, use it, dispose of it.
-            // [METHOD SYNTAX]
+            // method syntax
             List<int> listOfLengths = list.Select(s => s.Length).ToList();
-            // [QUERY SYNTAX]
+            // query syntax
             List<int> listWithAwfulSyntax = (from item in list
-                                      where item.Length > 2
-                                      select item.Length).ToList();
+                                             where item.Length > 2
+                                             select item.Length).ToList();
+
             var length = LongestLength();
             return list.First(s => s.Length == length);
-
         }
 
         public string DumbLongest()

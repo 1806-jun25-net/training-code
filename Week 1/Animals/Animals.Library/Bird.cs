@@ -12,11 +12,12 @@ namespace Animals.Library
             Console.WriteLine($"Wing span is {wingSpan}");
             Name = name;
         }
-                            // v This syntax is more readable
-        public Bird() : this(wingSpan: 2, value: 8) // this constructor gets run first and can have additional functions
-        { // one constructor can call another
 
-        }
+        //// one constructor can call another
+        //public Bird() : this(wingSpan: 2, value: 8)
+        //{
+
+        //}
 
         public double WingSpan { get; set; }
 
@@ -26,7 +27,7 @@ namespace Animals.Library
 
         public override void MakeSound()
         {
-            Console.WriteLine("Cawww");
+            Console.WriteLine(value: "Cawww");
         }
     }
 }

@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Animals.Library
 {
-    class BlueRobin : Bird
+    public class BlueRobin : Bird
     {
-        public BlueRobin() : base(wingSpan: 4)
+        public BlueRobin() : base(wingSpan: 3)
         {
-            
         }
+
         public override void MakeSound()
         {
             // add extra behavior before
