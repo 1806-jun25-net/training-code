@@ -32,7 +32,7 @@ namespace Palindrome.Test
         [MemberData(nameof(GetTestData))]
         public void TestLowerCaseing (string pali)
         {
-            char[] testingLowerCase = LowerCase(pali); 
+            string testingLowerCase = LowerCase(pali); 
         }
         [Theory]
         [MemberData(nameof(GetTestData))]
@@ -54,13 +54,16 @@ namespace Palindrome.Test
         }
         public char[] InvertedStirng(string Str)
         {
+
             char[] charArr = Str.ToCharArray();
+            
             return charArr;
         }
-        public char[] LowerCase(string Str)
+        public string LowerCase(string Str)
         {
-            char[] charArr = Str.ToCharArray();
-            return charArr;
+            string Lowercase = Str.ToLower();
+            
+            return Lowercase;
         }
         public char[] NoEmptySpaces(string Str)
         {
