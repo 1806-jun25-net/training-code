@@ -1,0 +1,41 @@
+Git Hub 
+	branches 
+	commits 
+	
+index 
+
+
+func action generic delagate 
+
+Sort(Func <String, string, bool> comp) 
+func n-1 , last one is return value 
+Action all parames return void n 
+
+ti subscribe += 
+to nsubscribe -=
+
+
+
+project 1: pizza store application 
+
+due monday of week 4 
+user can place orders to location 
+display details 
+
+
+
+
+
+
+
+Class Library 
+	all buisness must be here 
+user interface 
+	interactive console application 
+	only display-related code can be here 
+unit test 
+	TDD for some of the application 
+
+OBJECT MODEL 
+
+	
