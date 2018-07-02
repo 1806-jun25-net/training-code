@@ -6,9 +6,9 @@ namespace Palindrome.Testing
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void PalindromeCheckShouldReturnTrue()
         {
-
+            Palindrome test = new Palindrome();
         }
     }
 }
