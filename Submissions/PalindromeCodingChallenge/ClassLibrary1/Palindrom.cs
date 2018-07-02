@@ -6,13 +6,18 @@ namespace Palindrom
 {
     public class Palindrome
     {
-        public static void IsPalindrom()
+        public string GetPalindrom()
         {
-            string input = null;
-
             Console.WriteLine("Enter some text. Is it a palindrome?");
             //take user input and set all characters to lowercase
-            input = Console.ReadLine();
+            string input = Console.ReadLine();
+
+            return input;
+        }
+
+        public bool IsPalindrom(string input)
+        {
+            
             input = input.ToLower();
 
             var sb = new StringBuilder();
@@ -32,8 +37,7 @@ namespace Palindrom
 
             var reversed = new string(input.Reverse().ToArray());
             bool palindrom = input == reversed;
-
-
+            
             //inform user
             if (palindrom == true)
             {
@@ -44,9 +48,7 @@ namespace Palindrom
                 Console.WriteLine("Sorry, that is not a palindrom");
             }
 
-            Console.ReadLine();
-
-
+            return palindrom;
         }
     }
 }
