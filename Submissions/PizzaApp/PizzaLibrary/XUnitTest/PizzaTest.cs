@@ -10,7 +10,7 @@ namespace XUnitTest
         public void Test()
         {
           
-           Assert.True(Pizza.stringTest("aaaa"));
+         
             
         }
     }
