@@ -14,7 +14,7 @@ namespace Palindrome.Library
         public bool IsPalindrome { get; set; }
 
         // constructor
-        OPalindrome(string word)
+        public OPalindrome(string word)
         {
             if (word != null)
             {
