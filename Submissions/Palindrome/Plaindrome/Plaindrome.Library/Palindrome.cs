@@ -23,7 +23,7 @@ namespace Plaindrome.Library
 
             for (int i = 0; i < StringToCheck.Length / 2; i++)
             {
-                if (StringToCheck[i] != StringToCheck[StringToCheck.Length - i])
+                if (StringToCheck[i] != StringToCheck[StringToCheck.Length - i-1])
                 {
                     SameBothWays = false;
                 }
