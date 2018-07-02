@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palin.Library", "Palin.Library\Palin.Library.csproj", "{9B2ED7C2-FDF6-43BC-9396-D0A30C539D05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palin.Test", "Palin.Test\Palin.Test.csproj", "{61353797-09D8-4ECA-8B05-89ED81715F94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B2ED7C2-FDF6-43BC-9396-D0A30C539D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2ED7C2-FDF6-43BC-9396-D0A30C539D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2ED7C2-FDF6-43BC-9396-D0A30C539D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2ED7C2-FDF6-43BC-9396-D0A30C539D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61353797-09D8-4ECA-8B05-89ED81715F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61353797-09D8-4ECA-8B05-89ED81715F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61353797-09D8-4ECA-8B05-89ED81715F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61353797-09D8-4ECA-8B05-89ED81715F94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {523DB6AE-C8D2-4D0C-9AD9-610AA9485AC2}
+	EndGlobalSection
+EndGlobal
