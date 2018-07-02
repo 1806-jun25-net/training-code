@@ -8,8 +8,8 @@ namespace Palindrome.UI
         static void Main(string[] args)
         {
             PaliPali check = new PaliPali();
-            //Console.WriteLine(   check.PaliChecker("anna"));
-            check.PaliChecker("anna");
+            Console.WriteLine(   check.PaliChecker("123abccba123"));
+            //check.PaliChecker("nurses run");
             Console.ReadKey();
         }
     }

@@ -13,6 +13,13 @@ namespace Palindrome.Library
         {
             paliControl = pali;
             char[] paliToArray = pali.ToCharArray();
+            foreach(var chara in paliToArray)
+            {
+                if(chara == char.ToUpper(chara))
+                {
+                    char.ToLower(chara);
+                }
+            }
             Array.Reverse(paliToArray);
             string paliBackToString = new string(paliToArray);
             //return new string(paliToArray);
