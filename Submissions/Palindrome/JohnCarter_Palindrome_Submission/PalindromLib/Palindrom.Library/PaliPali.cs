@@ -12,18 +12,13 @@ namespace Palindrome.Library
         public string PaliChecker(string pali)
         {
             paliControl = pali;
-            char[] paliToArray = pali.ToCharArray();
-            foreach(var chara in paliToArray)
-            {
-                if(chara == char.ToUpper(chara))
-                {
-                    char.ToLower(chara);
-                }
-            }
+            string paliString = pali.ToLower();
+            char[] paliToArray = paliString.ToCharArray();
+            
             Array.Reverse(paliToArray);
             string paliBackToString = new string(paliToArray);
             //return new string(paliToArray);
-            if (pali == paliBackToString)
+            if (pali.ToLower() == paliBackToString)
             {
                 return "palindrome";
             }
