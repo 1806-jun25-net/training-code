@@ -6,27 +6,27 @@ namespace Palindrome.Library
 {
     public class Palindrome
     {
-        private readonly string word = "";
+        private readonly List<string> words = new List<string>();
 
-        public Palindrome(string Word)
-        {
-            word = Word;
-        }
         public bool IsPalindrome()
         {
-            string NoSpaceOrPunc = word.Replace(" ", string.Empty);
-            NoSpaceOrPunc = NoSpaceOrPunc.ToLower();
-
-            for (int i = 0; i < word.Length; i++)
+            
+            foreach (var word in words)
             {
-                for (int j = word.Length; j < word.Length; j--)
+                string NoSpaceOrPunc = word.Replace(" ", string.Empty);
+                NoSpaceOrPunc = NoSpaceOrPunc.ToLower();
+
+                for (int i = 0; i < word.Length; i++)
                 {
-                    if (word[i] == word[j])
+                    for (int j = word.Length; j < word.Length; j--)
                     {
-                        break;
+                        if (words[i] == words[j])
+                        {
+                            break;
+                        }
+                        else
+                            return false;
                     }
-                    else
-                        return false;
                 }
             }
             return true;

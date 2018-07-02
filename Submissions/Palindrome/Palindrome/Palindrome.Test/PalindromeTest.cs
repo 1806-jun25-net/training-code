@@ -9,6 +9,17 @@ namespace Palindrome.Test
     public class PalindromeTest
     {
         [Theory]
+        [InlineData("one two one")]
+        [InlineData("123abccba123")]
+        public void WordIsNotPalindrome(string word)
+        {
+            var col = new Palindrome(word);
+
+            Assert.False(IsPalindrome(word));
+        }
+
+
+        [Theory]
         [InlineData("nurses run")]
         [InlineData("racecaR")]
         [InlineData("1221")]
@@ -16,6 +27,7 @@ namespace Palindrome.Test
         public void WordIsPalindrome(string word)
         {
             var p = new Palindrome(word);
+
             Assert.True(isPalindrome(word));
         }
     }
