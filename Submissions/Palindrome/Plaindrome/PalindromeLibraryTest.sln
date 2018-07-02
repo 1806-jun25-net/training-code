@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plaindrome.Library", "Plaindrome.Library\Plaindrome.Library.csproj", "{BAA30DC5-770A-4587-957D-435D92DFD5B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plaindrome.Library", "Plaindrome.Library\Plaindrome.Library.csproj", "{BAA30DC5-770A-4587-957D-435D92DFD5B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palindrome.Test", "Palindrome.Test\Palindrome.Test.csproj", "{CD04089C-1528-48B5-A111-0FCADF67E918}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PalindromeTest", "Palindrome.Test\PalindromeTest.csproj", "{CD04089C-1528-48B5-A111-0FCADF67E918}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

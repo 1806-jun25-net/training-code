@@ -6,11 +6,11 @@ namespace Plaindrome.Library
 {
     public class Palindrome
     {
-        public string PossiblePalindrome { get; set; }
+        public string newPalindrome { get; set; }
 
-        public Palindrome(string pal)
+        public Palindrome()
         {
-            PossiblePalindrome = pal;
+
         }
 
         public bool IsPalindrome(string palindrome)
