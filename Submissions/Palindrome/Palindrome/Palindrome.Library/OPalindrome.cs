@@ -31,10 +31,15 @@ namespace Palindrome.Library
         {            
             string currentWord = inputWord;
             string processedWord;
+
+
             
-            // remove spaces and commas
-            currentWord = currentWord.Replace(" ", "");
-            currentWord = currentWord.Replace(",", "");
+            var replaceString = new string[] { " ", ",", ".", "!", "?", ";", ":", "'", "\"" };
+            foreach (string remove in replaceString)
+            {
+                currentWord = currentWord.Replace(remove, ""); // removes spaces and punctuation
+            }
+
             currentWord = currentWord.ToUpper(); // converts string to upper case because the check is not case sensitive
 
             processedWord = currentWord;
