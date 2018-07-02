@@ -4,15 +4,22 @@ using System.Text;
 
 namespace Plaindrome.Library
 {
-    class Palindrome
+    public class Palindrome
     {
+        public string PossiblePalindrome { get; set; }
+
+        public Palindrome(string pal)
+        {
+            PossiblePalindrome = pal;
+        }
+
         public bool IsPalindrome(string palindrome)
         {
             bool SameBothWays = true;
             string StringToCheck = "";
 
             palindrome = palindrome.ToLower();
-            StringToCheck = RemoveWhiteSpace(palindrome);
+            StringToCheck = RemoveWhiteSpaceAndPunctuation(palindrome);
 
             for (int i = 0; i < StringToCheck.Length / 2; i++)
             {
@@ -25,12 +32,12 @@ namespace Plaindrome.Library
             return SameBothWays;
         }
 
-        public string RemoveWhiteSpace(string pal)
+        public string RemoveWhiteSpaceAndPunctuation(string pal)
         {
             string StringToCheck = "";
             for (int i = 0; i < pal.Length; i++)
             {
-                if (!Char.IsWhiteSpace(pal[i]))
+                if (!Char.IsWhiteSpace(pal[i]) || !Char.IsPunctuation(pal[i]))
                 {
                     StringToCheck = StringToCheck + pal[i];
                 }
