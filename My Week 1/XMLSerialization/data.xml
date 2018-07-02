@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<ArrayOfPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Person>
+    <Id>1</Id>
+    <Name>
+      <First>Fred</First>
+      <Last>Belotte</Last>
+    </Name>
+    <Nicknames>
+      <string>Freddie</string>
+      <string>Freddo</string>
+    </Nicknames>
+    <Address>
+      <Line1>123 Drury Ln</Line1>
+      <Line2 />
+      <City>Tampa</City>
+      <State>FL</State>
+      <ZipCode>12345</ZipCode>
+    </Address>
+    <Age>30</Age>
+  </Person>
+  <Person>
+    <Id>2</Id>
+    <Name>
+      <First>Nick</First>
+      <Last>Escalona</Last>
+    </Name>
+    <Nicknames>
+      <string>Nickolous</string>
+      <string>Nearly Headless</string>
+    </Nicknames>
+    <Address>
+      <Line1>124 Drury Ln</Line1>
+      <Line2 />
+      <City>Tampa</City>
+      <State>FL</State>
+      <ZipCode>12345</ZipCode>
+    </Address>
+    <Age>27</Age>
+  </Person>
+</ArrayOfPerson>
