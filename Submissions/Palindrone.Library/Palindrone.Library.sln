@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palindrone.Library", "Palindrone.Library\Palindrone.Library.csproj", "{9EB93C74-EC00-4F9D-B880-FA420FF14ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palindrone.Test", "Palindrone.Test\Palindrone.Test.csproj", "{498CDF27-66DB-45ED-8B97-F35811D9D748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EB93C74-EC00-4F9D-B880-FA420FF14ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB93C74-EC00-4F9D-B880-FA420FF14ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB93C74-EC00-4F9D-B880-FA420FF14ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB93C74-EC00-4F9D-B880-FA420FF14ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{498CDF27-66DB-45ED-8B97-F35811D9D748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{498CDF27-66DB-45ED-8B97-F35811D9D748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{498CDF27-66DB-45ED-8B97-F35811D9D748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{498CDF27-66DB-45ED-8B97-F35811D9D748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A50B5D1-5AD1-4FB7-B560-E50424B82F03}
+	EndGlobalSection
+EndGlobal
