@@ -7,7 +7,6 @@ namespace PalindromCodingChallenge
     {
         public static void Main(string[] args)
         {
-            var test = new Palindrome();
             Palindrome.IsPalindrom();
         }
     }
