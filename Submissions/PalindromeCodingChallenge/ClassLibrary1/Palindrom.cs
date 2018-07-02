@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 
-namespace ClassLibrary1
+namespace Palindrom
 {
-    public class Palindrom
+    public class Palindrome
     {
         public static void IsPalindrom()
         {

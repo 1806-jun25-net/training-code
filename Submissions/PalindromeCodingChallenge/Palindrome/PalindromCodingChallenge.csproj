@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\PalindromClass.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\Palindrom.csproj" />
   </ItemGroup>
 
 </Project>

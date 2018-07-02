@@ -1,10 +1,14 @@
-﻿namespace Palindrom
+﻿using Palindrom;
+using System;
+
+namespace PalindromCodingChallenge
 {
     class Program
     {
         public static void Main(string[] args)
         {
-            Palindrom.PalindromClass.IsPalindrom();
+            var test = new Palindrome();
+            test.IsPalindrom();
         }
     }
 }

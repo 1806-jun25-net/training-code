@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Palindrom", "Palindrome\Palindrom.csproj", "{7F009CE9-6AFC-4CC6-A356-9C66E27F975C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PalindromCodingChallenge", "Palindrome\PalindromCodingChallenge.csproj", "{7F009CE9-6AFC-4CC6-A356-9C66E27F975C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Palindrome.Test", "Palindrome.Test\Palindrome.Test.csproj", "{239CA257-359D-4143-A900-1D18F8E6DD70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromClass", "ClassLibrary1\PalindromClass.csproj", "{EBA62B58-7496-4AFE-931A-A3C67A1E3610}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Palindrom", "ClassLibrary1\Palindrom.csproj", "{EBA62B58-7496-4AFE-931A-A3C67A1E3610}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
