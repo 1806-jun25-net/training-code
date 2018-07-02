@@ -13,7 +13,7 @@ namespace PalindromeLib
 
 
             //removing special characters so that it will still detect palindromes when
-            // spaces or periods are used. and converting to lowercase because that doesn't matter. 
+            // spaces or periods are used. and converting to lowercase because that doesn't matter to us either. 
            testString = paly;
             testString = testString.Replace(" ", "");
             testString = testString.Replace(",", "");
