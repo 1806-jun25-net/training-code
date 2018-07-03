@@ -13,9 +13,9 @@ namespace Palindrome.Test
         [InlineData("123abccba123")]
         public void WordIsNotPalindrome(string word)
         {
-            var col = new Palindrome(word);
+           var p = new OPalindrome();
 
-            Assert.False(IsPalindrome(word));
+            Assert.False(p.IsPalindrome(word));
         }
 
 
@@ -26,9 +26,9 @@ namespace Palindrome.Test
         [InlineData("never odd, or even")]
         public void WordIsPalindrome(string word)
         {
-            var p = new Palindrome(word);
+            var p = new OPalindrome();
 
-            Assert.True(isPalindrome(word));
+            Assert.True(p.IsPalindrome(word));
         }
     }
 }
