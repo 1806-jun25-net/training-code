@@ -12,16 +12,16 @@ namespace Palin.Library
             string str = "";
             foreach (char c in s)
             {
-                if (!char.IsPunctuation(c))
+                if (!Char.IsPunctuation(c))
                 {
                     str += c;
                 }
             }
             //Then remove all whitespaces
-            str.Replace(" ", string.Empty);
+            str = str.Replace(" ", string.Empty);
 
             //Finally, convert the string to lowercase
-            str.ToLower();
+            str = str.ToLower();
 
 
             //Now rewrite the string backwards and check

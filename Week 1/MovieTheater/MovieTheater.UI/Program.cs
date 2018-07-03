@@ -22,7 +22,7 @@ namespace MovieTheater.UI
 
             var player = new MoviePlayer();
 
-            MoviePlayer.ShowHandler handler = PrintMessage;
+             MoviePlayer.ShowHandler handler = PrintMessage;
 
             // subscribe to an event.
             player.Show += handler;

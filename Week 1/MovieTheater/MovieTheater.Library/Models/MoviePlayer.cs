@@ -10,7 +10,7 @@ namespace MovieTheater.Library.Models
         public IMovie Movie { get; set; }
 
         public delegate void ShowHandler(string title);
-       
+
 
         // we'll call this event when the movie plays
         // any callers can add functions to run whenever that happens

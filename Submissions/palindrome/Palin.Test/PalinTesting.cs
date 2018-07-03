@@ -33,7 +33,7 @@ namespace Palin.Test
         public void basicTestsShouldReturnFalse(bool b, string s)
         {
             //Arrange
-            bool expected = true;
+            bool expected = false;
             bool actual = b;
 
             //Act
