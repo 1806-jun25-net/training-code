@@ -11,7 +11,11 @@ namespace Palindrome.Test
         [Fact]
         public void IsPalindromeShouldReturnIfPalindromeIsTrue()
         {
-            
+            //Arrange
+            v
+            //Act
+
+            //Assert
         }
 
     }

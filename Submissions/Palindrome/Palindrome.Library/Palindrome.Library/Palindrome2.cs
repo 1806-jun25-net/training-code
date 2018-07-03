@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Palindrome.Library
 {
-    public class Palindrome
+    public class Palindrome2
     {
-        public static bool IsPalindrome(string value)
+        public bool IsPalindrome(string value)
         {
             int minSize = 0;
             int maxSize = value.Length - 1 ;
