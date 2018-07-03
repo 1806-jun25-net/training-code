@@ -14,7 +14,7 @@ namespace Palindrome.Testing
             bool expected = true;
             string str = "nursesrun";
 
-            bool result = Palindrome.Library.Palindrome.IsPalindrome(str);
+            bool result = Library.Palindrome.IsPalindrome(str);
 
             Assert.Equal(expected, result);
         }
