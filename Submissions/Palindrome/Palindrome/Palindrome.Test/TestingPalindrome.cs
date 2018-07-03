@@ -1,8 +1,5 @@
-using System;
-
 using System.Collections.Generic;
 using Xunit;
-
 namespace Palindrome.Test
 {
     public class TestingPalindrome
@@ -32,7 +29,9 @@ namespace Palindrome.Test
         [MemberData(nameof(GetTestData))]
         public void TestLowerCaseing (string pali)
         {
+            
             string testingLowerCase = LowerCase(pali); 
+
         }
         [Theory]
         [MemberData(nameof(GetTestData))]
