@@ -13,4 +13,9 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantReviews.Console\RestaurantReviews.Console.csproj" />
+    <ProjectReference Include="..\RestaurantReviews.Library\RestaurantReviews.Library.csproj" />
+  </ItemGroup>
+
 </Project>
