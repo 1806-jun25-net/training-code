@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RestaurantReviews.Console\RestaurantReviews.Console.csproj" />
+    <ProjectReference Include="..\RestaurantReviews.ConsoleApp\RestaurantReviews.ConsoleApp.csproj" />
     <ProjectReference Include="..\RestaurantReviews.Library\RestaurantReviews.Library.csproj" />
   </ItemGroup>
 

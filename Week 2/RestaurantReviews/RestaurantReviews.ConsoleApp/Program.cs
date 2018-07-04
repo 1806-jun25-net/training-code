@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestaurantReviews.Console
+namespace RestaurantReviews.ConsoleApp
 {
     class Program
     {
