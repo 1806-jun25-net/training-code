@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\CodingChallenge2.Test.csproj" />
     <ProjectReference Include="..\CodingChallenge2.library\CodingChallenge2.library.csproj" />
   </ItemGroup>
 

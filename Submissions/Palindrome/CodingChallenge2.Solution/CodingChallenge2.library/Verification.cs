@@ -17,14 +17,14 @@ namespace CodingChallenge2.library
 
             while (LettersNormalWord < LettersInvertWord)
             {
-                if(word[LettersInvertWord] == word[LettersNormalWord] && LettersNormalWord < 0 )
+                if(word[LettersInvertWord] == word[LettersNormalWord])
                 {
 
                     return true;
                 }
 
-                LettersInvertWord++;
-                LettersNormalWord--;
+                LettersInvertWord--;
+                LettersNormalWord++;
             }
 
             return false;
