@@ -66,12 +66,8 @@ namespace RestaurantReviews.Testing.Library.Models
         // put into an array automatically.
         public void Score_RestaurantHasReviews_IsAverageValue(params int[] reviewScores)
         {
-            // use foreach instead of AddRange with a LINQ Select, because AddRange is only on List,
-            // and Restaurant.Reviews is type ICollection.
-            foreach (var score in reviewScores)
-            {
-                restaurant.Reviews.Add(new Review { Score = score });
-            }
+            // use LINQ with a lambda expression to add reviews in one line.
+            restaurant.Reviews.AddRange(reviewScores.Select(s => new Review { Score = s }));
             var average = reviewScores.Average();
             // "HasValue" and "Value" are part of the definition of nullable types.
             Assert.True(restaurant.Score.HasValue);
