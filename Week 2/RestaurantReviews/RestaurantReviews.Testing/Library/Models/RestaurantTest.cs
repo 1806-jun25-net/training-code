@@ -7,6 +7,9 @@ namespace RestaurantReviews.Testing.Library.Models
 {
     public class RestaurantTest
     {
+        // the test class is instantiated again for each test, so it is safe to put common setup code
+        // in the class constructor or members. this will be a new restaurant object for each test.
+        // it's made readonly to satisfy static analysis warnings.
         readonly Restaurant restaurant = new Restaurant();
 
         [Fact]
@@ -26,6 +29,9 @@ namespace RestaurantReviews.Testing.Library.Models
         [Fact]
         public void Reviews_DefaultValue_Empty()
         {
+            // "Empty" would throw an exception if it received a null value.
+            // that would result in a failed test as expected, but this way is
+            // a bit cleaner.
             Assert.NotNull(restaurant.Reviews);
             Assert.Empty(restaurant.Reviews);
         }
@@ -39,6 +45,9 @@ namespace RestaurantReviews.Testing.Library.Models
         [Fact]
         public void Score_NullReviews_Null()
         {
+            // being able to set Reviews to null is not necessarily required behavior,
+            // so it's not tested, but this test will ensure that if that behavior is
+            // available, then Score will behave appropriately and not throw an exception.
             try
             {
                 restaurant.Reviews = null;
@@ -53,14 +62,21 @@ namespace RestaurantReviews.Testing.Library.Models
         [Theory]
         [InlineData(1, 5)]
         [InlineData(6, 7, 8)]
+        // "params" keyword lets the caller pass an arbitrary number of arguments and have them
+        // put into an array automatically.
         public void Score_RestaurantHasReviews_IsAverageValue(params int[] reviewScores)
         {
+            // use foreach instead of AddRange with a LINQ Select, because AddRange is only on List,
+            // and Restaurant.Reviews is type ICollection.
             foreach (var score in reviewScores)
             {
                 restaurant.Reviews.Add(new Review { Score = score });
             }
             var average = reviewScores.Average();
-            Assert.Equal(average, restaurant.Score);
+            // "HasValue" and "Value" are part of the definition of nullable types.
+            Assert.True(restaurant.Score.HasValue);
+            // xUnit allows checking for floating-point equality allowing for imprecision.
+            Assert.Equal(average, restaurant.Score.Value, precision: 6);
         }
     }
 }
