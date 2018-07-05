@@ -33,3 +33,8 @@ SELECT * FROM Movies.Movie;
 SELECT *
 FROM Movies.Movie as m
 INNER JOIN Movies.Genre as g ON m.GenreID = g.ID;
+
+-- after scaffolding, let's change our data model in the db.
+ALTER TABLE Movies.Movie
+ADD ReleaseDate Date NULL;
+
