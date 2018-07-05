@@ -39,12 +39,50 @@ INNER JOIN Movies.Genre AS g ON m.GenreID = g.ID;
 ALTER TABLE Movies.Movie
 ADD ReleaseDate Date NULL;
 
+-- computed columns
+ALTER TABLE Movies.Movie
+ADD ComputedName AS (Name + ' (' + CONVERT(VARCHAR, YEAR(ReleaseDate)) + ')');
+--can add PERSISTED so it's not recompted everysingle time
 
+--ALTER TABLE Movies.Movie
+--DROP Column ComputedName
 
+UPDATE Movies.Movie
+SET ReleaseDate = '2010-01-01';
 
+SELECT * FROM Movies.Movie;
+GO
 
+-- views
+-- readonly interface to our tables based on some select statement
+CREATE VIEW Movies.NewReleases
+AS
+	SELECT * FROM Movies.Movie
+	WHERE YEAR(ReleaseDate) > 2016;
 
+GO
 
+SELECT * FROM Movies.NewReleases;
 
+-- variables -- doesnt work
+--DECLARE @table;
+--SELECT * INTO @table FROM Movies.Movie;
+GO
 
+-- functions
+CREATE FUNCTION Movies.NumberOfYearMovies(@year INT)
+RETURNS INT
+AS
+BEGIN
+	DECLARE @result INT
+	SELECT @result = COUNT(*) FROM Movies.Movie
+	WHERE YEAR(ReleaseDate) = @year;
 
+	RETURN @result
+END
+-- functions don not allow modifying data (side effects)
+-- only reading data (select statement)
+
+GO
+
+SELECT Movies.NumberOfYearMovies(2010);
