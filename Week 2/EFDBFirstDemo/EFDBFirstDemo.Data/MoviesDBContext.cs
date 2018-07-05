@@ -52,6 +52,8 @@ namespace EFDBFirstDemo.Data
                     .IsRequired()
                     .HasMaxLength(128);
 
+                entity.Property(e => e.ReleaseDate).HasColumnType("date");
+
                 entity.HasOne(d => d.Genre)
                     .WithMany(p => p.Movie)
                     .HasForeignKey(d => d.GenreId)
