@@ -22,7 +22,6 @@ namespace EFDBFirstDemo.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-
             }
         }
 
@@ -44,6 +43,10 @@ namespace EFDBFirstDemo.Data
                 entity.ToTable("Movie", "Movies");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.ComputedName)
+                    .HasMaxLength(161)
+                    .HasComputedColumnSql("((([Name]+' (')+CONVERT([varchar],datepart(year,[ReleaseDate])))+')')");
 
                 entity.Property(e => e.GenreId).HasColumnName("GenreID");
 
