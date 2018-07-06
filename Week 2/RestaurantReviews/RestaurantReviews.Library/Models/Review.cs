@@ -12,7 +12,7 @@ namespace RestaurantReviews.Library.Models
     /// </remarks>
     public class Review
     {
-        private int _score;
+        private int? _score;
         private string _reviewerName;
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace RestaurantReviews.Library.Models
         /// <summary>
         /// The score of the review. Must be between 0 and 10.
         /// </summary>
-        public int Score
+        public int? Score
         {
             get => _score;
             set

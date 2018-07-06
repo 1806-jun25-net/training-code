@@ -40,12 +40,11 @@ namespace RestaurantReviews.Library.Models
         /// The reviews of this restaurant.
         /// </summary>
         /// <remarks>
-        /// Depending on the implementation of "List" is unnecessary, so we depend on the
-        /// "ICollection" interface.
+        /// Depends on the concrete "List" to simplify serialization.
         /// This is given a default value of an empty list so the caller doesn't need to check
         /// if the list is null and create it himself.
         /// </remarks>
-        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public List<Review> Reviews { get; set; } = new List<Review>();
 
         /// <summary>
         /// This restaurant's score, calculated as the average of its reviews' scores,
