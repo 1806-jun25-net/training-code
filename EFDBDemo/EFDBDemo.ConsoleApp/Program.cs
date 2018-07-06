@@ -17,7 +17,7 @@ namespace EFDBDemo.ConsoleApp
 
             IConfigurationRoot configuration = builder.Build();
 
-            Console.WriteLine(configuration.GetConnectionString("MoviesDB"));
+            //Console.WriteLine(configuration.GetConnectionString("MoviesDB"));
 
             var optionsBuilder = new DbContextOptionsBuilder<MoviesDBContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("MoviesDB"));
@@ -25,10 +25,27 @@ namespace EFDBDemo.ConsoleApp
             var repo = new MovieRepository(new MoviesDBContext(optionsBuilder.Options));
             var movies = repo.GetMoviesWithGenres();
             foreach (var item in movies)
-                {
-                    Console.WriteLine($"Name {item.Name}," +
-                        $" genre {item.Genre.Name}");
-                }
+            {
+                Console.WriteLine($"Name {item.Name}," +
+                    $" genre {item.Genre.Name}");
+            }
+            //edit a movie
+            var aMovie = movies.First();
+            aMovie.Name = "Star Wars";
+            repo.Edit(aMovie);
+            repo.AddMovie("Die Hard", DateTime.Now, "action");
+            repo.SaveChanges();
+
+            movies = repo.GetMoviesWithGenres();
+            foreach (var item in movies)
+            {
+                Console.WriteLine($"Name {item.Name}," +
+                    $" genre {item.Genre.Name}");
+            }
+            
+
+
+
             Console.ReadLine();
         }
         static void Previous()
