@@ -1,9 +1,14 @@
-﻿using RestaurantReviews.Library.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using RestaurantReviews.Library.Models;
+using RestaurantReviews.Library.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security;
 using System.Xml.Serialization;
+using RCM = RestaurantReviews.Context.Models;
 
 namespace RestaurantReviews.ConsoleApp
 {
@@ -11,7 +16,16 @@ namespace RestaurantReviews.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var restaurants = new List<Restaurant>();
+            var configBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            var configuration = configBuilder.Build();
+            var optionsBuilder = new DbContextOptionsBuilder<RCM.RestaurantReviewsDBContext>();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("RestaurantReviewsDB"));
+            var options = optionsBuilder.Options;
+            
+            var dbContext = new RCM.RestaurantReviewsDBContext(options);
+            var restaurantRepository = new RestaurantRepository(dbContext);
             var serializer = new XmlSerializer(typeof(List<Restaurant>));
 
             Console.WriteLine("Restaurant Reviews");
@@ -28,6 +42,7 @@ namespace RestaurantReviews.ConsoleApp
                 var input = Console.ReadLine();
                 if (input == "r")
                 {
+                    var restaurants = restaurantRepository.GetRestaurants().ToList();
                     Console.WriteLine();
                     if (restaurants.Count == 0)
                     {
