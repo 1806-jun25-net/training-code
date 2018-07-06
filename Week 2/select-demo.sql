@@ -5,6 +5,25 @@
 --                table
 SELECT * FROM SalesLT.Customer;
 
+-----------------------------------------------------------------------------------------------------------
+--examples july 6
+Select FirstName, LastName from SalesLT.Customer
+where MiddleName is null or MiddleName = '';
+-----------------------------------------------------------------------------------------------------------
+select distinct firstname from saleslt.customer
+where firstname in (select lastname from saleslt.customer);
+-- for this to be the same you would need to use distinct in the first 
+(select FirstName from SalesLT.Customer)
+intersect
+(select lastname from SalesLT.Customer);
+--all 3 return the same
+select distinct a.firstname from SalesLT.Customer as a
+inner join SalesLT.Customer as b on a.firstname = b.LastName; 
+-----------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------
+
+
 -- select only some columns, with aliasing
 SELECT CustomerID AS ID, FirstName AS 'First Name', LastName AS 'Last Name'
 FROM SalesLT.Customer;
