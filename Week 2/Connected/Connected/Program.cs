@@ -17,11 +17,20 @@ namespace Connected
 
             var commandString = "SELECT * FROM Movies.Movie;";
 
+            // example SQL injection
+            var userInput = "Fred";
+            var maliciousUserInput = "Fred\"); DROP DATABASE MoviesDB;";
+            var commandString2 = "INSERT INTO Movies.Genre " +
+                "VALUES (\"" + userInput + "\")";
+            // user can execute any command
+
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open(); // step 1 of connected: open connection
                 using (var command = new SqlCommand(commandString, connection))
                 // step 2: execute query
+                // (if it's a SELECT statement, we use ExecuteReader
+                //  otherwise, we use ExecuteNonquery.
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows)
