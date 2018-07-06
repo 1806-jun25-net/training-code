@@ -121,6 +121,10 @@ ON Movies.Movie
 INSTEAD OF DELETE
 AS
 	PRINT 'Replacing/preventing all deletes'
+
+GO
+
+DROP TRIGGER Movies.TR_Movie_ReplaceDeleting
 --
 DELETE FROM Movies.Movie
 

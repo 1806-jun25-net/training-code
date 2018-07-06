@@ -1,6 +1,8 @@
 ﻿using EFDBFirstDemo.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace EFDBFirstDemo.ConsoleApp
@@ -9,11 +11,56 @@ namespace EFDBFirstDemo.ConsoleApp
     {
         static void Main(string[] args)
         {
+            // get the onfiguration from file
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            IConfigurationRoot configuration = builder.Build();
+
+            // now i can access the configuration string like this
+            // this will be null if there isn't an appsettings with this connection string
+            Console.WriteLine(configuration.GetConnectionString("MoviesDB"));
+
             // ORM: object-relational mapper- a program or library that maps a relational data source with object-oriented classes or objects
             // lets us do operations on C# objects and have those get translated behind the scenes into SQL queries
             // Our ORM in .NET is: Entity Framework
             // we will use database-first approach to EF
             Console.WriteLine("Hello World!");
+
+            var optionsBuilder = new DbContextOptionsBuilder<MoviesDBContext>();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MoviesDB"));
+
+            var repo = new MovieRepository(new MoviesDBContext(optionsBuilder.Options));
+
+            var movies = repo.GetMoviesWithGenres();
+
+            foreach (var item in movies)
+            {
+                Console.WriteLine($"Name: {item.Name}," +
+                    $" Genre: {item.Genre.Name}");
+            }
+
+            // edit a movie
+            var aMovie = movies.First();
+            aMovie.Name = "A New Hope";
+            repo.Edit(aMovie);
+            repo.AddMovie("Die Hard", DateTime.Now, "action");
+            repo.DeleteById(aMovie.Id);
+            repo.SaveChanges();
+
+            movies = repo.GetMoviesWithGenres();
+            Console.WriteLine();
+            foreach (var item in movies)
+            {
+                Console.WriteLine($"Name: {item.Name}," +
+                    $" Genre: {item.Genre.Name}");
+            }
+
+        }
+
+        static void EarlierCode()
+        {
             PrintMovies();
             ChangeMovie();
             PrintMovies();
@@ -29,7 +76,7 @@ namespace EFDBFirstDemo.ConsoleApp
                 // push the changes to the db
                 db.SaveChanges();
             }
-            
+
         }
 
         static void ChangeMovie()
