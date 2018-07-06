@@ -33,3 +33,55 @@ SELECT * FROM Movies.Movie;
 SELECT *
 FROM Movies.Movie as m
 INNER JOIN Movies.Genre as g ON m.GenreID = g.ID;
+
+-- after scaffolding, let's change our data model in the db.
+ALTER TABLE Movies.Movie
+ADD ReleaseDate Date NULL;
+
+-- computed columns
+ALTER TABLE Movies.Movie
+ADD ComputedName AS (Name + ' (' + CONVERT(VARCHAR, YEAR(ReleaseDate)) + ')');
+-- can add PERSISTED so it's not recomputed every single time
+
+--ALTER TABLE Movies.Movie
+--DROP COLUMN ComputedName
+
+UPDATE Movies.Movie
+SET ReleaseDate = '2010-01-01';
+
+SELECT * FROM Movies.Movie;
+GO
+
+-- views
+-- readonly interface to our tables based on some select statement
+CREATE VIEW Movies.NewReleases
+AS
+	SELECT * FROM Movies.Movie
+	WHERE YEAR(ReleaseDate) > 2016;
+GO
+
+SELECT * FROM Movies.NewReleases;
+
+-- variables
+-- doesn't work but you can do something like this
+DECLARE @table;
+SELECT * INTO @table FROM Movies.Movie;
+GO
+
+-- functions
+CREATE FUNCTION Movies.NumberOfYearMovies(@year INT)
+RETURNS INT
+AS
+BEGIN
+	DECLARE @result INT
+
+	SELECT @result = COUNT(*) FROM Movies.Movie
+	WHERE YEAR(ReleaseDate) = @year;
+
+	RETURN @result
+END
+-- functions do not allow modifying data (side effects)
+-- only reading data (select statement).
+
+SELECT Movies.NumberOfYearMovies(2010); -- returns 1
+SELECT Movies.NumberOfYearMovies(2011); -- returns 0
