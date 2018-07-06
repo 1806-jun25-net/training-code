@@ -34,6 +34,7 @@ namespace EFDBDemo.ConsoleApp
             aMovie.Name = "Star Wars";
             repo.Edit(aMovie);
             repo.AddMovie("Die Hard", DateTime.Now, "action");
+            repo.DeleteMovieById(2);
             repo.SaveChanges();
 
             movies = repo.GetMoviesWithGenres();
