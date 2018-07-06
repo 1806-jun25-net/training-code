@@ -31,13 +31,13 @@ namespace EFDBFirstDemo.ConsoleApp
             var optionsBuilder = new DbContextOptionsBuilder<MoviesDBContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("MoviesDB"));
 
-            using (var db = new MoviesDBContext(optionsBuilder.Options))
+            var repo = new MovieRepository(new MoviesDBContext(optionsBuilder.Options));
+
+            var movies = repo.GetMoviesWithGenres();
+            foreach (var item in movies)
             {
-                foreach (var item in db.Movie.Include(m => m.Genre))
-                {
-                    Console.WriteLine($"Name {item.Name}," +
-                        $" genre {item.Genre.Name}");
-                }
+                Console.WriteLine($"Name {item.Name}," +
+                    $" genre {item.Genre.Name}");
             }
         }
 
