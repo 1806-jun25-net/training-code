@@ -1,6 +1,8 @@
 ﻿using EFDBFirstDemo.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace EFDBFirstDemo.ConsoleApp
@@ -9,10 +11,38 @@ namespace EFDBFirstDemo.ConsoleApp
     {
         static void Main(string[] args)
         {
+            // get the configuration from file
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            IConfigurationRoot configuration = builder.Build();
+
+            // now i can access the connection string like this
+            // this will be null if there isn't an appsettings with this connection string
+            Console.WriteLine(configuration.GetConnectionString("MoviesDB"));
+
             // ORM: object-relational mapper
             // our ORM in .NET is: Entity Framework
             // we will use database-first approach to EF
             Console.WriteLine("Hello World!");
+
+            // provide the connection string to the dbcontext
+            var optionsBuilder = new DbContextOptionsBuilder<MoviesDBContext>();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MoviesDB"));
+
+            var repo = new MovieRepository(new MoviesDBContext(optionsBuilder.Options));
+
+            var movies = repo.GetMoviesWithGenres();
+            foreach (var item in movies)
+            {
+                Console.WriteLine($"Name {item.Name}," +
+                    $" genre {item.Genre.Name}");
+            }
+        }
+
+        static void EarlierCode()
+        {
             PrintMovies();
             ChangeMovie();
             PrintMovies();
