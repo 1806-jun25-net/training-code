@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using RCM = RestaurantReviews.Context.Models;
 using RestaurantReviews.Library.Models;
 using RestaurantReviews.Library.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security;
 using System.Xml.Serialization;
+using RCM = RestaurantReviews.Context.Models;
 
 namespace RestaurantReviews.ConsoleApp
 {
@@ -22,9 +23,9 @@ namespace RestaurantReviews.ConsoleApp
             var optionsBuilder = new DbContextOptionsBuilder<RCM.RestaurantReviewsDBContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("RestaurantReviewsDB"));
             var options = optionsBuilder.Options;
-
-            var restaurants = new List<Restaurant>();
-            var restaurantRepository = new RestaurantRepository(null);
+            
+            var dbContext = new RCM.RestaurantReviewsDBContext(options);
+            var restaurantRepository = new RestaurantRepository(dbContext);
             var serializer = new XmlSerializer(typeof(List<Restaurant>));
 
             Console.WriteLine("Restaurant Reviews");
@@ -41,6 +42,7 @@ namespace RestaurantReviews.ConsoleApp
                 var input = Console.ReadLine();
                 if (input == "r")
                 {
+                    var restaurants = restaurantRepository.GetRestaurants().ToList();
                     Console.WriteLine();
                     if (restaurants.Count == 0)
                     {
