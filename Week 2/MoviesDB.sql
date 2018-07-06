@@ -85,3 +85,38 @@ END
 
 SELECT Movies.NumberOfYearMovies(2010); -- returns 1
 SELECT Movies.NumberOfYearMovies(2011); -- returns 0
+
+ALTER TABLE Movies.Movie
+ADD DateModified DATETIME2;
+
+SELECT * FROM Movies.Movie
+GO
+
+CREATE TRIGGER Movies.TR_Movie_DateModified
+ON Movies.Movie
+AFTER UPDATE
+AS
+	-- in here, we can see pseudo-tables "Inserted" and "Deleted"
+	UPDATE Movies.Movie
+	SET DateModified = GETDATE()
+	WHERE ID IN (SELECT ID FROM Inserted)
+	PRINT 'Updated'
+
+-- fills in datemodified because of my trigger
+UPDATE Movies.Movie
+SET ReleaseDate = '1999-01-01'
+
+SELECT * FROM Movies.Movie
+
+-- we can trigger on INSERT, UPDATE, or DELETE
+-- we'll be able to use Inserted, Deleted, or both
+
+CREATE TRIGGER Movies.TR_Movie_ReplaceDeleting
+ON Movies.Movie
+INSTEAD OF DELETE
+AS
+	PRINT 'Replacing/preventing all deletes'
+
+DELETE FROM Movies.Movie
+
+SELECT * FROM Movies.Movie
