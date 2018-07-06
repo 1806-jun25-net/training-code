@@ -1,4 +1,8 @@
-﻿using RestaurantReviews.Library.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using RCM = RestaurantReviews.Context.Models;
+using RestaurantReviews.Library.Models;
+using RestaurantReviews.Library.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +15,16 @@ namespace RestaurantReviews.ConsoleApp
     {
         static void Main(string[] args)
         {
+            var configBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            var configuration = configBuilder.Build();
+            var optionsBuilder = new DbContextOptionsBuilder<RCM.RestaurantReviewsDBContext>();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("RestaurantReviewsDB"));
+            var options = optionsBuilder.Options;
+
             var restaurants = new List<Restaurant>();
+            var restaurantRepository = new RestaurantRepository(null);
             var serializer = new XmlSerializer(typeof(List<Restaurant>));
 
             Console.WriteLine("Restaurant Reviews");
