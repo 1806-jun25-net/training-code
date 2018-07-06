@@ -2,6 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace EFDBDemo.ConsoleApp
 {
@@ -9,6 +11,28 @@ namespace EFDBDemo.ConsoleApp
     {
         static void Main(string[] args)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            IConfigurationRoot configuration = builder.Build();
+
+            Console.WriteLine(configuration.GetConnectionString("MoviesDB"));
+
+            var optionsBuilder = new DbContextOptionsBuilder<MoviesDBContext>();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("MoviesDB"));
+
+            var repo = new MovieRepository(new MoviesDBContext(optionsBuilder.Options));
+            var movies = repo.GetMoviesWithGenres();
+            foreach (var item in movies)
+                {
+                    Console.WriteLine($"Name {item.Name}," +
+                        $" genre {item.Genre.Name}");
+                }
+            Console.ReadLine();
+        }
+        static void Previous()
+        { 
             AddMovie();
             PrintMovies();
             Console.ReadLine();
