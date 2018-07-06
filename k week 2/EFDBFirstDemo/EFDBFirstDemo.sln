@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDBFirstDemo.ConsoleApp", "EFDBFirstDemo.ConsoleApp\EFDBFirstDemo.ConsoleApp.csproj", "{E5844F52-3B41-4A7F-9A04-0534522DB80D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFDBFirstDemo.ConsoleApp", "EFDBFirstDemo.ConsoleApp\EFDBFirstDemo.ConsoleApp.csproj", "{E5844F52-3B41-4A7F-9A04-0534522DB80D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDBFirstDemo.Data", "EFDBFirstDemo.Data\EFDBFirstDemo.Data.csproj", "{70C27780-5806-4D81-BE35-F68DA2C00E57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFDBFirstDemo.Data", "EFDBFirstDemo.Data\EFDBFirstDemo.Data.csproj", "{70C27780-5806-4D81-BE35-F68DA2C00E57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
