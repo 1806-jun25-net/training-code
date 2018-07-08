@@ -17,6 +17,23 @@ CREATE TABLE Movies.Genre
 	Name NVARCHAR(128) NOT NULL
 );
 
+create table MovQuant
+(
+	movq int not null check (movq between 1 and 12),
+	what int not null check (what between 1 and 3)
+);
+
+insert into MovQuant
+values(12,3);
+
+insert into MovQuant
+values(1,1);
+
+select * from MovQuant;
+
+SELECT * FROM sysobjects where xtype ='U';
+
+
 ALTER TABLE Movies.Movie
 ADD CONSTRAINT FK_Movie_Genre FOREIGN KEY (GenreID) REFERENCES Movies.Genre(ID);
 
@@ -127,3 +144,5 @@ DELETE FROM Movies.Movie
 
 SELECT * FROM Movies.Movie
 >>>>>>> master
+
+
