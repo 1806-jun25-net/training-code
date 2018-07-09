@@ -81,11 +81,11 @@ namespace RestaurantReviews.ConsoleApp
                             {
                                 Console.WriteLine();
                                 var restaurantString = $"\"{restaurant.Name}\"";
-                                if (restaurant.Reviews?.Count > 0)
+                                if (reviews?.Count > 0)
                                 {
                                     restaurantString += $", with score {restaurant.Score}"
-                                        + $" from {restaurant.Reviews.Count} review";
-                                    if (restaurant.Reviews.Count > 1)
+                                        + $" from {reviews.Count} review";
+                                    if (reviews.Count > 1)
                                     {
                                         restaurantString += "s";
                                     }
@@ -136,7 +136,7 @@ namespace RestaurantReviews.ConsoleApp
                                             if (input == "e")
                                             {
                                                 var review = reviews[reviewNum - 1];
-                                                var newReview = new Review();
+                                                var newReview = new Review { Id = review.Id };
                                                 while (newReview.ReviewerName == null)
                                                 {
                                                     Console.WriteLine();
@@ -196,10 +196,14 @@ namespace RestaurantReviews.ConsoleApp
                                                         Console.WriteLine(ex.Message);
                                                     }
                                                 }
+                                                restaurantRepository.UpdateReview(newReview);
+                                                restaurantRepository.Save();
                                                 reviews[reviewNum - 1] = newReview;
                                             }
                                             else if (input == "d")
                                             {
+                                                restaurantRepository.DeleteReview(reviews[reviewNum - 1].Id);
+                                                restaurantRepository.Save();
                                                 reviews.RemoveAt(reviewNum - 1);
                                             }
                                             else if (input == "b")
@@ -276,11 +280,17 @@ namespace RestaurantReviews.ConsoleApp
                                             Console.WriteLine(ex.Message);
                                         }
                                     }
-                                    restaurants[restaurantNum - 1].Reviews.Add(newReview);
+                                    restaurantRepository.AddReview(newReview, restaurants[restaurantNum - 1]);
+                                    restaurantRepository.Save();
+                                    reviews.Add(newReview);
                                 }
                                 else if (input == "e")
                                 {
-                                    var newRestaurant = new Restaurant();
+                                    var newRestaurant = new Restaurant
+                                    {
+                                        Id = restaurant.Id,
+                                        Reviews = reviews
+                                    };
                                     while (newRestaurant.Name == null)
                                     {
                                         Console.WriteLine();
@@ -297,11 +307,14 @@ namespace RestaurantReviews.ConsoleApp
                                             Console.WriteLine(ex.Message);
                                         }
                                     }
-                                    newRestaurant.Reviews = restaurant.Reviews;
+                                    restaurant = newRestaurant;
+                                    restaurantRepository.UpdateRestaurant(restaurant);
+                                    restaurantRepository.Save();
                                 }
                                 else if (input == "d")
                                 {
-                                    restaurants.RemoveAt(restaurantNum - 1);
+                                    restaurantRepository.DeleteRestaurant(restaurants[restaurantNum - 1].Id);
+                                    restaurantRepository.Save();
                                     break;
                                 }
                                 else if (input == "b")
@@ -343,11 +356,13 @@ namespace RestaurantReviews.ConsoleApp
                             Console.WriteLine(ex.Message);
                         }
                     }
-                    restaurants.Add(restaurant);
+                    restaurantRepository.AddRestaurant(restaurant);
+                    restaurantRepository.Save();
                 }
                 else if (input == "s")
                 {
                     Console.WriteLine();
+                    var restaurants = restaurantRepository.GetRestaurants().ToList();
                     try
                     {
                         using (var stream = new FileStream("../../../data.xml", FileMode.Create))
@@ -368,6 +383,7 @@ namespace RestaurantReviews.ConsoleApp
                 else if (input == "l")
                 {
                     Console.WriteLine();
+                    List<Restaurant> restaurants;
                     try
                     {
                         using (var stream = new FileStream("../../../data.xml", FileMode.Open))
@@ -375,6 +391,25 @@ namespace RestaurantReviews.ConsoleApp
                             restaurants = (List<Restaurant>)serializer.Deserialize(stream);
                         }
                         Console.WriteLine("Success.");
+                        for (var i = 1; i <= restaurants.Count; i++)
+                        {
+                            var restaurant = restaurants[i - 1];
+                            var restaurantString = $"{i}: \"{restaurant.Name}\"";
+                            if (restaurant.Reviews?.Count > 0)
+                            {
+                                restaurantString += $", with score {restaurant.Score}"
+                                    + $" from {restaurant.Reviews.Count} review";
+                                if (restaurant.Reviews.Count > 1)
+                                {
+                                    restaurantString += "s";
+                                }
+                            }
+                            else
+                            {
+                                restaurantString += ", with no reviews";
+                            }
+                            Console.WriteLine(restaurantString);
+                        }
                     }
                     catch (FileNotFoundException)
                     {
@@ -382,11 +417,11 @@ namespace RestaurantReviews.ConsoleApp
                     }
                     catch (SecurityException ex)
                     {
-                        Console.WriteLine($"Error while saving: {ex.Message}");
+                        Console.WriteLine($"Error while loading: {ex.Message}");
                     }
                     catch (IOException ex)
                     {
-                        Console.WriteLine($"Error while saving: {ex.Message}");
+                        Console.WriteLine($"Error while loading: {ex.Message}");
                     }
                 }
                 else if (input == "q")
@@ -399,6 +434,7 @@ namespace RestaurantReviews.ConsoleApp
                     Console.WriteLine($"Invalid input \"{input}\".");
                 }
             }
+            dbContext.Dispose();
         }
     }
 }
