@@ -48,3 +48,9 @@ Values('2','Mitchell','Cranston','111220909','1');
 
 Insert into Employee(ID, FirstName,LastName,SSN,DeptID)
 Values('3','Thomas','Edison','020114040','1');
+
+Insert Into Department(ID,Name,Location)
+Values('2','Accounting','Texas');
+
+Insert INto Department(ID,Name,Location)
+Values('3','HR','Texas');
