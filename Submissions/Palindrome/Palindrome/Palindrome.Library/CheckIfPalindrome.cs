@@ -8,10 +8,10 @@ namespace Palindrome.Library
     {
         public static string DeleteNonChars(string input)
         {
-            for (int i = 0; i < input.Length; i++)
-            {
+            //for (int i = 0; i < input.Length; i++)
+            //{
                 
-            }
+            //}
             string lower = input.ToLower();
             return lower;
         }
@@ -23,10 +23,6 @@ namespace Palindrome.Library
 
             for (int i = 0; i < inputArray.Length; i++)
             {
-                if (inputArray[i] == ' ')
-                {
-                    i++;
-                }
                 inputReverse[i] = inputArray[inputArray.Length - 1 - i];
             }
 
