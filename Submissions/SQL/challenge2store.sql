@@ -35,6 +35,8 @@ insert into productinfo.orders values(1,2);
 insert into productinfo.orders values(2,1);
 insert into productinfo.orders values(3,3);
 
+select sum(orders.price) from productinfo.product where (select * from productinfo.orders where ProductID = 2);
+
 select * from productinfo.orders where CustomerID = 1;
 
 update productinfo.Product set(price = 450) where id = 2;

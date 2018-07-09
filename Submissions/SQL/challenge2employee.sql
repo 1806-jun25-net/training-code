@@ -63,6 +63,6 @@ update empinfo.empdetails set deptid = 2 where id = 2;
 
 select sum(salary) from empinfo.empdetails where deptid = 1;
 
-select count(*) from empinfo.employee groupby(deptid);
+select count(*) from empinfo.employee groupby();
 
 update empinfo.EmpDetails set(salary = 290000.00) where id = 1;
