@@ -85,4 +85,4 @@ group by DeptID
 update EmpDetails
 set Salary = 90000
 WHERE EmployeeID ID IN 
-(substring)
+(subquery)
