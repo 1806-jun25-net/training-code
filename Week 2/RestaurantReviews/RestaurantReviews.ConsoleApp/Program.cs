@@ -357,6 +357,7 @@ namespace RestaurantReviews.ConsoleApp
                         }
                     }
                     restaurantRepository.AddRestaurant(restaurant);
+                    restaurantRepository.Save();
                 }
                 else if (input == "s")
                 {
