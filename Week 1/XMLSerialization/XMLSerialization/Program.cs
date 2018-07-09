@@ -11,7 +11,7 @@ namespace XMLSerialization
         static void Main(string[] args)
         {
             var list = new List<Person>();
-            Task<IEnumerable<Person>> desListTask = DeserializeFromFileAsync(@"C:\Users\Revature\Desktop\data.xml");
+            Task<IEnumerable<Person>> desListTask = DeserializeFromFileAsync(@"C:\Revature\XML\data.xml");
             IEnumerable<Person> result = new List<Person>();
             try
             {
@@ -24,22 +24,10 @@ namespace XMLSerialization
             list.AddRange(result);
             FillList(list);
             // @-string for disabling escape sequences like \t
-            SerializeToFile(@"C:\Users\Revature\Desktop\data.xml", list);
+            SerializeToFile(@"C:\Revature\XML\data.xml", list);
 
-            List<int> largeNumbers = new List<int>();
-            foreach (var item in largeNumbers)
-            {
-                ExpensiveCalculation(item);
-            }
-            // run as many calculations at the same time as we can, using threads
-            // / multiple cpu cores
-            Parallel.ForEach(largeNumbers, item => ExpensiveCalculation(item));
         }
-
-        private static void ExpensiveCalculation(int item)
-        {
-        }
-
+        
         private static void SerializeToFile(string fileName, List<Person> people)
         {
             var serializer = new XmlSerializer(typeof(List<Person>));

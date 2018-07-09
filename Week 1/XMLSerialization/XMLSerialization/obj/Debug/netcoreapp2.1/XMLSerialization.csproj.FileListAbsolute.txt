@@ -1,0 +1,11 @@
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\bin\Debug\netcoreapp2.1\XMLSerialization.deps.json
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\bin\Debug\netcoreapp2.1\XMLSerialization.runtimeconfig.json
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\bin\Debug\netcoreapp2.1\XMLSerialization.runtimeconfig.dev.json
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\bin\Debug\netcoreapp2.1\XMLSerialization.dll
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\bin\Debug\netcoreapp2.1\XMLSerialization.pdb
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\obj\Debug\netcoreapp2.1\XMLSerialization.csprojAssemblyReference.cache
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\obj\Debug\netcoreapp2.1\XMLSerialization.csproj.CoreCompileInputs.cache
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\obj\Debug\netcoreapp2.1\XMLSerialization.AssemblyInfoInputs.cache
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\obj\Debug\netcoreapp2.1\XMLSerialization.AssemblyInfo.cs
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\obj\Debug\netcoreapp2.1\XMLSerialization.dll
+C:\Revature\training-code\Week 1\XMLSerialization\XMLSerialization\obj\Debug\netcoreapp2.1\XMLSerialization.pdb
