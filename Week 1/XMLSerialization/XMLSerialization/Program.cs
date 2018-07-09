@@ -11,7 +11,7 @@ namespace XMLSerialization
         static void Main(string[] args)
         {
             var list = new List<Person>();
-            Task<IEnumerable<Person>> desListTask = DeserializeFromFileAsync(@"C:\Users\Revature\Desktop\data.xml");
+            Task<IEnumerable<Person>> desListTask = DeserializeFromFileAsync(@"data.xml");
             IEnumerable<Person> result = new List<Person>();
             try
             {
@@ -24,7 +24,7 @@ namespace XMLSerialization
             list.AddRange(result);
             FillList(list);
             // @-string for disabling escape sequences like \t
-            SerializeToFile(@"C:\Users\Revature\Desktop\data.xml", list);
+            SerializeToFile(@"data.xml", list);
 
             List<int> largeNumbers = new List<int>();
             foreach (var item in largeNumbers)
