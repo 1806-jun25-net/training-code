@@ -4,6 +4,7 @@ using System.Text;
 
 namespace LINQDemo.Library
 {
+<<<<<<< HEAD
     //public class MyItem
     //{
     //    public int Index { get; set; }
@@ -13,6 +14,16 @@ namespace LINQDemo.Library
     public class MyCollection<T> where T : new() //<T> declaring a type parameter
     {
         private readonly List<T> TheList = new List<T>();
+=======
+    //public class MyItem {
+    //    public int Index { get; set; }
+    //}
+
+    // can specify contraints on the generic type parameter
+    public class MyCollection<T> where T : new()
+    {
+        private readonly List<T> theList = new List<T>();
+>>>>>>> origin/master
         
         //bool IsIndexOne(T item)
         //{
@@ -26,7 +37,11 @@ namespace LINQDemo.Library
 
         public void Add(T item)
         {
+<<<<<<< HEAD
             TheList.Add(item);
+=======
+            theList.Add(item);
+>>>>>>> origin/master
         }
     }
 }

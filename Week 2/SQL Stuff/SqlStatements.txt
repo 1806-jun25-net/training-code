@@ -1,0 +1,123 @@
+update MoviesDB.Movie
+set ReleaseDate = '2010-01-01';
+
+update MoviesDB.Genre
+set Name = 'Comedy'
+where GenreID = 3;
+
+select * from MoviesDB.Movie;
+
+select * from MoviesDB.Genre;
+
+Alter table MoviesDB.Movie
+Add ReleaseDate Date Null;
+
+Alter table MoviesDB.Movie
+Add ComputedName As (Name + ' (' + Convert(VarChar, Year(ReleaseDate)) + ')')
+
+go
+create view NewReleases
+as
+	select * from MoviesDB.Movie
+	where YEAR(ReleaseDate) > 2016;
+go
+
+select * from NewReleases
+
+/*
+Declare @table;
+select * into @table from MoviesDB.Movie
+*/
+
+go
+create function MoviesDB.NumberOfYearMovies(@year Int)
+returns int
+as
+begin
+	declare @result int
+	select @result =  count(*) from MoviesDB.Movie
+	where YEAR(ReleaseDate) = @year
+	return @result
+end
+go
+
+select MoviesDB.NumberOfYearMovies(2010);
+
+
+Alter Table MoviesDB.Movie
+Add DateModified DateTime2;
+
+Select * From MoviesDB.Movie
+
+--trigger
+GO
+Create Trigger MoviesDB.TR_Movie_DateModified
+On MoviesDB.Movie
+After Update --can trigger on Insert, Update, Delete
+As
+	--in here, we can see pseudo-tables inserted and deleted
+	Update MoviesDB.Movie
+	Set DateModified = GETDATE()
+	Where ID In (Select ID From inserted) --can use Inserted, Deleted, or both
+	Print 'Updated';
+GO
+
+--fills in DateModified becaues of Trigger
+Update MoviesDB.Movie
+Set ReleaseDate = '1999-01-01'
+
+
+GO
+Create Trigger MoviesDB.TR_Movie_ReplaceDeleting
+On MoviesDB.Movie
+Instead of Delete
+As
+	Print 'Replacing/Preventing All Deletes'
+GO
+
+Delete From MoviesDB.Movie
+
+
+
+-- stored procedure
+Create Procedure SalesLT.Procedure1()
+As
+Begin
+	Begin Transaction
+	--would commit at end of procedure if I didn't tell it to
+	--would rollback in case of error if I didn't tell it to
+	Begin Try
+		--we have try/catch in SQL too
+		Select 1;		--for dummy statements
+		--update
+		--insert
+		--insert
+		Commit Transaction
+	End Try
+	Begin Catch
+		--do some logic based on the error
+		Print @@Error;
+		Print Error_Message();
+		Print Error_State();
+		Print Error_Number();
+		Print Error_Severity();
+		Print @@RowCount; --how many rows have been affected by this transaction
+		RollBack Transaction;
+	End Catch
+End
+
+/*demos, all at once:
+	stored procedure
+		like a method, can modify the database, do anything
+		can take parameters
+	try/catch
+		works pretty much like C#
+		by the way we do have throw
+	transaction (explicit, multi-statement)
+		with explicit Commit and Rollback
+*/
+
+Execute SalesLT.Procedure1(); --this is how to call Procedures
+
+
+

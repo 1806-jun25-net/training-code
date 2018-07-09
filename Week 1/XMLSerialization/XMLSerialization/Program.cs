@@ -11,8 +11,7 @@ namespace XMLSerialization
         static void Main(string[] args)
         {
             var list = new List<Person>();
-            Task<IEnumerable<Person>> desListTask = DeserializeFromFileAsync(
-                @"C:\Revature\training-code\Week 1\Serialization\XMLSerialization\data.xml");
+            Task<IEnumerable<Person>> desListTask = DeserializeFromFileAsync(@"C:\Users\Revature\Desktop\data.xml");
             IEnumerable<Person> result = new List<Person>();
             try
             {
@@ -25,7 +24,7 @@ namespace XMLSerialization
             list.AddRange(result);
             FillList(list);
             // @-string for disabling escape sequences like \t
-            SerializeToFile(@"C:\Revature\training-code\Week 1\Serialization\XMLSerialization\data.xml", list);
+            SerializeToFile(@"C:\Users\Revature\Desktop\data.xml", list);
 
             List<int> largeNumbers = new List<int>();
             foreach (var item in largeNumbers)
@@ -107,7 +106,7 @@ namespace XMLSerialization
         {
             list.Add(new Person
             {
-                Id = 101,
+                Id = 1,
                 Name = new Name
                 {
                     First = "Fred",

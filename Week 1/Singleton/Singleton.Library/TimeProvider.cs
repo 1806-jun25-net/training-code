@@ -6,12 +6,18 @@ namespace Singleton.Library
 {
     public class TimeProvider
     {
+<<<<<<< HEAD
         //property with just a getter, no setter
         public virtual DateTime CurrentTime => DateTime.Now;
 
         //equivilent to this code
         //public static DateTime CurrentTime { get { return DateTime.Now; } }
 
+=======
+        // a property with just a getter, no setter
+        public virtual DateTime CurrentTime => DateTime.Now;
+
+>>>>>>> origin/master
         protected static TimeProvider s_instance;
         protected static TimeProvider s_current;
 
@@ -28,7 +34,10 @@ namespace Singleton.Library
                 {
                     s_instance = new TimeProvider();
                 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
                 if (s_current == null)
                 {
                     s_current = s_instance;
@@ -37,6 +46,7 @@ namespace Singleton.Library
             }
             set
             {
+<<<<<<< HEAD
                 if(value != null)
                     s_current = value;
             }
@@ -44,6 +54,15 @@ namespace Singleton.Library
 
         //only allowed to make one instance of a Singleton class
         //must use private or protected when creating class
+=======
+                if (value != null)
+                {
+                    s_current = value;
+                }
+            }
+        }
+
+>>>>>>> origin/master
         protected TimeProvider() { }
     }
 }
