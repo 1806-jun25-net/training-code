@@ -8,6 +8,8 @@
 -- to the higher (int)
 SELECT 1 + '2' AS result;
 
+
+
 -- Step 3: Use implicit conversion in a query
 -- Demonstrate implicit conversion from the lower type (varchar) 
 -- to the higher (int)
