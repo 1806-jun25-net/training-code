@@ -40,5 +40,11 @@ Add Constraint FK_EmpDetails_EmployeeID Foreign Key(EmployeeID)
 Insert into Department(ID,Name,Location)
 Values('1','Marketing','Texas')
 
-Insert into  Employee(ID,FirstName,LastName,SSN)
+Insert into  Employee(ID,FirstName,LastName,SSN,DeptID)
 Values('1','Tina','Smith','777009339','1');
+
+Insert into Employee(ID,FirstName,LastName,SSN,DeptID)
+Values('2','Mitchell','Cranston','111220909','1');
+
+Insert into Employee(ID, FirstName,LastName,SSN,DeptID)
+Values('3','Thomas','Edison','020114040','1');
