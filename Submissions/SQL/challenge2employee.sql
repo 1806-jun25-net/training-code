@@ -54,3 +54,6 @@ Values('2','Accounting','Texas');
 
 Insert INto Department(ID,Name,Location)
 Values('3','HR','Texas');
+
+Insert into EmpDetails(ID,EmployeeID,Salary,Address1,City,State_,Country)
+values('1','1','50,000','121 Tulane Dr.','Houston','US')
