@@ -22,8 +22,6 @@ namespace EFDBFirstDemo.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:escalona-1806.database.windows.net,1433;Initial Catalog=MoviesDB;Persist Security Info=False;User ID=escalona;Password=Password123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -45,6 +43,10 @@ namespace EFDBFirstDemo.Data
                 entity.ToTable("Movie", "Movies");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.ComputedName)
+                    .HasMaxLength(161)
+                    .HasComputedColumnSql("((([Name]+' (')+CONVERT([varchar],datepart(year,[ReleaseDate])))+')')");
 
                 entity.Property(e => e.GenreId).HasColumnName("GenreID");
 

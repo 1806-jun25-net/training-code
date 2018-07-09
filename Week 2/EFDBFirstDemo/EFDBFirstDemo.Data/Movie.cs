@@ -9,6 +9,8 @@ namespace EFDBFirstDemo.Data
         public string Name { get; set; }
         public int GenreId { get; set; }
         public DateTime? ReleaseDate { get; set; }
+        public string ComputedName { get; set; }
+        public DateTime? DateModified { get; set; }
 
         public Genre Genre { get; set; }
     }
