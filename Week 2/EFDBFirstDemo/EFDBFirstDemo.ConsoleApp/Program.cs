@@ -39,6 +39,22 @@ namespace EFDBFirstDemo.ConsoleApp
                 Console.WriteLine($"Name {item.Name}," +
                     $" genre {item.Genre.Name}");
             }
+
+            //edit a movie
+            var aMovie = movies.First();
+            aMovie.Name = "A New Hope";
+            repo.Edit(aMovie);
+            repo.AddMovie("Die Hard", DateTime.Now, "action");
+            repo.DeleteById(aMovie.Id);
+            repo.SaveChanges();
+
+            movies = repo.GetMoviesWithGenres();
+            Console.WriteLine();
+            foreach (var item in movies)
+            {
+                Console.WriteLine($"Name {item.Name}," +
+                    $" genre {item.Genre.Name}");
+            }
         }
 
         static void EarlierCode()

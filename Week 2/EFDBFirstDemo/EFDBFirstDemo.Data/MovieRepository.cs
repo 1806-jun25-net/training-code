@@ -63,6 +63,10 @@ namespace EFDBFirstDemo.Data
         {
             // would add it if it didn't exist
             _db.Update(movie);
+
+            // sometimes we need to do it a different way
+            //var trackedMovie = _db.Movie.Find(movie.Id);
+            //_db.Entry(trackedMovie).CurrentValues.SetValues(movie);
         }
 
         public void SaveChanges()
