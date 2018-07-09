@@ -77,5 +77,12 @@ from EmpDetails
 group by Department
 
 --report total employees by department
+select FirstName AS concat(FirstName, ' ', LastName)
+from Employee
+group by DeptID
 
 --increase salary of Tina Smith to 90k
+update EmpDetails
+set Salary = 90000
+WHERE EmployeeID ID IN 
+(substring)
