@@ -16,6 +16,11 @@ namespace RestaurantReviews.Library.Models
         private string _name;
 
         /// <summary>
+        /// The restaurant's ID. Zero indicates a missing value.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// The restaurant's name. Must not be empty.
         /// </summary>
         public string Name
