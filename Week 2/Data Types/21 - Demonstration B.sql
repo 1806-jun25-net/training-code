@@ -2,7 +2,7 @@
 
 -- Step 1:
 -- Switch the query window to use your copy of the AdventureWorksLT database
-use [testAdWorks]
+
 -- Step 2: Use collation in a query
 SELECT CustomerId, LastName 
 FROM SalesLT.Customer
