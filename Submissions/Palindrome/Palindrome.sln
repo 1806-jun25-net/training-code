@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PalindromeUI", "PalindromeUI\PalindromeUI.csproj", "{49E11D08-8E43-4B23-8F15-961C749113CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromeLibrary", "PalindromeLibrary\PalindromeLibrary.csproj", "{2272C7EE-39A6-430C-9A2A-B2D446BE0107}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PalindromeLibrary", "PalindromeLibrary\PalindromeLibrary.csproj", "{2272C7EE-39A6-430C-9A2A-B2D446BE0107}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromeTest", "PalindromeTest\PalindromeTest.csproj", "{735955F9-439B-4B0C-AD10-1C4BED063513}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PalindromeTest", "PalindromeTest\PalindromeTest.csproj", "{735955F9-439B-4B0C-AD10-1C4BED063513}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
