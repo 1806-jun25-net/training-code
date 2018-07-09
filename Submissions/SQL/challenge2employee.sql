@@ -79,8 +79,10 @@ insert into Employee Values(5, 'Tom', 'Ryan', '555-55-5555', 4)
 
 go
 
-Select FirstName, LastName from Employee where DeptID = 4;
+Select Employee.FirstName, Employee.LastName, Department.Name from Employee join Department on Employee.DeptID = Department.ID
+where Department.Name = 'Marketing';
 
 go
 
-select sum()
+select sum(EmpDetails.Salary) from EmpDetails join Employee on Employee.ID = EmpDetails.EmployeeID 
+join Department on Employee.DeptID = Department.ID where Department.Name = 'Marketing';
