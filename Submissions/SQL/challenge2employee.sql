@@ -66,6 +66,9 @@ VALUES ('Billy', 'Bob', 123456787, 3);
 INSERT INTO EmpDetails (EmployeeID, Salary, Address1, City, State, Country)
 VALUES (1, 60000, '123 Wallaby Way','Sterling', 'VA', 'USA');
 
+INSERT INTO EmpDetails (EmployeeID, Salary, Address1, Address2, City, State, Country)
+VALUES (4, 55000, '3200 Henry Ct', 'Apt 201', 'Reston', 'VA', 'USA');
+
 --
 
 INSERT INTO Employee (FirstName, LastName, SSN, DeptID)
@@ -77,7 +80,23 @@ VALUES ('Marketing', 'Reston');
 INSERT INTO Employee (FirstName, LastName, SSN, DeptID)
 VALUES ('Inne', 'Market', 123456787, 4);
 
+INSERT INTO Employee (FirstName, LastName, SSN, DeptID)
+VALUES ('Mark', 'Eting', 123456783, 4);
+
 SELECT * FROM Employee WHERE DeptID = 4;
+
+SELECT * FROM Employee WHERE DeptID = 
+(SELECT ID FROM Department WHERE Name = 'Marketing');	
+
+--
+
+INSERT INTO EmpDetails (EmployeeID, Salary, Address1, City, State, Country)
+VALUES (5, 50000, '324 Leaf St','Reston', 'VA', 'USA');
+
+INSERT INTO EmpDetails (EmployeeID, Salary, Address1, City, State, Country)
+VALUES (6, 50000, '81 Block Ave','Herndon', 'VA', 'USA');
+
+--
 
 SELECT * FROM Employee WHERE DeptID = 
 (SELECT ID FROM Department WHERE Name = 'Marketing');	
