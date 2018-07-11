@@ -40,7 +40,7 @@ declare @test as char(60)='United States of America| ';
 select REPLACE(@test,'|','$')
 
 select SOUNDEX('rise'), SOUNDEX('rice')
-select 'Demi' +space(5)+ 'Lovato'
+select 'Demi' +space(2)+ 'Lovato'
 select STUFF('ping' ,2,2,'oo')
 select str(195.456,6,2)
 select unicode('Z')

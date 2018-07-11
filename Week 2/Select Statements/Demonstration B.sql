@@ -25,5 +25,5 @@ FROM SalesLT.Product;
 -- You should see 295 rows. 
 -- Point out the orderid key column for the SalesLT.Product table in the Object Explorer.
 -- You may want to show the same statement without DISTINCT, for comparison.
-SELECT DISTINCT ProductID, Color, Size 
-FROM SalesLT.Product;
+SELECT  ProductID, Color, Size 
+FROM SalesLT.Product;DISTINCT

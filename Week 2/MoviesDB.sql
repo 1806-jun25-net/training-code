@@ -60,7 +60,7 @@ AS
 	WHERE YEAR(ReleaseDate) > 2016;
 GO
 
-SELECT * FROM Movies.NewReleases;
+SELECT * FROM Movies1.NewReleases;
 
 -- variables
 -- doesn't work but you can do something like this
@@ -89,7 +89,7 @@ SELECT Movies.NumberOfYearMovies(2011); -- returns 0
 ALTER TABLE Movies.Movie
 ADD DateModified DATETIME2;
 
-SELECT * FROM Movies.Movie
+SELECT * FROM Movies.Movie1
 GO
 
 CREATE TRIGGER Movies.TR_Movie_DateModified

@@ -15,9 +15,11 @@ FROM SalesLT.Customer
 WHERE FirstName = 'Donna';
 
 -- string ordering/comparison
-SELECT CustomerID, FirstName, LastName
-FROM SalesLT.Customer
-WHERE FirstName < 'B';
+SELECT  a.FirstName, b.LastName
+FROM SalesLT.Customer a, SalesLT.Customer b
+WHERE a.FirstName=b.FirstName
+And a.FirstName<'B' And b.LastName  in(Select b.LastName From SalesLT.Customer b Where b.LastName<'C')
+Order By a.LastName
 
 -- with group by
 -- first names, and how many duplicates they have

@@ -13,7 +13,7 @@ SELECT 1 + '2' AS result;
 -- to the higher (int)
 -- NOTE: THIS WILL FAIL
 
-SELECT 1 + 'abc' AS result;
+--SELECT 1 + 'abc' AS result;
 
 -- Step 4: Use explicit conversion in a query
 
