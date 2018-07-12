@@ -52,8 +52,13 @@ namespace DemoMVC
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            // we specify convention-based routing in the UseMvc call in Startup.cs
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "people",
+                    template: "p/{action=index}/{di}" ,
+                    defaults: new { controller = "People" });
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

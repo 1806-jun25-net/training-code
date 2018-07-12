@@ -9,6 +9,7 @@ using DemoMVC.Models;
 
 namespace DemoMVC.Controllers
 {
+    //[Route("persons/[action]")]
     public class PeopleController : Controller
     {
         private readonly AppDbContext _context;
