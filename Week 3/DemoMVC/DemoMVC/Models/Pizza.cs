@@ -8,7 +8,7 @@ namespace DemoMVC.Models
 {
     public class Pizza
     {
-        string TypeOfPizza { get; set; }
+        public string Type { get; set; }
 
         public List<SelectListItem> AllTypes { get; set; } = new List<SelectListItem>
         {

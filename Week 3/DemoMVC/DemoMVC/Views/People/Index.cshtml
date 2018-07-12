@@ -7,18 +7,19 @@
 <h2>Index</h2>
 
 @*
-razor syntax:
-    - razor expression: @DateTime.Now
-        @(DateTime.Now) --- if we need to override which part
-            it considers C# and which HTML
-    - rezor block: @{(code)}
-        also include control flow things like
-        @if @for @foreach @switch
-    - rezor comments *@ @* This is a comment!
-    - directives like @model
-    - HTML helpers (e.g. @html.DisplayFor())
-    - tag helpers (in turquoise) that look like regular HTML
-        - a, form, label, input, the validation ones
+
+    razor syntax:
+        - razor expression: @DateTime.Now
+            @(DateTime.Now) --- if we need to override which part
+                it considers C# and which HTML
+        - razor block: @{ code; }
+            also include control flow things like
+            @if @for @foreach @switch
+        - razor comments @* *@                      @*
+        - directives like @model
+        - HTML helpers (e.g. @Html.DisplayFor()) (gray)
+        - tag helpers (turquoise) that look like regular HTML
+            - a, form, label, input, the validation ones, select
 
 
 
@@ -28,9 +29,12 @@ razor syntax:
 
 <p>@DateTime.Now</p>
 
-@{  var str = "<text with angle brackets>"; }
+@{
+    // some value i don't use
+    var str = "<text with angle brackets>";
+}
 
-@str 
+@str
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -42,28 +46,30 @@ razor syntax:
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
-                @* <label asp-for="Model[0].FirstName"/> *@
+                @Html.DisplayNameFor(model => model.Age)
+                @*     <label asp-for="Model[0].Age" />   *@
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-    var text = "text";
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                @* <a href="People/Edit/@item.Id">Edit</a> *@
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            var text = "text";
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    @*   <a href="People/Edit/@item.Id"> Edit</a> |      *@
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
