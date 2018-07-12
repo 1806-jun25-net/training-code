@@ -59,7 +59,7 @@ namespace RestaurantReviews.Library.Repositories
         {
             // calling Update would mark every property as Modified.
             // this way will only mark the changed properties as Modified.
-            _db.Entry(_db.Review.Find(restaurant.Id)).CurrentValues.SetValues(Mapper.Map(restaurant));
+            _db.Entry(_db.Restaurant.Find(restaurant.Id)).CurrentValues.SetValues(Mapper.Map(restaurant));
         }
 
         /// <summary>

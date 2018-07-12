@@ -84,15 +84,25 @@ namespace RestaurantReviews.WebApp.Controllers
         // POST: Restaurant/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit([FromRoute]int id, [Bind("Name")]Restaurant restaurant)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    var libRest = new Lib.Restaurant
+                    {
+                        Id = id,
+                        Name = restaurant.Name
+                    };
+                    Repo.UpdateRestaurant(libRest);
+                    Repo.Save();
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
