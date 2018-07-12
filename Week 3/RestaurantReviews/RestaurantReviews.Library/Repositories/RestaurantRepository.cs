@@ -27,10 +27,18 @@ namespace RestaurantReviews.Library.Repositories
         /// Get all restaurants with deferred execution.
         /// </summary>
         /// <returns>The collection of restaurants</returns>
-        public IEnumerable<Models.Restaurant> GetRestaurants()
+        public IEnumerable<Models.Restaurant> GetRestaurants(string search = null)
         {
-            // disable pointless tracking for performance
-            return Mapper.Map(_db.Restaurant.Include(r => r.Review).AsNoTracking());
+            if (search == null)
+            {
+                // disable pointless tracking for performance
+                return Mapper.Map(_db.Restaurant.Include(r => r.Review).AsNoTracking());
+            }
+            else
+            {
+                return Mapper.Map(_db.Restaurant.Include(r => r.Review)
+                    .AsNoTracking().Where(r => r.Name.Contains(search)));
+            }
         }
 
         /// <summary>
