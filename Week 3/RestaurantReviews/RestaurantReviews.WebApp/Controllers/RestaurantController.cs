@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantReviews.Library.Repositories;
 using RestaurantReviews.WebApp.Models;
+using Lib = RestaurantReviews.Library.Models;
 
 namespace RestaurantReviews.WebApp.Controllers
 {
@@ -51,13 +52,22 @@ namespace RestaurantReviews.WebApp.Controllers
         // POST: Restaurant/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Restaurant restaurant)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    Repo.AddRestaurant(new Lib.Restaurant
+                    {
+                        Id = restaurant.Id,
+                        Name = restaurant.Name
+                    });
+                    Repo.Save();
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(restaurant);
             }
             catch
             {
