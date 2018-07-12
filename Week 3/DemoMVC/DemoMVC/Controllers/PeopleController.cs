@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace DemoMVC.Controllers
 {
@@ -54,15 +55,18 @@ namespace DemoMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,Age")] Person person)
+        public async Task<IActionResult> Create(IFormCollection collection)
         {
+            Person person;
             if (ModelState.IsValid)
             {
+                person = new Person();
+                person.Age = int.Parse(collection["Age"]);
                 _context.Add(person);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(person);
+            return View();
         }
 
         // GET: People/Edit/5
@@ -148,6 +152,30 @@ namespace DemoMVC.Controllers
         private bool PersonExists(int id)
         {
             return _context.Person.Any(e => e.Id == id);
+        }
+
+        // GET: People/CreatePizza
+        public IActionResult CreatePizza()
+        {
+            var model = new Pizza
+            {
+                Type = "cheese"
+            };
+            return View("Pizza", model);
+        }
+
+        // POST: People/CreatePizza
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreatePizza(Pizza pizza)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View("Pizza");
         }
     }
 }
