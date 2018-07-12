@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantReviews.Context\RestaurantReviews.Context.csproj" />
+    <ProjectReference Include="..\RestaurantReviews.Library\RestaurantReviews.Library.csproj" />
   </ItemGroup>
 
 </Project>
