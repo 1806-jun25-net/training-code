@@ -34,6 +34,17 @@ namespace RestaurantReviews.Library.Repositories
         }
 
         /// <summary>
+        /// Get a restaurants by ID.
+        /// </summary>
+        /// <returns>The restaurant</returns>
+        public Models.Restaurant GetRestaurantById(int id)
+        {
+            // disable pointless tracking for performance
+            return Mapper.Map(_db.Restaurant.Include(r => r.Review)
+                .AsNoTracking().First(r => r.Id == id));
+        }
+
+        /// <summary>
         /// Add a restaurant, including any associated reviews.
         /// </summary>
         /// <param name="restaurant">The restaurant</param>
@@ -59,7 +70,7 @@ namespace RestaurantReviews.Library.Repositories
         {
             // calling Update would mark every property as Modified.
             // this way will only mark the changed properties as Modified.
-            _db.Entry(_db.Review.Find(restaurant.Id)).CurrentValues.SetValues(Mapper.Map(restaurant));
+            _db.Entry(_db.Restaurant.Find(restaurant.Id)).CurrentValues.SetValues(Mapper.Map(restaurant));
         }
 
         /// <summary>
