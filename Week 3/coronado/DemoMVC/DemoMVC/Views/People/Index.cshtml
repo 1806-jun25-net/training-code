@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DemoMVC.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@*
+    razor syntax:
+    - razor expreion: @DateTime.Now
+        @(DateTime.Now) -- explicit C# declaration if we need to override the razor syntax guess
+    - razor block: @{ code; } -- doesn't print to page, it's code that gets executed
+        also include control flow things like
+        @if @for @foreach @switch @while
+    - razor comments: what this whole thing is in
+    - directives like @model
+    - HTML helpers (e.g. @Html.DisplayFor()) (in gray)
+    - tag helpers -- look like regular HTML (in turquoise)
+        - a, form, label, input, the validation ones
+
+*@
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

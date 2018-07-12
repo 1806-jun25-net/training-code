@@ -17,7 +17,7 @@ namespace DemoMVC.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Hello world!";
 
             return View();
         }
