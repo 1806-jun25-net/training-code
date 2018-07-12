@@ -1,0 +1,167 @@
+<!--Basically tells the browser that we're working in HTML. This defaults to HTML 5-->
+<!DOCTYPE html>
+<!--This is the deepest root tag; the lang attribute lets us add compatible languages-->
+<html lang="en-US"> 
+<!--All page content goes inside the body; the <head> is for the metadata-->
+<!--We could actually (if we were barbarians) leave headers off the code and
+    the browser would generate some defaults for us-->
+
+<!--Metadata-->
+<head> 
+<!--Declare the encoding of this file.
+    The / at the end of the tag closes it as soon as it opens.
+    This is also saying that the page is in unicode. The name 
+    for text with broken encoding is "Mojibake", like the diamond
+    with the question mark inside.-->
+    <meta charset="utf-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+<!--Title = the tab's name and your auto-generated bookmark name-->
+    <title>Page Title</title>
+    
+<!--<meta> is for other kinds of metadata besides the <title>, <link>, and
+    <script> elements. We give them their own names with the name attr.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<!--This is how we import external style sheets. It's like a beefed-up
+    'using' statement that pulls EVERYTHING into this file. href is for
+    which CSS file we want to include, but you can include many in one
+    HTML file.
+    NOTE: HTML-to-CSS is a MANY-to-MANY relationship.-->
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    
+<!--If there's no file to refer to, it just... Doesn't really... Do anything.
+    In a perfect world, this SHOULD be an error, but instead the browser just
+    silently fails and says "Eh, alright" and doesn't do anything about it.
+    Friggin' pushover.-->
+    <script src="main.js"></script>
+</head>
+<!--The <body> is for actual page contents-->
+<body>
+    Hello, World! Here's some notes about elements:
+    <p>Paragraph Tag: Block Element (As you can see, it's in its own block away from the previous line.)</p>
+    <br/>This is an example of the <br/> Line Break tag.
+    <h4>Character Entities</h4>
+    <p>Copyright Character: &copy; &trade;</p>
+    <br/>I am now a Web Developer&trade;!
+    <p>Numerical Char Entities: &#1617;</p>
+    <p>Numerical Char Entities (hex): &#x1617;</p>
+    <p>We can just have Unicode ᘗ</p>
+    <p>Especially we want these ones: &lt; &gt; &quot; &apos; &amp;</p>
+    <p><i>Note: HTML injections, just like SQL injections, are entirely possible in your web program.
+        <br/>Not quite as common or dangerous, but still equally effective.</i></p> 
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+    <p><small>Small Text</small></p>
+    <p><big>Big Text</big></p>
+    <p><em>Emphasis (italic by default)</em></p>
+    <p><strong>Strong Text (bold by default)</strong></p>
+    <h3>Lists</h3>
+
+    <ol>
+        <li>Ordered first list item</li>
+        <li>Ordered second list item</li>
+        <li>
+            <ol>
+                <li>Sub list</li>
+                <li>Sub List</li>
+                <li>Sub list</li>
+                <li>Sub List</li>
+            </ol>
+        </li>
+    </ol>
+
+    <ul>
+        <li>Unordered first list item</li>
+        <li>Unordered second list item</li>
+        <ul>
+            <li>Sub list</li>
+            <li>Sub List</li>
+        </ul>
+    </ul>
+
+    <div id="this-div" class="this-kind-of-div">
+        <p font-family="monospace">You kind of use divs when you have no idea what to put in here. You might
+            have a div for the header, for an article... Juts divs all the way down.
+            We can target a div with CSS.
+        </p>
+    </div>
+    <span>Basically the same as a div. They're also pretty handy for targeting a group
+        of elements in our CSS, so we can have a specific div for a sidebar and one for
+        the page header, while making them look unique.
+    </span>
+
+<!--target="_blank" opens link in a new tab!
+    title="" brings up a tooltip on hover-->
+    <p>
+        <a href="http://google.com"
+        title="Navigate to Google.com in a new tab"
+        target="_blank">Need to look something up?</a> 
+        (PS, this is a hyperlink)
+    </p>
+
+    <img src="logo.png" width="30%" height="30%"/>
+
+    <blockquote>
+        Quotations go here, in the blockquote tag.
+    </blockquote>
+    <p>
+        <sup>Superscript text</sup>
+        <sub>Subscript text</sub>
+    </p>
+<!--Structural Tags; they're not divs, but instead of select a div with the
+    class section or class footer, we can just target section or footer
+    directly from our CSS file.-->
+    <article>
+        Article
+    </article>
+    <main>
+        Main
+    </main>
+    <header>
+        Header
+    </header>
+    <nav>
+        Nav
+    </nav>
+    <footer>
+        Footer
+    </footer>
+    <aside>
+        Aside
+    </aside>
+    <section>
+        Section
+    </section>
+    <video>
+        Video (we used to have flash for this, but it was bloated and not secure)
+    </video>
+    <audio>
+        <source>
+        Audio
+    </audio>
+    <figure>
+        <img src="logo.png" width="10%" height="10%"/>
+        <figcaption>Like the little thumbnail pictures on Wikipedia</figcaption>
+    </figure>
+    <form>
+<!--Forms are great for server data collection, but you need a server that is listening!-->
+        <input type="text"/>
+        <input type="password"/>
+        <input type="button"/>
+        <input type="date"/>
+        <input type="file"/>
+        <input type="radio"/>
+        <input type="checkbox"/>
+        <input type="submit"/>    
+    </form>
+
+
+
+
+</body>
+</html>

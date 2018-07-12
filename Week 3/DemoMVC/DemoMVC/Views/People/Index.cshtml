@@ -6,6 +6,32 @@
 
 <h2>Index</h2>
 
+@*
+razor syntax:
+    - razor expression: @DateTime.Now
+        @(DateTime.Now) --- if we need to override which part
+            it considers C# and which HTML
+    - rezor block: @{(code)}
+        also include control flow things like
+        @if @for @foreach @switch
+    - rezor comments *@ @* This is a comment!
+    - directives like @model
+    - HTML helpers (e.g. @html.DisplayFor())
+    - tag helpers (in turquoise) that look like regular HTML
+        - a, form, label, input, the validation ones
+
+
+
+
+
+*@
+
+<p>@DateTime.Now</p>
+
+@{  var str = "<text with angle brackets>"; }
+
+@str 
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -16,13 +42,14 @@
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Age)
+                @* <label asp-for="Model[0].FirstName"/> *@
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    var text = "text";
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -32,6 +59,7 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @* <a href="People/Edit/@item.Id">Edit</a> *@
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
