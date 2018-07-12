@@ -152,5 +152,29 @@ namespace DemoMVC.Controllers
         {
             return _context.Person.Any(e => e.Id == id);
         }
+
+        // GET: People/CreatePizza
+        public IActionResult CreatePizza()
+        {
+            var model = new Pizza
+            {
+                Type = "cheese"
+            };
+            return View("Pizza", model);
+        }
+
+        // POST: People/CreatePizza
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreatePizza(Pizza pizza)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View("Pizza");
+        }
     }
 }
