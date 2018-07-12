@@ -78,30 +78,50 @@ namespace RestaurantReviews.WebApp.Controllers
         // GET: Restaurant/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name
+            };
+            return View(webRest);
         }
 
         // POST: Restaurant/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit([FromRoute]int id, [Bind("Name")]Restaurant restaurant)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    var libRest = new Lib.Restaurant
+                    {
+                        Id = id,
+                        Name = restaurant.Name
+                    };
+                    Repo.UpdateRestaurant(libRest);
+                    Repo.Save();
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(restaurant);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(restaurant);
             }
         }
 
         // GET: Restaurant/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name
+            };
+            return View(webRest);
         }
 
         // POST: Restaurant/Delete/5
@@ -111,7 +131,8 @@ namespace RestaurantReviews.WebApp.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                Repo.DeleteRestaurant(id);
+                Repo.Save();
 
                 return RedirectToAction(nameof(Index));
             }
