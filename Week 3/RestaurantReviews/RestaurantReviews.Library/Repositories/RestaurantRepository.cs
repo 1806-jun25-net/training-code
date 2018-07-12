@@ -34,6 +34,17 @@ namespace RestaurantReviews.Library.Repositories
         }
 
         /// <summary>
+        /// Get a restaurants by ID.
+        /// </summary>
+        /// <returns>The restaurant</returns>
+        public Models.Restaurant GetRestaurantById(int id)
+        {
+            // disable pointless tracking for performance
+            return Mapper.Map(_db.Restaurant.Include(r => r.Review)
+                .AsNoTracking().First(r => r.Id == id));
+        }
+
+        /// <summary>
         /// Add a restaurant, including any associated reviews.
         /// </summary>
         /// <param name="restaurant">The restaurant</param>

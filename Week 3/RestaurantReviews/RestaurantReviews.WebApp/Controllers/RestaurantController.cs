@@ -78,7 +78,12 @@ namespace RestaurantReviews.WebApp.Controllers
         // GET: Restaurant/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name
+            };
+            return View(webRest);
         }
 
         // POST: Restaurant/Edit/5
@@ -100,18 +105,23 @@ namespace RestaurantReviews.WebApp.Controllers
 
                     return RedirectToAction(nameof(Index));
                 }
-                return View();
+                return View(restaurant);
             }
             catch (Exception ex)
             {
-                return View();
+                return View(restaurant);
             }
         }
 
         // GET: Restaurant/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name
+            };
+            return View(webRest);
         }
 
         // POST: Restaurant/Delete/5
@@ -121,7 +131,8 @@ namespace RestaurantReviews.WebApp.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                Repo.DeleteRestaurant(id);
+                Repo.Save();
 
                 return RedirectToAction(nameof(Index));
             }
