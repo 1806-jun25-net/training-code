@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,7 +15,19 @@ namespace DemoMVC.Models
     public class Person
     {
         public int Id { get; set; }
+
+        [Required]
+        [StringLength(30, MinimumLength = 2)]
         public string FirstName { get; set; }
+
+        [Required]
+        [Range(0, 150)]
         public int Age { get; set; }
+
+        public string Email { get; set; }
+
+        // never bind this from form data
+        [BindNever]
+        public DateTime? DateCreated { get; set; }
     }
 }
