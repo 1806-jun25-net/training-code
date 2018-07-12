@@ -4,15 +4,36 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RestaurantReviews.Library.Repositories;
+using RestaurantReviews.WebApp.Models;
 
 namespace RestaurantReviews.WebApp.Controllers
 {
     public class RestaurantController : Controller
     {
+        public RestaurantRepository Repo { get; }
+
+        public RestaurantController(RestaurantRepository repo)
+        {
+            Repo = repo;
+        }
+
         // GET: Restaurant
         public ActionResult Index()
         {
-            return View();
+            var libRests = Repo.GetRestaurants();
+            var webRests = libRests.Select(x => new Restaurant
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Reviews = x.Reviews.Select(y => new Review
+                {
+                    ReviewerName = y.ReviewerName,
+                    Score = y.Score,
+                    Text = y.Text
+                })
+            });
+            return View(webRests);
         }
 
         // GET: Restaurant/Details/5
