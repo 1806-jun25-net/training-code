@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace DemoMVC.Controllers
 {
@@ -53,15 +54,18 @@ namespace DemoMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,Age")] Person person)
+        public async Task<IActionResult> Create(IFormCollection collection)
         {
+            Person person;
             if (ModelState.IsValid)
             {
+                person = new Person();
+                person.Age = int.Parse(collection["Age"]);
                 _context.Add(person);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(person);
+            return View();
         }
 
         // GET: People/Edit/5
