@@ -17,17 +17,20 @@ namespace DemoMVC.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         [StringLength(30, MinimumLength = 2)]
+        [RegularExpression("")] // for more complicated matching
         public string FirstName { get; set; }
 
         [Required]
         [Range(0, 150)]
         public int Age { get; set; }
 
-        public string Email { get; set; }
+        //[DataType(DataType.EmailAddress)]
+        //public string Email { get; set; }
 
         // never bind this from form data
-        [BindNever]
-        public DateTime? DateCreated { get; set; }
+        //[BindNever]
+        //public DateTime? DateCreated { get; set; }
     }
 }
