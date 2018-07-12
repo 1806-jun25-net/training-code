@@ -16,7 +16,7 @@ CREATE TABLE Customers
 	ID INT PRIMARY KEY,
 	FirstName NVARCHAR(128) NOT NULL,
 	LastName NVARCHAR(128) NOT NULL,
-	CardNumber INT NOT NULL,
+	CardNumber NVARCHAR(128) NOT NULL,
 );
 
 CREATE TABLE Orders
@@ -38,13 +38,13 @@ INSERT INTO Products
 VALUES (3, 'Beats Headphones', 350);
 
 INSERT INTO Customers
-VALUES (101, 'Donald', 'Trump', 1234849384957493);
+VALUES (101, 'Donald', 'Trump', '1234849384957493');
 
 INSERT INTO Customers
-VALUES (102, 'Melania', 'Trump', 6653265987563254);
+VALUES (102, 'Melania', 'Trump', '6653265987563254');
 
 INSERT INTO Customers
-VALUES (103, 'Eric', 'Trump', 7563256359755963);
+VALUES (103, 'Eric', 'Trump', '7563256359755963');
 
 INSERT INTO Orders
 VALUES (201, 1, 101)
