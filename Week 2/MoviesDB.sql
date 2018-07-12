@@ -1,4 +1,4 @@
-CREATE DATABASE MoviesDB;
+--CREATE DATABASE MoviesDB;
 GO -- break up commands into batches
 
 CREATE SCHEMA Movies;

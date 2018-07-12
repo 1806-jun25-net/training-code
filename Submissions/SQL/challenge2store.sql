@@ -75,8 +75,6 @@ VALUES('Tina','Fay',145673845, 3)
 INSERT INTO Employees.Employee
 VALUES('Bob','Marley',189761467, 4)
 
-INSERT INTO Employees.EmpDetails
-VALUES(50000,'123 somwhere st',null, 'Sterling','VA',1)
 
 INSERT INTO Employees.EmpDetails
 VALUES(45000,'178 somwhere st',null, 'Sterling','VA',1)
@@ -86,6 +84,7 @@ VALUES(10000,'78 somwhere st',null, 'Sterling','VA',1)
 
 INSERT INTO Employees.EmpDetails
 VALUES(10000,'23 somwhere st',null, 'Sterling','VA',1)
+
 --SELECT * FROM Employees.Employee
 
 SELECT * FROM Employees.Employee AS Employee, Employees.Department AS Department
