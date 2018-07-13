@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantReviews.Library.Repositories;
-using RestaurantReviews.WebApp.Models;
+using Lib = RestaurantReviews.WebApp.Models;
 
 namespace RestaurantReviews.WebApp.Controllers
 {
@@ -56,8 +56,12 @@ namespace RestaurantReviews.WebApp.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    // return RedirectToAction(nameof(Index));
+                    return View("index");
+                }
+                return View();
             }
             catch
             {
