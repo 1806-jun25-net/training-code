@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MVCAndCodeFirst.Migrations
+namespace DemoMVC.Migrations
 {
-    public partial class initial : Migration
+    public partial class SomeChanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace MVCAndCodeFirst.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(maxLength: 30, nullable: false),
                     Age = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
