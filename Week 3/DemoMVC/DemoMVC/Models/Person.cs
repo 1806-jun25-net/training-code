@@ -19,15 +19,15 @@ namespace DemoMVC.Models
         [Required]
         [Display(Name = "First Name")]
         [StringLength(30, MinimumLength = 2)]
-        [RegularExpression("")] // for more complicated matching
+        [RegularExpression(@"\D*")] // for more complicated matching
         public string FirstName { get; set; }
 
         [Required]
         [Range(0, 150)]
         public int Age { get; set; }
 
-        //[DataType(DataType.EmailAddress)]
-        //public string Email { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
         // never bind this from form data
         //[BindNever]
