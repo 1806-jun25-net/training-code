@@ -19,6 +19,7 @@ namespace DemoMVC.Controllers
         {
             ViewData["Message"] = "Hello world!";
 
+            //returns view with same name
             return View();
         }
 
