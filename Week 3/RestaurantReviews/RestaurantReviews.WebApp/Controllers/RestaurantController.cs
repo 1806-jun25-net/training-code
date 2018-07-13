@@ -20,9 +20,9 @@ namespace RestaurantReviews.WebApp.Controllers
         }
 
         // GET: Restaurant
-        public ActionResult Index()
+        public ActionResult Index([FromQuery]string search = "")
         {
-            var libRests = Repo.GetRestaurants();
+            var libRests = Repo.GetRestaurants(search);
             var webRests = libRests.Select(x => new Restaurant
             {
                 Id = x.Id,
@@ -40,7 +40,18 @@ namespace RestaurantReviews.WebApp.Controllers
         // GET: Restaurant/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name,
+                Reviews = libRest.Reviews.Select(y => new Review
+                {
+                    ReviewerName = y.ReviewerName,
+                    Score = y.Score,
+                    Text = y.Text
+                })
+            };
+            return View(webRest);
         }
 
         // GET: Restaurant/Create
