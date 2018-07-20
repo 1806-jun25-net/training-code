@@ -23,6 +23,7 @@ namespace DemoMVC.Controllers
         // GET: People
         public async Task<IActionResult> Index()
         {
+            ViewData["IndexMessage"] = "viewdata set in this request";
             return View(await _context.Person.ToListAsync());
         }
 
@@ -60,10 +61,14 @@ namespace DemoMVC.Controllers
             Person person;
             if (ModelState.IsValid)
             {
-                person = new Person();
-                person.Age = int.Parse(collection["Age"]);
+                person = new Person
+                {
+                    FirstName = collection["FirstName"],
+                    Age = int.Parse(collection["Age"])
+                };
                 _context.Add(person);
                 await _context.SaveChangesAsync();
+                TempData["CreateMessage"] = "Object successfully created!";
                 return RedirectToAction(nameof(Index));
             }
             return View();
