@@ -34,6 +34,8 @@ namespace TodoApi2
                 .AddXmlSerializerFormatters()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            // don't forget to add Swashbuckle.AspNetCore Nuget package
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });

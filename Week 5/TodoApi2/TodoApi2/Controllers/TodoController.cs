@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TodoApi2.Models;
 
 namespace TodoApi2.Controllers
@@ -35,7 +36,7 @@ namespace TodoApi2.Controllers
         /// </summary>
         /// <param name="id">the id.</param>
         /// <returns>The todo.</returns>
-        [HttpGet("{id:int}.{format?}")]
+        [HttpGet("{id:int}.{format?}", Name = "GetTodo")]
         //[ProducesResponseType(200, Type = typeof(TodoItem))]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
@@ -67,7 +68,7 @@ namespace TodoApi2.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(long id, TodoItem item)
+        public async Task<IActionResult> Update(long id, TodoItem item)
         {
             var todo = _context.TodoItems.Find(id);
             if (todo == null)
@@ -79,7 +80,7 @@ namespace TodoApi2.Controllers
             todo.Name = item.Name;
 
             _context.TodoItems.Update(todo);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return NoContent();
         }
 
