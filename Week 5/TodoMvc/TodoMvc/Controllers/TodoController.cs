@@ -1,18 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using TodoMvc.Models;
 
 namespace TodoMvc.Controllers
 {
     public class TodoController : Controller
     {
-        // GET: Todo
-        public ActionResult Index()
+        private readonly static string ServiceUri = "http://localhost:61443/api/";
+
+        public HttpClient HttpClient { get; }
+
+        public TodoController(HttpClient httpClient)
         {
-            return View();
+            HttpClient = httpClient;
+        }
+
+        // GET: Todo
+        // we can DI into action methods too
+        //public ActionResult Index([FromServices] HttpClient client)
+        public async Task<ActionResult> Index()
+        {
+            // don't forget to register HttpClient as a singleton service in Startup.cs.
+
+            var uri = ServiceUri + "todo";
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            try
+            {
+                var response = await HttpClient.SendAsync(request);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return View("Error");
+                }
+
+                string jsonString = await response.Content.ReadAsStringAsync();
+
+                List<TodoItem> todo = JsonConvert.DeserializeObject<List<TodoItem>>(jsonString);
+
+                return View(todo);
+            }
+            catch (HttpRequestException ex)
+            {
+                // logging
+                return View("Error");
+            }
         }
 
         // GET: Todo/Details/5
@@ -30,11 +69,30 @@ namespace TodoMvc.Controllers
         // POST: Todo/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(TodoItem item)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(item);
+            }
+
             try
             {
-                // TODO: Add insert logic here
+                string jsonString = JsonConvert.SerializeObject(item);
+
+                var uri = ServiceUri + "todo";
+                var request = new HttpRequestMessage(HttpMethod.Post, uri)
+                {
+                    // we set what the Content-Type header will be here
+                    Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
+                };
+                
+                var response = await HttpClient.SendAsync(request);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return View("Error");
+                }
 
                 return RedirectToAction(nameof(Index));
             }
