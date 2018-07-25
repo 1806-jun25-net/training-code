@@ -1,9 +1,11 @@
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using TodoApi.Models;
+using TodoApi2.Models;
 
-namespace TodoApi.Controllers
+namespace TodoApi2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -17,7 +19,7 @@ namespace TodoApi.Controllers
 
             if (_context.TodoItems.Count() == 0)
             {
-                _context.TodoItems.Add(new TodoItem { Name = "Item1" });
+                _context.TodoItems.Add(new TodoItem { Id = 1, Name = "Item1" });
                 _context.SaveChanges();
             }
         }
@@ -26,6 +28,33 @@ namespace TodoApi.Controllers
         public ActionResult<List<TodoItem>> GetAll()
         {
             return _context.TodoItems.ToList();
+        }
+
+        /// <summary>
+        /// Get the todo item by numerical id.
+        /// </summary>
+        /// <param name="id">the id.</param>
+        /// <returns>The todo.</returns>
+        [HttpGet("{id:int}.{format?}")]
+        //[ProducesResponseType(200, Type = typeof(TodoItem))]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        //[Produces("application/json")]
+        [FormatFilter]
+        public ActionResult<TodoItem> GetById(long id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return NotFound();
+            }
+            try
+            {
+                return _context.TodoItems.Find(id);
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         [HttpPost]
