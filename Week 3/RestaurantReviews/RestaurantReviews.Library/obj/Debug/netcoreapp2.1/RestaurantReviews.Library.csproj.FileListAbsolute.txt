@@ -1,0 +1,12 @@
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\bin\Debug\netcoreapp2.1\RestaurantReviews.Library.deps.json
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\bin\Debug\netcoreapp2.1\RestaurantReviews.Library.dll
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\bin\Debug\netcoreapp2.1\RestaurantReviews.Library.pdb
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\bin\Debug\netcoreapp2.1\RestaurantReviews.Context.dll
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\bin\Debug\netcoreapp2.1\RestaurantReviews.Context.pdb
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\obj\Debug\netcoreapp2.1\RestaurantReviews.Library.csprojAssemblyReference.cache
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\obj\Debug\netcoreapp2.1\RestaurantReviews.Library.csproj.CoreCompileInputs.cache
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\obj\Debug\netcoreapp2.1\RestaurantReviews.Library.AssemblyInfoInputs.cache
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\obj\Debug\netcoreapp2.1\RestaurantReviews.Library.AssemblyInfo.cs
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\obj\Debug\netcoreapp2.1\RestaurantReviews.Library.csproj.CopyComplete
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\obj\Debug\netcoreapp2.1\RestaurantReviews.Library.dll
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.Library\obj\Debug\netcoreapp2.1\RestaurantReviews.Library.pdb

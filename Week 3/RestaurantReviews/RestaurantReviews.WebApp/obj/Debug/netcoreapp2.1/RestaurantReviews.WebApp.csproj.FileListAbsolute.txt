@@ -1,0 +1,16 @@
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.WebApp.deps.json
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.WebApp.runtimeconfig.json
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.WebApp.runtimeconfig.dev.json
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.WebApp.dll
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.WebApp.pdb
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.Context.dll
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.Library.dll
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.Context.pdb
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\bin\Debug\netcoreapp2.1\RestaurantReviews.Library.pdb
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\obj\Debug\netcoreapp2.1\RestaurantReviews.WebApp.csprojAssemblyReference.cache
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\obj\Debug\netcoreapp2.1\RestaurantReviews.WebApp.csproj.CoreCompileInputs.cache
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\obj\Debug\netcoreapp2.1\RestaurantReviews.WebApp.AssemblyInfoInputs.cache
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\obj\Debug\netcoreapp2.1\RestaurantReviews.WebApp.AssemblyInfo.cs
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\obj\Debug\netcoreapp2.1\RestaurantReviews.WebApp.csproj.CopyComplete
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\obj\Debug\netcoreapp2.1\RestaurantReviews.WebApp.dll
+C:\Revature\training-code\Week 3\RestaurantReviews\RestaurantReviews.WebApp\obj\Debug\netcoreapp2.1\RestaurantReviews.WebApp.pdb
