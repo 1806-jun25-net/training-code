@@ -70,7 +70,12 @@ namespace TodoApi2
                     {
                         ctx.Response.StatusCode = 401; // Unauthorized
                         return Task.FromResult(0);
-                    }
+                    },
+                    OnRedirectToAccessDenied = ctx =>
+                    {
+                        ctx.Response.StatusCode = 403; // Forbidden
+                        return Task.FromResult(0);
+                    },
                 };
             });
 
