@@ -28,6 +28,7 @@ namespace TodoApi2.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult<List<TodoItem>> GetAll()
         {
             return _context.TodoItems.ToList();
