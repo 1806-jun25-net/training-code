@@ -10,7 +10,7 @@ namespace RestaurantReviews.Library.Repositories
     /// <summary>
     /// A repository managing data access for restaurant objects and their review members.
     /// </summary>
-    public class RestaurantRepository
+    public class RestaurantRepository : IRestaurantRepository
     {
         private readonly RestaurantReviewsDBContext _db;
 
