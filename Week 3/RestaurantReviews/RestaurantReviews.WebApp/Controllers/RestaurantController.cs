@@ -6,22 +6,23 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantReviews.Library.Repositories;
 using RestaurantReviews.WebApp.Models;
+using Lib = RestaurantReviews.Library.Models;
 
 namespace RestaurantReviews.WebApp.Controllers
 {
     public class RestaurantController : Controller
     {
-        public RestaurantRepository Repo { get; }
+        public IRestaurantRepository Repo { get; }
 
-        public RestaurantController(RestaurantRepository repo)
+        public RestaurantController(IRestaurantRepository repo)
         {
             Repo = repo;
         }
 
         // GET: Restaurant
-        public ActionResult Index()
+        public ActionResult Index([FromQuery]string search = "")
         {
-            var libRests = Repo.GetRestaurants();
+            var libRests = Repo.GetRestaurants(search);
             var webRests = libRests.Select(x => new Restaurant
             {
                 Id = x.Id,
@@ -39,7 +40,18 @@ namespace RestaurantReviews.WebApp.Controllers
         // GET: Restaurant/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name,
+                Reviews = libRest.Reviews.Select(y => new Review
+                {
+                    ReviewerName = y.ReviewerName,
+                    Score = y.Score,
+                    Text = y.Text
+                })
+            };
+            return View(webRest);
         }
 
         // GET: Restaurant/Create
@@ -51,13 +63,22 @@ namespace RestaurantReviews.WebApp.Controllers
         // POST: Restaurant/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Restaurant restaurant)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    Repo.AddRestaurant(new Lib.Restaurant
+                    {
+                        Id = restaurant.Id,
+                        Name = restaurant.Name
+                    });
+                    Repo.Save();
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(restaurant);
             }
             catch
             {
@@ -68,30 +89,50 @@ namespace RestaurantReviews.WebApp.Controllers
         // GET: Restaurant/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name
+            };
+            return View(webRest);
         }
 
         // POST: Restaurant/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit([FromRoute]int id, [Bind("Name")]Restaurant restaurant)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    var libRest = new Lib.Restaurant
+                    {
+                        Id = id,
+                        Name = restaurant.Name
+                    };
+                    Repo.UpdateRestaurant(libRest);
+                    Repo.Save();
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(restaurant);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(restaurant);
             }
         }
 
         // GET: Restaurant/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var libRest = Repo.GetRestaurantById(id);
+            var webRest = new Restaurant
+            {
+                Name = libRest.Name
+            };
+            return View(webRest);
         }
 
         // POST: Restaurant/Delete/5
@@ -101,7 +142,8 @@ namespace RestaurantReviews.WebApp.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                Repo.DeleteRestaurant(id);
+                Repo.Save();
 
                 return RedirectToAction(nameof(Index));
             }

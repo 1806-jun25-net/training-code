@@ -10,7 +10,7 @@ namespace RestaurantReviews.Library.Repositories
     /// <summary>
     /// A repository managing data access for restaurant objects and their review members.
     /// </summary>
-    public class RestaurantRepository
+    public class RestaurantRepository : IRestaurantRepository
     {
         private readonly RestaurantReviewsDBContext _db;
 
@@ -27,10 +27,29 @@ namespace RestaurantReviews.Library.Repositories
         /// Get all restaurants with deferred execution.
         /// </summary>
         /// <returns>The collection of restaurants</returns>
-        public IEnumerable<Models.Restaurant> GetRestaurants()
+        public IEnumerable<Models.Restaurant> GetRestaurants(string search = null)
+        {
+            if (search == null)
+            {
+                // disable pointless tracking for performance
+                return Mapper.Map(_db.Restaurant.Include(r => r.Review).AsNoTracking());
+            }
+            else
+            {
+                return Mapper.Map(_db.Restaurant.Include(r => r.Review)
+                    .AsNoTracking().Where(r => r.Name.Contains(search)));
+            }
+        }
+
+        /// <summary>
+        /// Get a restaurants by ID.
+        /// </summary>
+        /// <returns>The restaurant</returns>
+        public Models.Restaurant GetRestaurantById(int id)
         {
             // disable pointless tracking for performance
-            return Mapper.Map(_db.Restaurant.Include(r => r.Review).AsNoTracking());
+            return Mapper.Map(_db.Restaurant.Include(r => r.Review)
+                .AsNoTracking().First(r => r.Id == id));
         }
 
         /// <summary>
@@ -59,7 +78,7 @@ namespace RestaurantReviews.Library.Repositories
         {
             // calling Update would mark every property as Modified.
             // this way will only mark the changed properties as Modified.
-            _db.Entry(_db.Review.Find(restaurant.Id)).CurrentValues.SetValues(Mapper.Map(restaurant));
+            _db.Entry(_db.Restaurant.Find(restaurant.Id)).CurrentValues.SetValues(Mapper.Map(restaurant));
         }
 
         /// <summary>
