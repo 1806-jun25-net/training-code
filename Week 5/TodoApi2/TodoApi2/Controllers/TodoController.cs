@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace TodoApi2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TodoController : ControllerBase
     {
         private readonly TodoContext _context;
@@ -20,12 +22,13 @@ namespace TodoApi2.Controllers
 
             if (_context.TodoItems.Count() == 0)
             {
-                _context.TodoItems.Add(new TodoItem { Id = 1, Name = "Item1" });
+                _context.TodoItems.Add(new TodoItem { Name = "Item1" });
                 _context.SaveChanges();
             }
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult<List<TodoItem>> GetAll()
         {
             return _context.TodoItems.ToList();
@@ -44,9 +47,10 @@ namespace TodoApi2.Controllers
         [FormatFilter]
         public ActionResult<TodoItem> GetById(long id)
         {
-            if (!ModelState.IsValid)
+            // checking if you are the right user to access something
+            if (User.Identity.Name != "Nick")
             {
-                return NotFound();
+                return StatusCode(403); // Forbidden
             }
             try
             {
@@ -61,6 +65,7 @@ namespace TodoApi2.Controllers
         [HttpPost]
         public IActionResult Create(TodoItem item)
         {
+            item.Id = 0;
             _context.TodoItems.Add(item);
             _context.SaveChanges();
 
@@ -85,6 +90,7 @@ namespace TodoApi2.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")] // checking if you are in some role, to access something
         public IActionResult Delete(long id)
         {
             var todo = _context.TodoItems.Find(id);

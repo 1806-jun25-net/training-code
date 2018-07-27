@@ -12,9 +12,9 @@ namespace RestaurantReviews.WebApp.Controllers
 {
     public class RestaurantController : Controller
     {
-        public RestaurantRepository Repo { get; }
+        public IRestaurantRepository Repo { get; }
 
-        public RestaurantController(RestaurantRepository repo)
+        public RestaurantController(IRestaurantRepository repo)
         {
             Repo = repo;
         }
