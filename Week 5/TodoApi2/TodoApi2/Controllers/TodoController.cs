@@ -47,9 +47,10 @@ namespace TodoApi2.Controllers
         [FormatFilter]
         public ActionResult<TodoItem> GetById(long id)
         {
-            if (!ModelState.IsValid)
+            // checking if you are the right user to access something
+            if (User.Identity.Name != "Nick")
             {
-                return NotFound();
+                return StatusCode(403); // Forbidden
             }
             try
             {
@@ -89,6 +90,7 @@ namespace TodoApi2.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")] // checking if you are in some role, to access something
         public IActionResult Delete(long id)
         {
             var todo = _context.TodoItems.Find(id);
