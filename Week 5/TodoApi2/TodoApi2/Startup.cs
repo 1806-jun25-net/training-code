@@ -63,6 +63,7 @@ namespace TodoApi2
 
             services.ConfigureApplicationCookie(options =>
             {
+                options.Cookie.Name = "TodoApiAuth";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
                 options.Events = new CookieAuthenticationEvents
                 {

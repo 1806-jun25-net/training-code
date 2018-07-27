@@ -11,26 +11,18 @@ using TodoMvc.Models;
 
 namespace TodoMvc.Controllers
 {
-    public class TodoController : Controller
+    public class TodoController : AServiceController
     {
-        private readonly static string ServiceUri = "http://localhost:61443/api/";
-
-        public HttpClient HttpClient { get; }
-
-        public TodoController(HttpClient httpClient)
-        {
-            HttpClient = httpClient;
-        }
+        public TodoController(HttpClient httpClient) : base(httpClient)
+        { }
 
         // GET: Todo
         // we can DI into action methods too
         //public ActionResult Index([FromServices] HttpClient client)
         public async Task<ActionResult> Index()
         {
-            // don't forget to register HttpClient as a singleton service in Startup.cs.
-
-            var uri = ServiceUri + "todo";
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            
+            var request = CreateRequestToService(HttpMethod.Get, "api/Todo");
 
             try
             {
@@ -80,13 +72,10 @@ namespace TodoMvc.Controllers
             {
                 string jsonString = JsonConvert.SerializeObject(item);
 
-                var uri = ServiceUri + "todo";
-                var request = new HttpRequestMessage(HttpMethod.Post, uri)
-                {
-                    // we set what the Content-Type header will be here
-                    Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
-                };
-                
+                var request = CreateRequestToService(HttpMethod.Post, "api/Todo");
+                // we set what the Content-Type header will be here
+                request.Content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
                 var response = await HttpClient.SendAsync(request);
 
                 if (!response.IsSuccessStatusCode)
