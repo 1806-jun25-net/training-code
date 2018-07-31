@@ -71,6 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // third parameter true -> capturing
     theTABLE.addEventListener("click", printName, true);
 
+    // for any value that is a function
+    // difference between f and f()
+
     function addNewText() {
         // making a new element object
         let newElement = document.createElement("p");
@@ -81,7 +84,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     theTABLE.addEventListener("mouseover", addNewText);
+
+    let a = newCounter2();
+    alert(a() + ' ' + a() + ' ' + a());
+    // gives a popup that says "1 2 3"
+
+    function newCounter2() {
+        let c = 0;
+        return function () { c++; return c; } // closure
+    }
 });
+
+
+
 
 function alertMe() {
     alert("You clicked the button");
