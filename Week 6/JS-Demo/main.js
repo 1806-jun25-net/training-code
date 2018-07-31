@@ -12,11 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let mylink = document.getElementById("mylink");
     // debugger; // breakpoint
-    // mylink is null?
     mylink.onclick = function () {
         // prevent the browser's default
         // behavior when doing things
-        event.target.preventDefault();
+        event.preventDefault();
         alert("You clicked the link");
     };
 
