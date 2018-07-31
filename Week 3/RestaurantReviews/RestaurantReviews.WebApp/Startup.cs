@@ -33,7 +33,7 @@ namespace RestaurantReviews.WebApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddScoped<RestaurantRepository>();
+            services.AddScoped<IRestaurantRepository, RestaurantRepository>();
             services.AddDbContext<RestaurantReviewsDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("RestaurantReviewsDB")));
 
