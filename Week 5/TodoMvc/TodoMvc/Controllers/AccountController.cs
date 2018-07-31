@@ -40,7 +40,7 @@ namespace TodoMvc.Controllers
                 return View("Error");
             }
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Account/Login", account);
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Account/Register", account);
 
             HttpResponseMessage apiResponse;
             try
