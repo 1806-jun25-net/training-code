@@ -55,7 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
         event.stopImmediatePropagation();
     });
 
-    // by default, event handlers are in the bubbling phase.
+    // when events happen:
+    // 1. capturing phase. we run handlers on the whole
+    //  document, then anything nested within.
+    // 2. target phase. we run handlers on the target itself.
+    // 3. bubbling phase. we run handlers on the parent of
+    //  the target, and on up back to the whole document.
+
+    // by default, most event handlers are in the bubbling phase.
     theTD.addEventListener("click", printName);
     theTR.addEventListener("click", printName);
     theTABLE.addEventListener("click", printName);
@@ -90,6 +97,7 @@ function alertMe() {
 //      documentElement (<html> element)
 //        (all other elements, <head>, <body>, etc.)
 //
+
 
 
 
