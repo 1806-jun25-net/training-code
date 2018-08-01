@@ -1,9 +1,13 @@
 // basic event handling (object.onevent = function)
+
 window.onload = function () {
     let myspan = document.getElementById("myspan");
     myspan.innerHTML = "dynamic text";
+    
 };
 
+
+    
 // more modern event handling
 document.addEventListener("DOMContentLoaded", function () {
     let myspan = document.getElementById("myspan");
@@ -76,8 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
     theTABLE.addEventListener("mouseover", addNewText);
 });
 
+function count(){
+   let c = 0; 
+   return function () {c++; return c;}
+}
 function alertMe() {
-    alert("You clicked the button");
+    alert(count);
 }
 
 
