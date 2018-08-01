@@ -82,16 +82,43 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(newElement);
     }
 
-    theTABLE.addEventListener("mouseover", addNewText);
+    // theTABLE.addEventListener("mouseover", addNewText);
 
     let a = newCounter2();
-    alert(a() + ' ' + a() + ' ' + a());
+    // alert(a() + ' ' + a() + ' ' + a());
     // gives a popup that says "1 2 3"
 
     function newCounter2() {
         let c = 0;
         return function () { c++; return c; } // closure
     }
+
+    // AJAX
+    // Asynchronous JavaScript And XMLHttpRequest
+    // equivalent of using HttpClient from ASP.NET, but in JS
+    let btn = document.getElementById("ajax");
+    let list = document.getElementById("list");
+    btn.addEventListener("click", () => {
+        let xhr = new XMLHttpRequest();
+        let url = "https://swapi.co/api/people/?search=a";
+        let verb = "get";
+
+        xhr.open(verb, url);
+
+        xhr.addEventListener("load", res => {
+            // this will run when the request completes
+            let result = JSON.parse(xhr.responseText);
+
+            list.innerHTML = ""; // empty the list
+            result.results.forEach(el => {
+                let newItem = document.createElement("li");
+                newItem.innerHTML = el.name;
+                list.appendChild(newItem);
+            });
+        });
+
+        xhr.send();
+    });
 });
 
 
