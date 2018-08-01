@@ -12,11 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let mylink = document.getElementById("mylink");
     // debugger; // breakpoint
-    // mylink is null?
     mylink.onclick = function () {
         // prevent the browser's default
         // behavior when doing things
-        event.target.preventDefault();
+        event.preventDefault();
         alert("You clicked the link");
     };
 
@@ -55,7 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
         event.stopImmediatePropagation();
     });
 
-    // by default, event handlers are in the bubbling phase.
+    // when events happen:
+    // 1. capturing phase. we run handlers on the whole
+    //  document, then anything nested within.
+    // 2. target phase. we run handlers on the target itself.
+    // 3. bubbling phase. we run handlers on the parent of
+    //  the target, and on up back to the whole document.
+
+    // by default, most event handlers are in the bubbling phase.
     theTD.addEventListener("click", printName);
     theTR.addEventListener("click", printName);
     theTABLE.addEventListener("click", printName);
@@ -63,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // you CAN have event handlers in the capturing phase
     // third parameter true -> capturing
     theTABLE.addEventListener("click", printName, true);
+
+    // for any value that is a function
+    // difference between f and f()
 
     function addNewText() {
         // making a new element object
@@ -73,8 +82,47 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(newElement);
     }
 
-    theTABLE.addEventListener("mouseover", addNewText);
+    // theTABLE.addEventListener("mouseover", addNewText);
+
+    let a = newCounter2();
+    // alert(a() + ' ' + a() + ' ' + a());
+    // gives a popup that says "1 2 3"
+
+    function newCounter2() {
+        let c = 0;
+        return function () { c++; return c; } // closure
+    }
+
+    // AJAX
+    // Asynchronous JavaScript And XMLHttpRequest
+    // equivalent of using HttpClient from ASP.NET, but in JS
+    let btn = document.getElementById("ajax");
+    let list = document.getElementById("list");
+    btn.addEventListener("click", () => {
+        let xhr = new XMLHttpRequest();
+        let url = "https://swapi.co/api/people/?search=a";
+        let verb = "get";
+
+        xhr.open(verb, url);
+
+        xhr.addEventListener("load", res => {
+            // this will run when the request completes
+            let result = JSON.parse(xhr.responseText);
+
+            list.innerHTML = ""; // empty the list
+            result.results.forEach(el => {
+                let newItem = document.createElement("li");
+                newItem.innerHTML = el.name;
+                list.appendChild(newItem);
+            });
+        });
+
+        xhr.send();
+    });
 });
+
+
+
 
 function alertMe() {
     alert("You clicked the button");
@@ -90,6 +138,7 @@ function alertMe() {
 //      documentElement (<html> element)
 //        (all other elements, <head>, <body>, etc.)
 //
+
 
 
 
