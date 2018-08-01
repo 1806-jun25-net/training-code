@@ -8,4 +8,8 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  }
 }
