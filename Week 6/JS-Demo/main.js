@@ -81,10 +81,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     theTABLE.addEventListener("mouseover", addNewText);
+
+    theTABLE.addEventListener("mouseover", addNewText);
+
+    let c = newCounter();
+    alert(c() + ' ' + c() + ' ' + c());
+    // gives a popup that says "1 2 3"
 });
 
 function alertMe() {
     alert("You clicked the button");
+}
+
+function newCounter(){
+    let x = 0;
+    return function() { x++; return x; };
 }
 
 
