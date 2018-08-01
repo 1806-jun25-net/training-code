@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", () => {
         let searchText = input.value;
 
-        let url = "https://swapi.co/api/ple/?search=" + searchText;
+        let url = "https://swapi.co/api/people/?search=" + searchText;
 
         ajaxGet(url,
             text => {
