@@ -98,29 +98,61 @@ document.addEventListener("DOMContentLoaded", function () {
     // equivalent of using HttpClient from ASP.NET, but in JS
     let btn = document.getElementById("ajax");
     let list = document.getElementById("list");
+    let input = document.getElementById("input");
     btn.addEventListener("click", () => {
-        let xhr = new XMLHttpRequest();
-        let url = "https://swapi.co/api/people/?search=a";
-        let verb = "get";
+        let searchText = input.value;
 
-        xhr.open(verb, url);
+        let url = "https://swapi.co/api/people/?search=" + searchText;
 
-        xhr.addEventListener("load", res => {
-            // this will run when the request completes
-            let result = JSON.parse(xhr.responseText);
+        ajaxGet(url,
+            text => {
+                let result = JSON.parse(text);
 
-            list.innerHTML = ""; // empty the list
-            result.results.forEach(el => {
-                let newItem = document.createElement("li");
-                newItem.innerHTML = el.name;
-                list.appendChild(newItem);
+                list.innerHTML = ""; // empty the list
+                result.results.forEach(el => {
+                    let newItem = document.createElement("li");
+                    newItem.innerHTML = el.name;
+                    list.appendChild(newItem);
+                });
+            },
+            text => {
+                console.log("error: " + text);
             });
-        });
-
-        xhr.send();
     });
 });
 
+
+// success and failure are "callback functions"
+function ajaxGet(url, success, failure) {
+    let xhr = new XMLHttpRequest();
+    let verb = "get";
+
+    xhr.open(verb, url);
+
+    xhr.addEventListener("load", res => {
+        // this will run when the request completes
+        if (xhr.status >= 200 && xhr.status < 300) {
+            success(xhr.responseText);
+        } else {
+            failure(xhr.statusText);
+        }
+    });
+
+    xhr.send();
+}
+
+
+// IIFE
+// immediately invoked function expression
+// container for some code we want to run without its
+// local variables getting into global scope
+(function () {
+    let x = "text";
+    // because i didn't just write this outside
+    // of a function, "x" is now hidden from global scope
+
+    console.log(x);
+})();
 
 
 
