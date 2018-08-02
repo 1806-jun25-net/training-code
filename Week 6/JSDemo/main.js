@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     () =>
         {
             event.target.preventDefault();
-            alert("You clicked on the link"s
+            alert("You clicked on the link")
         });
 });
 debugger; //BREAKPOINT
@@ -38,3 +38,17 @@ myspan.innerHTML = "dynamic text";
 //dynamic typing - any property on any object
 let myrandomobj = {name: "Fred"};
 myrandomobj.innerHTML = "null";
+
+let c = newCounter();
+alert(c() + " " + c() + " " + c());
+// implement newCounter()
+let x = 0;
+function newCounter(){
+    x++;
+    return x;
+}
+
+function counterAlert(){
+    alert(c() + " " + c() + " " + c());
+}
+
