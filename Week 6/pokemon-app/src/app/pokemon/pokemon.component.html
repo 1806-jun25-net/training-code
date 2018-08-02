@@ -3,8 +3,10 @@
 </p>
 
 <div>
-  <input type="text" />
-  <button>Search</button>
+  <!-- two-way binding -->
+  <input type="text" [(ngModel)]="searchText" />
+  <!-- event binding -->
+  <button (click)="getPokemon()">Search</button>
 </div>
 
 <!-- structural directives ngIf and ngFor -->
