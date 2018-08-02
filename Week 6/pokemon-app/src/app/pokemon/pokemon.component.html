@@ -14,7 +14,10 @@
   <ol>
     <li *ngFor="let pokemon of pokemons">
       <!-- interpolation binding -->
-      {{pokemon.name}}, {{pokemon.height}}, {{pokemon.weight}}
+      <a routerLink="/pokemondetail/{{pokemon.name}}">
+        {{pokemon.name}}
+      </a>,
+      {{pokemon.height}}, {{pokemon.weight}}
     </li>
   </ol>
 </div>
