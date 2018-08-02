@@ -18,6 +18,14 @@ export class PokeapiService {
     // searchText will just be the ID or name of the pokemon
     let url = "https://pokeapi.co/api/v2/pokemon/" + searchText;
     let request = this.httpClient.get(url);
+
+    // this.httpClient.post(             // method
+    //   "http://google.com",            // url
+    //   {username: "", password: ""},   // request body
+    //   { withCredentials: true }
+    //   // enables sending auth cookies with this request
+    // )
+
     let promise = request.toPromise();
 
     promise.then(success, failure);
