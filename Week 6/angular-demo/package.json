@@ -1,5 +1,5 @@
 {
-  "name": "pokemon-app",
+  "name": "angular-demo",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,11 +26,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
-<<<<<<< HEAD
     "@angular/cli": "~6.1.1",
-=======
-    "@angular/cli": "~6.1.2",
->>>>>>> master
     "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",
     "@types/jasmine": "~2.8.6",

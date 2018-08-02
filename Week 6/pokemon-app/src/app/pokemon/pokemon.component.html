@@ -1,0 +1,26 @@
+<p>
+  pokemon works!
+</p>
+
+<div>
+  <!-- two-way binding -->
+  <input type="text" [(ngModel)]="searchText" />
+  <!-- event binding -->
+  <button (click)="getPokemon()">Search</button>
+</div>
+
+<!-- structural directives ngIf and ngFor -->
+<div *ngIf="pokemons && pokemons.length > 0">
+  <ol>
+    <li *ngFor="let pokemon of pokemons">
+      <!-- interpolation binding -->
+      <a routerLink="/pokemondetail/{{pokemon.name}}">
+        {{pokemon.name}}
+      </a>,
+      {{pokemon.height}}, {{pokemon.weight}}
+    </li>
+  </ol>
+</div>
+<div *ngIf="!(pokemons && pokemons.length > 0)">
+  <span>No pokemons</span>
+</div>
