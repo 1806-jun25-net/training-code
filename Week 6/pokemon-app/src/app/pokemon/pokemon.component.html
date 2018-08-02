@@ -1,0 +1,21 @@
+<p>
+  pokemon works!
+</p>
+
+<div>
+  <input type="text" />
+  <button>Search</button>
+</div>
+
+<!-- structural directives ngIf and ngFor -->
+<div *ngIf="pokemons && pokemons.length > 0">
+  <ol>
+    <li *ngFor="let pokemon of pokemons">
+      <!-- interpolation binding -->
+      {{pokemon.name}}, {{pokemon.height}}, {{pokemon.weight}}
+    </li>
+  </ol>
+</div>
+<div *ngIf="!(pokemons && pokemons.length > 0)">
+  <span>No pokemons</span>
+</div>
