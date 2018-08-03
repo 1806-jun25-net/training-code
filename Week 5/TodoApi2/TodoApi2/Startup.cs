@@ -82,6 +82,8 @@ namespace TodoApi2
 
             services.AddAuthentication();
 
+            services.AddCors();
+
             services.AddMvc()
                 .AddXmlSerializerFormatters()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -103,6 +105,15 @@ namespace TodoApi2
             }
 
             app.UseAuthentication();
+
+            // enable all cross-origin requests
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin() // could put just angular url here
+                .AllowCredentials());
+
+            // *may* also need to enable CORS on the App Service resource
 
             app.UseSwagger();
 
