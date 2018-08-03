@@ -8,12 +8,14 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule } from '../../node_modules/@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
