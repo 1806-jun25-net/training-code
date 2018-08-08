@@ -1,26 +1,22 @@
-# each command in the dockerfile makes a new layer
-# which points to the parent layer and contains any
-# filesystem or metadata changes.
-# the final layer is the one we tag with a name
-# like "restreviews:0.1".
-# the layers that don't really change anything like
-# "WORKDIR" are optimized away, really only
-# COPY and RUN make full new layers.
-
-
-# base image for this image.
-FROM microsoft/dotnet:2.1-sdk
-
-# "cd" in Dockerfile. later commands are run
-# from this directory. creates the dir if it doesn't exist.
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /app
 
-# first argument: where from my filesystem
-# second argument: where inside Docker image
-# copies current directory contents (RestaurantReviews/*)
-# into current directory in Docker (/app)
+# copy csproj and restore as distinct layers
+COPY *.sln .
+COPY RestaurantReviews.ConsoleApp/*.csproj ./RestaurantReviews.ConsoleApp/
+COPY RestaurantReviews.Context/*.csproj ./RestaurantReviews.Context/
+COPY RestaurantReviews.Library/*.csproj ./RestaurantReviews.Library/
+COPY RestaurantReviews.Testing/*.csproj ./RestaurantReviews.Testing/
+COPY RestaurantReviews.WebApp/*.csproj ./RestaurantReviews.WebApp/
+RUN dotnet restore
+
+# copy everything else and build app
 COPY . ./
-
 WORKDIR /app/RestaurantReviews.WebApp
+RUN dotnet publish -c Release -o out
 
-CMD [ "dotnet", "run" ]
+
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS runtime
+WORKDIR /app
+COPY --from=build /app/RestaurantReviews.WebApp/out ./
+ENTRYPOINT ["dotnet", "RestaurantReviews.WebApp.dll"]
