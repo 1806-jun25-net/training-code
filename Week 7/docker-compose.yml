@@ -1,0 +1,23 @@
+# all mvc containers can see angular service
+# at the URL "http://api"
+
+version: "3"
+services:
+  mvc:
+    image: nicholasescalona/rest-mvc:0.1
+    ports:
+      - "5000:80"
+    networks:
+      - net
+    deploy:
+      replicas: 2
+  angular:
+    image: nicholasescalona/poke-ng:0.1
+    ports:
+      - "5001:80"
+    networks:
+      - net
+    deploy:
+      replicas: 2
+networks:
+  net:
