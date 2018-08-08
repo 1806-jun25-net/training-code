@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Project1.ContextLibrary.LocationInventory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dough)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pepperoni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sausage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bacon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mushrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Olives)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anchovies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salami)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chicken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Onions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peppers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dough)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pepperoni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sausage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bacon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mushrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Olives)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anchovies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salami)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chicken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Onions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peppers)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LocationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LocationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LocationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

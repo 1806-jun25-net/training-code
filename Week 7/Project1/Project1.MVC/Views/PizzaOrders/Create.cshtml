@@ -1,0 +1,169 @@
+﻿@model Project1.ContextLibrary.PizzaOrder
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="text-danger">@TempData["Message"]</div>
+
+<h4>PizzaOrder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Customer.CustomerName" class="control-label"></label>
+                <input type="text" asp-for="Customer.CustomerName" class="form-control"
+                       value="@if (TempData.ContainsKey("CurrentCustomerName"))
+                       {
+		                            @TempData.Peek("CurrentCustomerName")
+                       }" />
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Location.LocationName" class="control-label"></label>
+                <select asp-for="Location.LocationName" class="form-control">
+                    @foreach (var item in Project1.Library.Location.Locations)
+                    {
+                        if (TempData.ContainsKey("Location"))
+                        {
+                            if (item.Equals(TempData["Location"].ToString()))
+                            {
+                                <option selected value="@item">@item</option>
+                            }
+                            else
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pizza.PizzaSize" class="control-label"></label>
+                <select asp-for="Pizza.PizzaSize" class="form-control">
+                    @foreach (var item in Project1.Library.Pizza.Size)
+                    {
+                        if (TempData.ContainsKey("Size"))
+                        {
+                            if (item.Equals(TempData["Size"].ToString()))
+                            {
+                                <option selected value="@item">@item</option>
+                            }
+                            else
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+                @*<select asp-for="Pizza.PizzaSize" class="form-control" asp-items="@Project1.Library.Pizza.Size.
+                    Select(x => new SelectListItem()
+                    {
+                        Text = x.ToString()
+                    })"></select>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Pizza.PizzaCrust" class="control-label"></label>
+                <select asp-for="Pizza.PizzaCrust" class="form-control">
+                    @foreach (var item in Project1.Library.Pizza.Crust)
+                    {
+                        if (TempData.ContainsKey("Crust"))
+                        {
+                            if (item.Equals(TempData["Crust"].ToString()))
+                            {
+                                <option selected value="@item">@item</option>
+                            }
+                            else
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+                @*<select asp-for="Pizza.PizzaCrust" class="form-control" asp-items="@Project1.Library.Pizza.Crust.
+                    Select(x => new SelectListItem()
+                    {
+                        Text = x.ToString()
+                    })"></select>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaOrderToppings" class="control-label"></label>
+                <select asp-for="PizzaOrderToppings" class="form-control" multiple>
+                    @{
+                        int checker = 0;
+                        string temp = null;
+                        List<string> toppings = new List<string> { };
+                        if (TempData.ContainsKey("Toppings"))
+                        {
+                            temp = TempData.Peek("Toppings").ToString();
+                            toppings = temp.Split(", ").ToList();
+                        }
+                    }
+
+                    @foreach (var item in Project1.Library.Pizza.Toppings)
+                    {
+                        if (TempData.ContainsKey("Toppings"))
+                        {
+                            checker = 0;
+                            foreach (var top in toppings)
+                            {
+                                if (item.Equals(top))
+                                {
+                                    <option selected value="@item">@item</option>
+                                    checker++;
+                                }
+                            }
+                            if (checker == 0)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    }
+                </select>
+                @*<select asp-for="PizzaOrderToppings" class="form-control" asp-items="@Project1.Library.Pizza.Toppings.
+                    Select(x => new SelectListItem()
+                    {
+                        Text = x.ToString()
+                    })" multiple></select>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaQuantity" class="control-label"></label>
+                @if (TempData.ContainsKey("Quantity"))
+                {
+                    <input asp-for="PizzaQuantity" value="@TempData["Quantity"]" min="1" max="12" class="form-control" />
+                }
+                else
+                {
+                    <input asp-for="PizzaQuantity" value="1" min="1" max="12" class="form-control" />
+                }
+                <span asp-validation-for="PizzaQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

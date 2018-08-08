@@ -1,0 +1,68 @@
+﻿@model Project1.ContextLibrary.PizzaOrder
+
+@{
+    ViewData["Title"] = "PreviousOrder";
+}
+
+<h2>PreviousOrder</h2>
+
+<div>
+    <h4>PizzaOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pizza.PizzaSize)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pizza.PizzaSize)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pizza.PizzaCrust)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pizza.PizzaCrust)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PizzaQuantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PizzaQuantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PizzaOrderToppings)
+        </dt>
+        @foreach (var item in Model.PizzaOrderToppings)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.ToppingName)
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Create">Order</a>
+</div>

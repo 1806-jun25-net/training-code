@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wayne's World Pizzeria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        h1 {
+            margin: auto;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .h1wrapper {
+            margin: auto;
+            margin-top: 20px;
+            width: 50%;
+            height: 20%;
+            background: chartreuse;
+        }
+
+        .formwrapper {
+            margin: auto;
+            margin-top: 20px;
+            width: 50%;
+            min-width: 500px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            background: lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="h1wrapper">
+        <h1>Wayne's World Pizzeria!</h1>
+    </div>
+
+    <div class="formwrapper">
+        <form action="" method="POST">
+            <table style="margin: auto">
+                <tr>
+                    <th>Are you a New or Returning Customer:</th>
+                    <th><input type="text" id="checker" name="checker"></th>
+                </tr>
+                <tr>
+                    <th>Please enter your name:</th>
+                    <th><input type="text" id="custname" name="custname"></th>
+                </tr>
+                <tr>
+                    <th>Pizza Size:</th>
+                    <th><select name="Size" id="Size">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select></th>
+                </tr>
+                <tr>
+                    <th>Pizza Crust:</th>
+                    <th><select name="Crust" id="Crust">
+                        <option value="Hand Tossed">Hand Tossed</option>
+                        <option value="Deep Dish">Deep Dish</option>
+                        <option value="Thin Crust">Thin Crust</option>
+                    </select></th>
+                </tr>
+                <tr>
+                    <th>Pizza Toppings:</th>
+                    <th><select name="Toppings" id="Toppings" multiple>
+                        <option value="Anchovies">Anchovies</option>
+                        <option value="Bacon">Bacon</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Mushrooms">Mushrooms</option>
+                        <option value="Olives">Olives</option>
+                        <option value="Onions">Onions</option>
+                        <option value="Pepperoni">Pepperoni</option>
+                        <option value="Peppers">Peppers</option>
+                        <option value="Salami">Salami</option>
+                        <option value="Sausage">Sausage</option>
+                    </select></th>
+                </tr>
+                <tr>
+                    <th>Pizza Quantity</th>
+                    <th><input type="number" min="1" max="12" value="1"></th>
+                </tr>
+            </table>
+            <input type="submit" id="submit" name="submit" value="Submit">
+        </form>
+    </div>
+    
+</body>
+</html>

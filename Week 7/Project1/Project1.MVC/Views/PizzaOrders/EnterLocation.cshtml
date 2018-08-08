@@ -1,0 +1,25 @@
+﻿@model Project1.ContextLibrary.PizzaOrder
+@{
+    ViewData["Title"] = "EnterLocation";
+}
+
+<h2>EnterLocation</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="../PizzaOrders/IndexLocation">
+            <div class="form-group">
+                <label asp-for="Location.LocationName" class="control-label"></label>
+                <select asp-for="Location.LocationName" class="form-control" asp-items="@Project1.Library.Location.Locations.
+                    Select(x => new SelectListItem()
+                    {
+                        Text = x.ToString()
+                    })"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+

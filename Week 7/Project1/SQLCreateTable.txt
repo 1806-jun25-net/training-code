@@ -1,0 +1,51 @@
+Create Table Toppings (
+ToppingName NVarChar(20) Not Null,
+Constraint PK_Toppings Primary Key (ToppingName));
+
+Create Table Customer (
+CustomerId Int Identity Not Null,
+CustomerName NVarChar(50) Not Null,
+Constraint PK_Customer Primary Key (CustomerId));
+
+Create Table LocationInventory (
+LocationId Int Identity Not Null,
+LocationName NVarChar(20),
+Dough Float,
+Pepperoni Int,
+Sausage Int,
+Bacon Int,
+Mushrooms Int,
+Olives Int,
+Anchovies Int,
+Salami Int,
+Chicken Int,
+Onions Int,
+Peppers Int,
+Constraint PK_LocationInventory Primary Key (LocationId));
+
+Create Table Pizza (
+PizzaId Int Identity Not Null,
+PizzaSize NVarChar(10),
+PizzaCrust NVarChar(20),
+Constraint PK_Pizza Primary Key (PizzaId),
+Constraint FK1_Pizza Foreign Key (PizzaSize) References PizzaSize(PizzaSize),
+Constraint FK2_Pizza Foreign Key (PizzaCrust) References PizzaCrust(PizzaCrust));
+
+Create Table PizzaOrder (
+PizzaOrderId Int Identity Not Null,
+CustomerId Int Not Null,
+LocationId Int Not Null,
+PizzaId Int Not Null,
+OrderCost Float,
+OrderTime DateTime,
+Constraint PK_PizzaOrder Primary Key (PizzaOrderId),
+Constraint FK1_PizzaOrder Foreign Key (CustomerId) References Customer(CustomerId),
+Constraint FK2_PizzaOrder Foreign Key (LocationId) References LocationInventory(LocationId),
+Constraint FK3_PizzaOrder Foreign Key (PizzaId) References Pizza(PizzaId));
+
+Create Table PizzaOrderToppings (
+PizzaOrderId Int Not Null,
+ToppingName NVarChar(20),
+Constraint PK_PizzaOrderToppings Primary Key (PizzaOrderId, ToppingName),
+Constraint FK1_PizzaOrderToppings Foreign Key (PizzaOrderId) References PizzaOrder(PizzaOrderId),
+Constraint FK2_PizzaOrderToppings Foreign Key (ToppingName) References Toppings(ToppingName));

@@ -1,0 +1,90 @@
+﻿@model Project1.ContextLibrary.LocationInventory
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LocationInventory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocationName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dough)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dough)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pepperoni)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pepperoni)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sausage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sausage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bacon)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bacon)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mushrooms)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mushrooms)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Olives)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Olives)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anchovies)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anchovies)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Salami)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Salami)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Chicken)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Chicken)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Onions)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Onions)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Peppers)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Peppers)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.LocationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

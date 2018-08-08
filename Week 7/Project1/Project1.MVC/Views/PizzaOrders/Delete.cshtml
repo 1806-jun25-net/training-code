@@ -1,0 +1,57 @@
+﻿@model Project1.ContextLibrary.PizzaOrder
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PizzaOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PizzaQuantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PizzaQuantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrderTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pizza)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pizza.PizzaId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PizzaOrderId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

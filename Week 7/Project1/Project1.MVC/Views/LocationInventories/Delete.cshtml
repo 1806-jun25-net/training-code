@@ -1,0 +1,93 @@
+﻿@model Project1.ContextLibrary.LocationInventory
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LocationInventory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocationName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dough)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dough)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pepperoni)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pepperoni)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sausage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sausage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bacon)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bacon)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mushrooms)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mushrooms)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Olives)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Olives)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anchovies)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anchovies)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Salami)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Salami)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Chicken)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Chicken)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Onions)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Onions)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Peppers)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Peppers)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="LocationId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
