@@ -1,5 +1,18 @@
 # all mvc containers can see angular service
-# at the URL "http://api"
+# at the URL "http://angular"
+
+# docker build -t nicholasescalona/rest-mvc:0.1 .
+# docker build -t nicholasescalona/poke-ng:0.1 .
+# docker push nicholasescalona/rest-mvc:0.1
+# docker push nicholasescalona/poke-ng:0.1
+
+# docker stack deploy -c docker-compose.yml poke-rest
+
+# other useful commands:
+#  docker container ls, docker container logs
+#  docker service ls, docker service logs
+#  docker stack ls
+#  docker stack rm
 
 version: "3"
 services:
