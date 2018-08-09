@@ -23,6 +23,8 @@ services:
     networks:
       - net
     env_file: secrets.env
+    environment:
+      ServiceUris__api: "http://api"
     deploy:
       replicas: 1
       resources:

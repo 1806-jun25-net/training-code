@@ -10,8 +10,17 @@ namespace RestaurantReviews.WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        public Settings Settings { get; set; }
+
+        public HomeController(Settings settings)
+        {
+            Settings = settings;
+        }
+
         public IActionResult Index()
         {
+            ViewData["Uri"] = Settings.ServiceUri;
+
             return View();
         }
 
