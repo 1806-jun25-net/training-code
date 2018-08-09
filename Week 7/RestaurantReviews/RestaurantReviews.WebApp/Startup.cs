@@ -37,6 +37,9 @@ namespace RestaurantReviews.WebApp
             services.AddDbContext<RestaurantReviewsDBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("RestaurantReviewsDB")));
 
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<Settings>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
