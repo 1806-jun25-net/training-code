@@ -1,0 +1,66 @@
+# all mvc containers can see angular service
+# at the URL "http://angular"
+
+# docker build -t kls26/securex_api:0.1 .
+# docker build -t kls26/securex_mvc:0.1 .
+# docker build -t kls26/securex_angular:0.1 .
+# docker push kls26/securex_api:0.1
+# docker push kls26/securex_mvc:0.1
+# docker push kls26/securex_angular:0.1
+
+# docker stack deploy -c docker-compose.yml securex
+
+# other useful commands:
+#  docker container ls, docker container logs
+#  docker service ls, docker service logs
+#  docker stack ls
+#  docker stack rm
+
+version: "3"
+services:
+  api:
+    image: kls26/securex_api:0.1
+    ports:
+      - "5000:80"
+    networks:
+      - net
+    env_file: secrets.env
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+  mvc:
+    image: kls26/securex_mvc:0.1
+    ports:
+      - "5001:80"
+    networks:
+      - net
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+  angular:
+    image: kls26/securex_angular:0.1
+    ports:
+      - "5002:80"
+    networks:
+      - net
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+networks:
+  net:
