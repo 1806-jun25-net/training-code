@@ -31,6 +31,11 @@ namespace RestaurantReviews.Context.Models
                     .HasMaxLength(128);
             });
 
+            modelBuilder.Entity<Restaurant>().HasData(
+                new { Id = 1, Name = "Nick's" },
+                new { Id = 2, Name = "Fred's" }
+            );
+
             modelBuilder.Entity<Review>(entity =>
             {
                 entity.ToTable("Review", "RR");
