@@ -25,27 +25,32 @@ services:
     env_file: secrets.env
     environment:
       ServiceUris__api: "http://api"
+      ConnectionStrings__RestaurantReviewsDB: "Server=db;Database=RestaurantReviewsDB;User Id=postgres;"
     deploy:
       replicas: 1
-      resources:
-        limits:
-          cpus: '0.50'
-          memory: 50M
-        reservations:
-          cpus: '0.25'
-          memory: 20M
+      # resources:
+      #   limits:
+      #     cpus: '0.50'
+      #     memory: 50M
+      #   reservations:
+      #     cpus: '0.25'
+      #     memory: 20M
   angular:
     image: nicholasescalona/poke-ng:0.1
     ports:
       - "5001:80"
     networks:
       - net
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
+    # deploy:
+    #   replicas: 1
+    #   restart_policy:
+    #     condition: on-failure
+    #     delay: 5s
+    #     max_attempts: 3
+    #     window: 120s
+  db:
+    image: postgres
+    networks:
+      - net
 networks:
   net:

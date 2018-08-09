@@ -34,8 +34,8 @@ namespace RestaurantReviews.WebApp
             });
 
             services.AddScoped<IRestaurantRepository, RestaurantRepository>();
-            services.AddDbContext<RestaurantReviewsDBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("RestaurantReviewsDB")));
+            services.AddEntityFrameworkNpgsql().AddDbContext<RestaurantReviewsDBContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("RestaurantReviewsDB")));
 
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<Settings>();
