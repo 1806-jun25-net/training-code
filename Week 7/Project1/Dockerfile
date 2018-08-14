@@ -32,12 +32,12 @@ COPY Project1.Test/*.csproj ./Project1.Test/
 RUN dotnet restore
 
 # copy everything else and build app
-COPY aspnetapp/. ./aspnetapp/
-WORKDIR /app/aspnetapp
+COPY . ./
+WORKDIR /app/Project1.MVC
 RUN dotnet publish -c Release -o out
 
 # runtime stage
-FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-sac2016 AS runtime
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS runtime
 WORKDIR /app
-COPY --from=build /app/aspnetapp/out ./
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+COPY --from=build /app/Project1.MVC/out ./
+ENTRYPOINT ["dotnet", "Project1.MVC.dll"]
