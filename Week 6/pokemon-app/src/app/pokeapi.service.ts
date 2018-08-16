@@ -16,7 +16,7 @@ export class PokeapiService {
     failure
   ) {
     // searchText will just be the ID or name of the pokemon
-    let url = "https://pokeapi.co/api/v2/pokemon/" + searchText;
+    let url = "https://swapi.co/api/people/?search=" + searchText;
     let request = this.httpClient.get(url);
 
     // this.httpClient.post(             // method

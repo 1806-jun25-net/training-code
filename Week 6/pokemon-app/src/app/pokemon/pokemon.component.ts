@@ -36,8 +36,8 @@ export class PokemonComponent implements OnInit {
     } else {
       this.api.getPokemon(this.searchText,
         (res) => {
-          // console.log(JSON.stringify(res));
-          this.pokemons = [res];
+          console.log(JSON.stringify(res));
+          this.pokemons = res.results;
         },
         (res) => console.log("failure")
       );
